@@ -663,27 +663,6 @@ PewterCity_EventScript_RunningShoesAide::
 	release
 	end
 
-PewterCity_EventScript_RunningShoesAideTriggerTop::
-	lockall
-	setvar VAR_TEMP_1, 1
-	call PewterCity_EventScript_AideGiveRunningShoes
-	releaseall
-	end
-
-PewterCity_EventScript_RunningShoesAideTriggerMid::
-	lockall
-	setvar VAR_TEMP_1, 2
-	call PewterCity_EventScript_AideGiveRunningShoes
-	releaseall
-	end
-
-PewterCity_EventScript_RunningShoesAideTriggerBottom::
-	lockall
-	setvar VAR_TEMP_1, 3
-	call PewterCity_EventScript_AideGiveRunningShoes
-	releaseall
-	end
-
 PewterCity_EventScript_AideGiveRunningShoes::
 	textcolor NPC_TEXT_COLOR_MALE
 	call_if_eq VAR_TEMP_1, 1, PewterCity_EventScript_AideNoticePlayer
@@ -723,7 +702,6 @@ PewterCity_EventScript_AideGiveRunningShoes::
 	msgbox PewterCity_Text_RunningShoesLetterFromMom
 	closemessage
 	removeobject LOCALID_AIDE
-	setflag FLAG_SYS_B_DASH
 	setvar VAR_MAP_SCENE_PEWTER_CITY, 2
 	return
 

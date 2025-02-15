@@ -240,35 +240,11 @@ static u8 GetBikeCollisionAt(struct ObjectEvent *playerObjEvent, s16 x, s16 y, u
     return retVal;
 }
 
-bool8 RS_IsRunningDisallowed(u8 r0)
-{
-    if (MetatileBehaviorForbidsBiking(r0))
-        return TRUE;
-    if (gMapHeader.mapType != MAP_TYPE_INDOOR)
-        return FALSE;
-    else
-        return TRUE;
-}
-
-bool32 IsRunningDisallowed(u8 metatileBehavior)
-{
-    if (!gMapHeader.allowRunning)
-        return TRUE;
-    if (MetatileBehaviorForbidsBiking(metatileBehavior) != TRUE)
-        return FALSE;
-    else
-        return TRUE;
-}
-
 static bool8 MetatileBehaviorForbidsBiking(u8 metatileBehavior)
 {
     if (MetatileBehavior_IsRunningDisallowed(metatileBehavior))
         return TRUE;
-    if (!MetatileBehavior_IsFortreeBridge(metatileBehavior))
-        return FALSE;
-    if (PlayerGetElevation() & 1)
-        return FALSE;
-    return TRUE;
+    return FALSE;
 }
 
 static bool8 CanBikeFaceDirectionOnRail(u8 direction, u8 metatileBehavior)

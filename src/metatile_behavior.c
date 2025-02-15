@@ -599,7 +599,6 @@ bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_IsPacifidlogVerticalLogTop(u8 metatileBehavior){ return FALSE; }
 bool8 MetatileBehavior_IsPacifidlogVerticalLogBottom(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_IsPacifidlogHorizontalLogLeft(u8 metatileBehavior) { return FALSE; }
@@ -663,7 +662,7 @@ bool8 MetatileBehavior_IsFallWarp(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsCrackedFloor(u8 metatileBehavior){ return FALSE; }
+bool8 MetatileBehavior_IsCrackedFloor(u8 metatileBehavior){ return FALSE; }//TODO REMOVE
 
 bool32 MetatileBehavior_IsCyclingRoadPullDownTile(u8 metatileBehavior)
 {
@@ -678,11 +677,11 @@ bool8 MetatileBehavior_IsCyclingRoadPullDownTileGrass(u8 metatileBehavior)
     return metatileBehavior == MB_CYCLING_ROAD_PULL_DOWN_GRASS;
 }
 
-bool8 MetatileBehavior_IsBumpySlope(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_IsIsolatedVerticalRail(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_IsIsolatedHorizontalRail(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_IsVerticalRail(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_IsHorizontalRail(u8 metatileBehavior) { return FALSE; }
+bool8 MetatileBehavior_IsBumpySlope(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_IsIsolatedVerticalRail(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_IsIsolatedHorizontalRail(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_IsVerticalRail(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_IsHorizontalRail(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
 
 bool8 MetatileBehavior_IsSeaweed(u8 metatileBehavior)
 {
@@ -696,11 +695,8 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_RUNNING_DISALLOWED)
         return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
-
-bool8 MetatileBehavior_IsPictureBookShelf(u8 metatileBehavior) { return FALSE; }
 
 bool8 MetatileBehavior_IsBookshelf(u8 metatileBehavior)
 {
@@ -738,10 +734,10 @@ bool8 MetatileBehavior_IsPlayerFacingPokeMartSign(u8 metatileBehavior, u8 player
         return FALSE;
 }
 
-bool8 MetatileBehavior_UnknownDummy1(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_UnknownDummy2(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_UnknownDummy3(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_UnknownDummy4(u8 metatileBehavior) { return FALSE; }
+bool8 MetatileBehavior_UnknownDummy1(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_UnknownDummy2(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_UnknownDummy3(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_UnknownDummy4(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
 
 bool8 TestMetatileAttributeBit(u8 arg1, u8 arg2)
 {
@@ -987,8 +983,8 @@ bool8 MetatileBehavior_IsCup(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsPolishedWindow(u8 metatileBehavior) { return FALSE; }
-bool8 MetatileBehavior_IsBeautifulSkyWindow(u8 metatileBehavior) { return FALSE; }
+bool8 MetatileBehavior_IsPolishedWindow(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
+bool8 MetatileBehavior_IsBeautifulSkyWindow(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
 
 bool8 MetatileBehavior_IsBlinkingLights(u8 metatileBehavior)
 {
