@@ -57,7 +57,7 @@
 // takes 1 point of damage.
 // This is a deviation from the typical rate in
 // the series, which is 1 damage every 4 steps.
-#define VAR_POISON_STEP_COUNTER             0x4022
+#define VAR_POISON_STEP_COUNTER             0x4022 //UNUSED
 
 // Step counter. Caps at 1500. If you enter a map with
 // renewable hidden items and this counter is capped,
