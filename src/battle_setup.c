@@ -188,12 +188,9 @@ static void Task_BattleStart(u8 taskId)
     switch (tState)
     {
     case 0:
-        if (!FldEffPoison_IsActive())
-        {
-            HelpSystem_Disable();
-            BattleTransition_StartOnField(tTransition);
-            ++tState;
-        }
+        HelpSystem_Disable();
+        BattleTransition_StartOnField(tTransition);
+        ++tState;
         break;
     case 1:
         if (IsBattleTransitionDone() == TRUE)
@@ -202,7 +199,6 @@ static void Task_BattleStart(u8 taskId)
             CleanupOverworldWindowsAndTilemaps();
             SetMainCallback2(CB2_InitBattle);
             RestartWildEncounterImmunitySteps();
-            ClearPoisonStepCounter();
             DestroyTask(taskId);
         }
         break;

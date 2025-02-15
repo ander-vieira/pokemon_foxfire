@@ -207,7 +207,6 @@ gSpecials::
 	def_special ShowBattleRecords
 	def_special IsEnoughForCostInVar0x8005
 	def_special SubtractMoneyFromVar0x8005
-	def_special TryFieldPoisonWhiteOut
 	def_special SetCB2WhiteOut
 	def_special NullFieldSpecial  @ Rotating gate puzzle specials
 	def_special NullFieldSpecial

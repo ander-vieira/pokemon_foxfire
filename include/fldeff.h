@@ -32,10 +32,6 @@ bool8 FldEff_UseRockSmash(void);
 // berrytree
 void nullsub_56(void);
 
-// poison
-void FldEffPoison_Start(void);
-bool32 FldEffPoison_IsActive(void);
-
 // strength
 bool8 SetUpFieldMove_Strength(void);
 bool8 FldEff_UseStrength(void);
