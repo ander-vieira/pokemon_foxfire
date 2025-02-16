@@ -33,7 +33,7 @@
 #define QL_EVENT_TOOK_HELD_ITEM                 8
 #define QL_EVENT_SWAPPED_HELD_ITEM              9
 #define QL_EVENT_SWAPPED_HELD_ITEM_PC           10
-#define QL_EVENT_USED_PKMN_CENTER               11
+#define QL_EVENT_USED_PKMN_CENTER               11//UNUSED
 #define QL_EVENT_LINK_TRADED                    12
 #define QL_EVENT_LINK_BATTLED_SINGLE            13
 #define QL_EVENT_LINK_BATTLED_DOUBLE            14

@@ -3194,20 +3194,6 @@ static void Task_InitUnionRoom(u8 taskId)
     }
 }
 
-bool16 BufferUnionRoomPlayerName(void)
-{
-    if (sUnionRoomPlayerName[0] != EOS)
-    {
-        StringCopy(gStringVar1, sUnionRoomPlayerName);
-        sUnionRoomPlayerName[0] = EOS;
-        return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
-}
-
 static u8 HandlePlayerListUpdate(void)
 {
     s32 i;

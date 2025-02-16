@@ -1802,11 +1802,6 @@ u8 GetMartClerkObjectId(void)
     return 1;
 }
 
-void SetUsedPkmnCenterQuestLogEvent(void)
-{
-    SetQuestLogEvent(QL_EVENT_USED_PKMN_CENTER, NULL);
-}
-
 static const struct {
     u16 inside_grp;
     u16 inside_num;
@@ -2465,14 +2460,6 @@ bool8 IsBadEggInParty(void)
             return TRUE;
     }
     return FALSE;
-}
-
-bool8 IsPlayerNotInTrainerTowerLobby(void)
-{
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRAINER_TOWER_LOBBY) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_LOBBY))
-        return FALSE;
-    else
-        return TRUE;
 }
 
 void BrailleCursorToggle(void)

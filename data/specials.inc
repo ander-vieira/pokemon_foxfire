@@ -368,7 +368,6 @@ gSpecials::
 	def_special ChangeBoxPokemonNickname
 	def_special UpdateTrainerCardPhotoIcons
 	def_special StickerManGetBragFlags
-	def_special SetUsedPkmnCenterQuestLogEvent
 	def_special IsWirelessAdapterConnected
 	def_special TryBecomeLinkLeader
 	def_special TryJoinLinkGroup
@@ -394,7 +393,6 @@ gSpecials::
 	def_special ValidateSavedWonderCard
 	def_special SetUnlockedPokedexFlags
 	def_special InitUnionRoom
-	def_special BufferUnionRoomPlayerName
 	def_special QuestLog_StartRecordingInputsAfterDeferredEvent
 	def_special GetMartClerkObjectId
 	def_special GetMysteryGiftCardStat
@@ -440,7 +438,6 @@ gSpecials::
 	def_special IsBadEggInParty
 	def_special ReadTrainerTowerAndValidate
 	def_special HasAllMons
-	def_special IsPlayerNotInTrainerTowerLobby
 	def_special BrailleCursorToggle
 	def_special Script_ResetUnionRoomTrade
 	def_special PlayerPartyContainsSpeciesWithPlayerID

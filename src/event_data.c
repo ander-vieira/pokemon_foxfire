@@ -54,7 +54,6 @@ void ClearTempFieldEventData(void)
     FlagClear(FLAG_SYS_BLACK_FLUTE_ACTIVE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_SPECIAL_WILD_BATTLE);
-    FlagClear(FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER);
 }
 
 // Unused
