@@ -95,8 +95,6 @@ static void task50_save_game(u8 taskId);
 static u8 SaveDialogCB_PrintAskSaveText(void);
 static u8 SaveDialogCB_AskSavePrintYesNoMenu(void);
 static u8 SaveDialogCB_AskSaveHandleInput(void);
-static u8 SaveDialogCB_PrintAskOverwriteText(void);
-static u8 SaveDialogCB_AskOverwritePrintYesNoMenu(void);
 static u8 SaveDialogCB_AskReplacePreviousFilePrintYesNoMenu(void);
 static u8 SaveDialogCB_AskOverwriteOrReplacePreviousFileHandleInput(void);
 static u8 SaveDialogCB_PrintSavingDontTurnOffPower(void);
@@ -727,8 +725,8 @@ static u8 SaveDialogCB_AskSaveHandleInput(void)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:
-        if ((gSaveFileStatus != SAVE_STATUS_EMPTY && gSaveFileStatus != SAVE_STATUS_INVALID) || !gDifferentSaveFile)
-            sSaveDialogCB = SaveDialogCB_PrintAskOverwriteText;
+        if ((gSaveFileStatus != SAVE_STATUS_EMPTY && gSaveFileStatus != SAVE_STATUS_INVALID) && gDifferentSaveFile)
+            PrintSaveTextWithFollowupFunc(gText_DifferentGameFile, SaveDialogCB_AskReplacePreviousFilePrintYesNoMenu);
         else
             sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
         break;
@@ -738,22 +736,6 @@ static u8 SaveDialogCB_AskSaveHandleInput(void)
         CloseSaveMessageWindow();
         return SAVECB_RETURN_CANCEL;
     }
-    return SAVECB_RETURN_CONTINUE;
-}
-
-static u8 SaveDialogCB_PrintAskOverwriteText(void)
-{
-    if (gDifferentSaveFile == TRUE)
-        PrintSaveTextWithFollowupFunc(gText_DifferentGameFile, SaveDialogCB_AskReplacePreviousFilePrintYesNoMenu);
-    else
-        PrintSaveTextWithFollowupFunc(gText_AlreadySaveFile_WouldLikeToOverwrite, SaveDialogCB_AskOverwritePrintYesNoMenu);
-    return SAVECB_RETURN_CONTINUE;
-}
-
-static u8 SaveDialogCB_AskOverwritePrintYesNoMenu(void)
-{
-    DisplayYesNoMenuDefaultYes();
-    sSaveDialogCB = SaveDialogCB_AskOverwriteOrReplacePreviousFileHandleInput;
     return SAVECB_RETURN_CONTINUE;
 }
 
@@ -790,7 +772,7 @@ static u8 SaveDialogCB_PrintSavingDontTurnOffPower(void)
 static u8 SaveDialogCB_DoSave(void)
 {
     IncrementGameStat(GAME_STAT_SAVED_GAME);
-    if (gDifferentSaveFile == TRUE)
+    if (gDifferentSaveFile)
     {
         TrySavingData(SAVE_OVERWRITE_DIFFERENT_FILE);
         gDifferentSaveFile = FALSE;
