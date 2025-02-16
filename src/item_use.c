@@ -515,6 +515,7 @@ static void InitBerryPouchFromBattle(void)
     InitBerryPouch(BERRYPOUCH_FROMBATTLE, CB2_BagMenuFromBattle, 0);
 }
 
+//UNUSED
 void FieldUseFunc_TeachyTv(u8 taskId)
 {
     ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
