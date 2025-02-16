@@ -33,6 +33,10 @@ PalletTown_Text_TownSign::
     .string "PALLET TOWN\n"
     .string "Shades of your journey await!$"
 
+PalletTown_Text_TrainerTips::
+	.string "TRAINER TIPS\p"
+	.string "Press START to open the MENU!$"
+
 PalletTown_Text_OakLetMeSeePokedex::
     .string "OAK: Ah, {PLAYER}!\n"
     .string "You're back, are you?\p"

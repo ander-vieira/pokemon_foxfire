@@ -1126,7 +1126,6 @@ PalletTown_ProfessorOaksLab_EventScript_ChoseStarter::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic
 	call EventScript_RestorePrevTextColor
 	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_PALLET_LADY_NOT_BLOCKING_SIGN
 	givemon PLAYER_STARTER_SPECIES, 5
 	copyvar VAR_STARTER_MON, PLAYER_STARTER_NUM
 	bufferspeciesname STR_VAR_1, PLAYER_STARTER_SPECIES
@@ -1181,13 +1180,8 @@ PalletTown_ProfessorOaksLab_EventScript_RivalTakesStarter::
 	playfanfare MUS_OBTAIN_KEY_ITEM
 	waitfanfare
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3
-	call_if_set FLAG_OPENED_START_MENU, PalletTown_ProfessorOaksLab_EventScript_ReadyEndSignLadyScene
 	release
 	end
-
-PalletTown_ProfessorOaksLab_EventScript_ReadyEndSignLadyScene::
-	setvar VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1
-	return
 
 PalletTown_ProfessorOaksLab_Movement_RivalWalksToCharmander::
 	walk_down

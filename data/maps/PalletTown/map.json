@@ -37,7 +37,7 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_EventScript_SignLady",
+      "script": "PalletTown_EventScript_Lady",
       "flag": "0"
     },
     {
@@ -110,15 +110,6 @@
       "var": "VAR_MAP_SCENE_PALLET_TOWN_OAK",
       "var_value": "0",
       "script": "PalletTown_EventScript_OakTriggerRight"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 2,
-      "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "1",
-      "script": "PalletTown_EventScript_SignLadyTrigger"
     }
   ],
   "bg_events": [
