@@ -157,11 +157,8 @@ PalletTown_EventScript_OakTriggerRight::
 PalletTown_EventScript_OakTrigger::
 	famechecker FAMECHECKER_OAK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	textcolor NPC_TEXT_COLOR_MALE
-	delay 30
 	playbgm MUS_OAK, 0
-	message PalletTown_Text_OakDontGoOut
-	waitmessage
-	delay 85
+	msgbox PalletTown_Text_OakDontGoOut
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
@@ -172,10 +169,8 @@ PalletTown_EventScript_OakTrigger::
 	addobject LOCALID_PROF_OAK
 	call_if_eq VAR_TEMP_1, 0, PalletTown_EventScript_OakEnterLeft
 	call_if_eq VAR_TEMP_1, 1, PalletTown_EventScript_OakEnterRight
-	delay 30
 	msgbox PalletTown_Text_OakGrassUnsafeNeedMon
 	closemessage
-	delay 30
 	call_if_eq VAR_TEMP_1, 0, PalletTown_EventScript_OakLeadPlayerToLabLeft
 	call_if_eq VAR_TEMP_1, 1, PalletTown_EventScript_OakLeadPlayerToLabRight
 	opendoor 16, 13
@@ -188,7 +183,6 @@ PalletTown_EventScript_OakTrigger::
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1
 	clearflag FLAG_HIDE_OAK_IN_HIS_LAB
 	setvar VAR_MAP_SCENE_PALLET_TOWN_OAK, 1
-	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
 	setflag FLAG_DONT_TRANSITION_MUSIC
 	warp MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12
 	waitstate
@@ -220,28 +214,23 @@ PalletTown_EventScript_OakLeadPlayerToLabRight::
 PalletTown_Movement_OakEnterLeft::
 	walk_up
 	walk_up
-	walk_right
 	walk_up
 	walk_up
-	walk_right
 	walk_up
 	walk_up
 	step_end
 
 PalletTown_Movement_OakEnterRight::
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	walk_right
-	walk_up
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	walk_right
-	walk_up
 	walk_up
 	step_end
 
 	.macro walk_to_lab
-	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -253,7 +242,6 @@ PalletTown_Movement_OakEnterRight::
 	walk_down
 	walk_down
 	walk_down
-	walk_right
 	walk_right
 	walk_right
 	walk_right

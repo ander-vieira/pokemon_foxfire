@@ -208,11 +208,6 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	lockall
 	textcolor NPC_TEXT_COLOR_MALE
 	applymovement LOCALID_PROF_OAK, PalletTown_ProfessorOaksLab_Movement_OakEnter
-	waitmovement 0
-	removeobject LOCALID_PROF_OAK
-	setobjectxyperm LOCALID_PROF_OAK, 6, 3
-	setobjectmovementtype LOCALID_PROF_OAK, MOVEMENT_TYPE_FACE_DOWN
-	clearflag FLAG_HIDE_OAK_IN_HIS_LAB
 	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_ProfessorOaksLab_Movement_PlayerEnter
 	waitmovement 0
 	applymovement LOCALID_RIVAL, Common_Movement_WalkInPlaceFasterUp
@@ -222,10 +217,8 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	fadedefaultbgm
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalFedUpWithWaiting
 	closemessage
-	delay 60
 	msgbox PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne
 	closemessage
-	delay 30
 	applymovement LOCALID_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalReact
 	waitmovement 0
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalNoFairWhatAboutMe
@@ -241,6 +234,9 @@ PalletTown_ProfessorOaksLab_Movement_OakEnter::
 	walk_up
 	walk_up
 	walk_up
+	walk_up
+	walk_up
+	face_down
 	step_end
 
 PalletTown_ProfessorOaksLab_Movement_PlayerEnter::
@@ -530,8 +526,8 @@ PalletTown_ProfessorOaksLab_Movement_RivalExitAfterBattleMid::
 	walk_right
 	walk_down
 	walk_down
-	walk_down
 	walk_left
+	walk_down
 	walk_down
 	walk_down
 	delay_8
@@ -641,20 +637,16 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	call_if_eq VAR_FACING, DIR_WEST, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskWest
 	msgbox PalletTown_ProfessorOaksLab_Text_OakPokedexOnDesk
 	closemessage
-	delay 40
 	msgbox PalletTown_ProfessorOaksLab_Text_OakTakeTheseWithYou
 	closemessage
 	applymovement LOCALID_PROF_OAK, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	removeobject LOCALID_POKEDEX_1
-	delay 10
 	removeobject LOCALID_POKEDEX_2
-	delay 25
 	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverNorth
 	call_if_eq VAR_FACING, DIR_SOUTH, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverSouth
 	call_if_eq VAR_FACING, DIR_EAST, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverEast
 	call_if_eq VAR_FACING, DIR_WEST, PalletTown_ProfessorOaksLab_EventScript_OakBringDexesOverWest
-	delay 10
 	textcolor NPC_TEXT_COLOR_NEUTRAL
 	playfanfare MUS_OBTAIN_KEY_ITEM
 	message PalletTown_ProfessorOaksLab_Text_ReceivedPokedexFromOak
@@ -665,7 +657,7 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	special SetUnlockedPokedexFlags
 	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese
-	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedPokeBalls, ITEM_POKE_BALL, 10
 	msgbox PalletTown_ProfessorOaksLab_Text_OakExplainCatching
 	famechecker FAMECHECKER_OAK, 1
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream
@@ -869,46 +861,6 @@ PalletTown_ProfessorOaksLab_Movement_OakExcitedWest::
 	walk_in_place_right
 	step_end
 
-@ Unused
-PalletTown_ProfessorOaksLab_Movement_Search:
-	walk_left
-	walk_in_place_faster_down
-	delay_8
-	walk_in_place_faster_right
-	delay_8
-	walk_in_place_faster_up
-	delay_8
-	walk_in_place_faster_left
-	delay_8
-	walk_in_place_faster_down
-	delay_8
-	walk_right
-	walk_right
-	walk_in_place_faster_up
-	delay_8
-	walk_in_place_faster_left
-	delay_8
-	walk_in_place_faster_down
-	delay_8
-	walk_in_place_faster_right
-	delay_8
-	walk_in_place_faster_up
-	delay_8
-	walk_left
-	step_end
-
-@ Unused
-PalletTown_ProfessorOaksLab_Movement_VerticalPacing:
-	walk_up
-	walk_down
-	walk_down
-	walk_in_place_down
-	walk_up
-	delay_16
-	delay_16
-	delay_16
-	step_end
-
 PalletTown_ProfessorOaksLab_EventScript_TryStartNationalDexScene::
 	call PokedexRating_EventScript_RateInPerson
 	closemessage
@@ -940,7 +892,7 @@ PalletTown_ProfessorOaksLab_EventScript_PlayerOutOfBalls::
 
 PalletTown_ProfessorOaksLab_EventScript_GivePlayerMoreBalls::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakAddedNothingToPokedex
-	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedPokeBalls, ITEM_POKE_BALL, 10
 	setflag FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL
 	release
 	end
@@ -1123,7 +1075,6 @@ PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter::
 PalletTown_ProfessorOaksLab_EventScript_ChoseStarter::
 	hidemonpic
 	removeobject VAR_LAST_TALKED
-	msgbox PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic
 	call EventScript_RestorePrevTextColor
 	setflag FLAG_SYS_POKEMON_GET
 	givemon PLAYER_STARTER_SPECIES, 5
