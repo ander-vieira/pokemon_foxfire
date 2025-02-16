@@ -103,8 +103,7 @@
 #define OPTIONS_SOUND_MONO    0
 #define OPTIONS_SOUND_STEREO  1
 
-#define OPTIONS_BATTLE_STYLE_SHIFT  0
-#define OPTIONS_BATTLE_STYLE_SET    1
+#define OPTIONS_BATTLE_STYLE_SET    0 //UNUSED
 
 #define DIR_NONE        0
 #define DIR_SOUTH       1
