@@ -328,9 +328,9 @@
 #define MUS_PHOTO                 320 // MUS_ME_PHOTO
 #define MUS_GAME_FREAK            321 // MUS_TITLEROG
 #define MUS_CAUGHT                322 // MUS_GET_YASEI
-#define MUS_NEW_GAME_INSTRUCT     323 // MUS_SOUSA
-#define MUS_NEW_GAME_INTRO        324 // MUS_SEKAIKAN
-#define MUS_NEW_GAME_EXIT         325 // MUS_SEIBETU
+#define MUS_NEW_GAME_INSTRUCT     323 // MUS_SOUSA //UNUSED
+#define MUS_NEW_GAME_INTRO        324 // MUS_SEKAIKAN //UNUSED
+#define MUS_NEW_GAME_EXIT         325 // MUS_SEIBETU //UNUSED
 #define MUS_POKE_JUMP             326 // MUS_JUMP
 #define MUS_UNION_ROOM            327 // MUS_UNION
 #define MUS_NET_CENTER            328 // MUS_NETWORK

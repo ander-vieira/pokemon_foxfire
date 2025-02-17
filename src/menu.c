@@ -239,15 +239,6 @@ static void CopyTopBarWindowToVram(void)
         CopyWindowToVram(sTopBarWindowId, COPYWIN_FULL);
 }
 
-void ClearTopBarWindow(void)
-{
-    if (sTopBarWindowId != 0xFF)
-    {
-        FillWindowPixelBuffer(sTopBarWindowId, PIXEL_FILL(15));
-        CopyWindowToVram(sTopBarWindowId, COPYWIN_FULL);
-    }
-}
-
 void DestroyTopBarWindow(void)
 {
     if (sTopBarWindowId != 0xFF)

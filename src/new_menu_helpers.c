@@ -655,6 +655,7 @@ void DisplayYesNoMenuDefaultNo(void)
     CreateYesNoMenu(&sYesNo_WindowTemplate, FONT_NORMAL, 0, 2, STD_WINDOW_BASE_TILE_NUM, STD_WINDOW_PALETTE_NUM, 1);
 }
 
+//TODO REMOVE
 u8 GetTextSpeedSetting(void)
 {
     u32 speed;
