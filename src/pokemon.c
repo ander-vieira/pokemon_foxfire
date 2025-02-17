@@ -6003,26 +6003,27 @@ void SetMonPreventsSwitchingString(void)
     BattleStringExpandPlaceholders(gText_PkmnsXPreventsSwitching, gStringVar4);
 }
 
+//Generate wild held item
 void SetWildMonHeldItem(void)
 {
     if (!(gBattleTypeFlags & (BATTLE_TYPE_POKEDUDE | BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_TRAINER)))
     {
-        u16 rnd = Random() % 100;
         u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
-        if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare)
+        u16 itemCommon = gSpeciesInfo[species].itemCommon;
+        u16 itemRare = gSpeciesInfo[species].itemRare;
+        u16 rnd;
+        
+        if (itemCommon == itemRare)
         {
-            // Both held items are the same, 100% chance to hold item   
-            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
+            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &itemCommon);
             return;
         }
 
-        if (rnd > 44)
-        {
-            if (rnd <= 94)
-                SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
-            else
-                SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemRare);
-        }
+        rnd = Random() % 100;
+        if (rnd < 5)
+            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &itemRare);
+        else if (rnd < 50)
+            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &itemCommon);
     }
 }
 
