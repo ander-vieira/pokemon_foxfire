@@ -26,7 +26,6 @@
 
 static EWRAM_DATA u16 sSpecialVar_0x8004_Copy = 0;
 
-#define TakeBravoTrainerBattleTowerOffTheAir()
 #define ewram160FB (*((u8 *)&gBattleStruct->field_DA))
 
 static void ResetBattleTowerStreak(u8 levelType);
@@ -1411,15 +1410,4 @@ static void PrintEReaderTrainerFarewellMessage(void)
         BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.ereaderTrainer.farewellPlayerWon);
     else
         BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.ereaderTrainer.farewellPlayerLost);
-}
-
-void Dummy_TryEnableBravoTrainerBattleTower(void)
-{
-    s32 i;
-
-    for (i = 0; i < 2; i++)
-    {
-        if (gSaveBlock2Ptr->battleTower.var_4AE[i] == 1)
-            TakeBravoTrainerBattleTowerOffTheAir();
-    }
 }
