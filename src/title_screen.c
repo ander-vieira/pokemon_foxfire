@@ -27,12 +27,6 @@ enum TitleScreenScene
     TITLESCREENSCENE_CRY
 };
 
-#if   defined(FIRERED)
-#define TITLE_SPECIES SPECIES_CHARIZARD
-#elif defined(LEAFGREEN)
-#define TITLE_SPECIES SPECIES_VENUSAUR
-#endif
-
 static EWRAM_DATA u8 sTitleScreenTimerTaskId = 0;
 
 static void ResetGpuRegs(void);
@@ -57,13 +51,8 @@ static void LoadMainTitleScreenPalsAndResetBgs(void);
 static void CB2_FadeOutTransitionToSaveClearScreen(void);
 static void CB2_FadeOutTransitionToBerryFix(void);
 static void LoadSpriteGfxAndPals(void);
-#if defined(FIRERED)
 static void SpriteCallback_TitleScreenFlame(struct Sprite *sprite);
 static void Task_FlameSpawner(u8 taskId);
-#elif defined(LEAFGREEN)
-static void SpriteCallback_TitleScreenLeaf(struct Sprite *sprite);
-static void Task_LeafSpawner(u8 taskId);
-#endif
 static void TitleScreen_srand(u8 taskId, u8 field, u16 seed);
 static u16 TitleScreen_rand(u8 taskId, u8 field);
 static u32 CreateBlankSprite(void);
@@ -75,23 +64,13 @@ static void SpriteCallback_Slash(struct Sprite *sprite);
 
 static const u8 sBorderBgTiles[] = INCBIN_U8("graphics/title_screen/border_bg.4bpp.lz");
 
-#if defined(FIRERED)
 static const u8 sBorderBgMap[] = INCBIN_U8("graphics/title_screen/firered/border_bg.bin.lz");
-#elif defined(LEAFGREEN)
-static const u8 sBorderBgMap[] = INCBIN_U8("graphics/title_screen/leafgreen/border_bg.bin.lz");
-#endif
 
 static const u32 sSlash_Gfx[] = INCBIN_U32("graphics/title_screen/slash.4bpp.lz");
 
-#if defined(FIRERED)
 static const u16 sFlames_Pal[] = INCBIN_U16("graphics/title_screen/firered/flames.gbapal");
 static const u32 sFlames_Gfx[] = INCBIN_U32("graphics/title_screen/firered/flames.4bpp.lz");
 static const u32 sBlankFlames_Gfx[] = INCBIN_U32("graphics/title_screen/firered/blank_flames.4bpp.lz");
-#elif defined(LEAFGREEN)
-static const u16 sLeaves_Pal[] = INCBIN_U16("graphics/title_screen/leafgreen/leaves.gbapal");
-static const u32 sLeaves_Gfx[] = INCBIN_U32("graphics/title_screen/leafgreen/leaves.4bpp.lz");
-static const u32 sStreak_Gfx[] = INCBIN_U32("graphics/title_screen/leafgreen/streak.4bpp.lz");
-#endif
 
 static const struct OamData sOamData_FlameOrLeaf = {
     .objMode = ST_OAM_OBJ_NORMAL,
@@ -102,7 +81,6 @@ static const struct OamData sOamData_FlameOrLeaf = {
     .paletteNum = 0
 };
 
-#if defined(FIRERED)
 static const union AnimCmd sSpriteAnim_Flame[] = {
     ANIMCMD_FRAME(0, 3),
     ANIMCMD_FRAME(4, 6),
@@ -130,27 +108,6 @@ static const union AnimCmd *const sSpriteAnim_FlameOrLeaf[] = {
     sSpriteAnim_Flame_Unused,
 };
 
-#elif defined(LEAFGREEN)
-static const union AnimCmd sSpriteAnim_Leaf[] = {
-    ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(4, 8),
-    ANIMCMD_FRAME(8, 8),
-    ANIMCMD_FRAME(12, 8),
-    ANIMCMD_FRAME(16, 8),
-    ANIMCMD_FRAME(20, 8),
-    ANIMCMD_FRAME(24, 8),
-    ANIMCMD_FRAME(28, 8),
-    ANIMCMD_FRAME(32, 8),
-    ANIMCMD_FRAME(36, 8),
-    ANIMCMD_FRAME(40, 8),
-    ANIMCMD_JUMP(0)
-};
-
-static const union AnimCmd *const sSpriteAnim_FlameOrLeaf[] = {
-    sSpriteAnim_Leaf
-};
-#endif
-
 enum {
     TILE_TAG_FLAME_OR_LEAF,
     TILE_TAG_BLANK_OR_STREAK,
@@ -174,7 +131,6 @@ static const struct SpriteTemplate sSpriteTemplate_FlameOrLeaf = {
     .callback = SpriteCallbackDummy
 };
 
-#if defined(FIRERED)
 static const struct SpriteTemplate sSpriteTemplate_BlankFlame = {
     .tileTag = TILE_TAG_BLANK_OR_STREAK,
     .paletteTag = PAL_TAG_DEFAULT,
@@ -184,24 +140,6 @@ static const struct SpriteTemplate sSpriteTemplate_BlankFlame = {
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy
 };
-
-#elif defined(LEAFGREEN)
-static const struct OamData sOamData_Streak = {
-    .shape = SPRITE_SHAPE(32x16),
-    .size = SPRITE_SIZE(32x16),
-    .priority = 3
-};
-
-static const struct SpriteTemplate sSpriteTemplate_Streak = {
-    .tileTag = TILE_TAG_BLANK_OR_STREAK,
-    .paletteTag = PAL_TAG_DEFAULT,
-    .oam = &sOamData_Streak,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCallbackDummy
-};
-#endif
 
 static const struct OamData sOamData_BlankSprite = {
     .objMode = ST_OAM_OBJ_NORMAL,
@@ -286,7 +224,6 @@ static void (*const sSceneFuncs[])(s16 *data) = {
     [TITLESCREENSCENE_CRY]         = SetTitleScreenScene_Cry
 };
 
-#if defined(FIRERED)
 static const struct CompressedSpriteSheet sSpriteSheets[] = {
     {sFlames_Gfx,                    0x500, TILE_TAG_FLAME_OR_LEAF},
     {sBlankFlames_Gfx,               0x500, TILE_TAG_BLANK_OR_STREAK},
@@ -302,41 +239,6 @@ static const struct SpritePalette sSpritePals[] = {
 
 static const u8 sFlameXPositions[] = {
     4, 16, 26, 32, 48, 200, 216, 224, 232, 60, 76, 92, 108, 128, 144, 0
-};
-
-#elif defined(LEAFGREEN)
-static const struct CompressedSpriteSheet sSpriteSheets[] = {
-    {sLeaves_Gfx,                    0x580, TILE_TAG_FLAME_OR_LEAF},
-    {sStreak_Gfx,                    0x100, TILE_TAG_BLANK_OR_STREAK},
-    {gTitleScreen_BlankSprite_Tiles, 0x400, TILE_TAG_BLANK},
-    {sSlash_Gfx,                     0x800, TILE_TAG_SLASH}
-};
-
-static const struct SpritePalette sSpritePals[] = {
-    {sLeaves_Pal,            PAL_TAG_DEFAULT},
-    {gTitleScreen_Slash_Pal, PAL_TAG_SLASH},
-    {}
-};
-
-static const u16 sStreakYPositions[] = {
-    40, 80, 110, 60, 90, 70, 100, 50
-};
-#endif
-
-static const u32 sUnused_Tilemap1[] = INCBIN_U32("graphics/title_screen/unused1.bin.lz");
-static const u32 sUnused_Tilemap2[] = INCBIN_U32("graphics/title_screen/unused2.bin.lz");
-static const u32 sUnused_Tilemap3[] = INCBIN_U32("graphics/title_screen/unused3.bin.lz");
-static const u32 sUnused_Tilemap4[] = INCBIN_U32("graphics/title_screen/unused4.bin.lz");
-static const u32 sUnused_Tilemap5[] = INCBIN_U32("graphics/title_screen/unused5.bin.lz");
-static const u32 sUnused_Tilemap6[] = INCBIN_U32("graphics/title_screen/unused6.bin.lz");
-
-static const u32 *const sUnused_Tilemaps[] = {
-    sUnused_Tilemap1,
-    sUnused_Tilemap2,
-    sUnused_Tilemap3,
-    sUnused_Tilemap4,
-    sUnused_Tilemap5,
-    sUnused_Tilemap6,
 };
 
 void CB2_InitTitleScreen(void)
@@ -617,11 +519,7 @@ static void SetTitleScreenScene_Run(s16 *data)
     case 0:
         SetHelpContext(HELPCONTEXT_TITLE_SCREEN);
         CreateTask(Task_TitleScreen_BlinkPressStart, 0);
-#if defined(FIRERED)
         CreateTask(Task_FlameSpawner, 5);
-#elif defined(LEAFGREEN)
-        CreateTask(Task_LeafSpawner, 5);
-#endif
         SetGpuRegsForTitleScreenRun();
         tSlashSpriteId = CreateSlashSprite();
         HelpSystem_Enable();
@@ -708,7 +606,7 @@ static void SetTitleScreenScene_Cry(s16 *data)
     case 0:
         if (!gPaletteFade.active)
         {
-            PlayCry_Normal(TITLE_SPECIES, 0);
+            PlayCry_Normal(SPECIES_NINETALES, 0);
             DeactivateSlashSprite(tSlashSpriteId);
             data[2] = 0;
             tState++;
@@ -942,8 +840,6 @@ static void LoadSpriteGfxAndPals(void)
     LoadSpritePalettes(sSpritePals);
 }
 
-#if defined(FIRERED)
-
 #define sPosX      data[0]
 #define sSpeedX    data[1]
 #define sPosY      data[2]
@@ -1066,139 +962,6 @@ static void Task_FlameSpawner(u8 taskId)
 #undef tDelay
 #undef tOff_Seed
 #undef tOffsetX
-
-#elif defined(LEAFGREEN)
-
-#define sPosX        data[0]
-#define sSpeedX      data[1]
-#define sPosY        data[2]
-#define sSpeedY      data[3]
-
-static void SpriteCallback_TitleScreenLeaf(struct Sprite *sprite)
-{
-    s16 *data = sprite->data;
-    sprite->sPosX -= sSpeedX;
-    sprite->x = sprite->sPosX >> 4;
-    if (sprite->x < -8)
-    {
-        DestroySprite(sprite);
-        return;
-    }
-    sPosY += sSpeedY;
-    sprite->y = sPosY >> 4;
-    if (sprite->y < 16 || sprite->y > 200)
-    {
-        DestroySprite(sprite);
-        return;
-    }
-    if (!data[5])
-    { // meaningless, since data[5] and data[6] are never used outside this block
-        s32 r2;
-        s32 r1;
-        data[6]++;
-        r2 = sSpeedX * data[6];
-        r1 = sSpeedY * data[6];
-        r2 = (r2 * r2) >> 4;
-        r1 = (r1 * r1) >> 4;
-        if (r2 + r1 >= 81 << 4)
-            data[5] = TRUE;
-    }
-}
-
-static void CreateLeafSprite(s32 y, s32 xspeed, s32 yspeed)
-{
-    u8 spriteId = CreateSprite(&sSpriteTemplate_FlameOrLeaf, DISPLAY_WIDTH, y, 0);
-    if (spriteId != MAX_SPRITES)
-    {
-        gSprites[spriteId].sPosX = DISPLAY_WIDTH * 16;
-        gSprites[spriteId].sSpeedX = xspeed;
-        gSprites[spriteId].sPosY = y * 16;
-        gSprites[spriteId].sSpeedY = yspeed;
-        gSprites[spriteId].callback = SpriteCallback_TitleScreenLeaf;
-    }
-}
-
-#undef sPosX
-#undef sSpeedX
-#undef sPosY
-#undef sSpeedY
-
-static void SpriteCallback_Streak(struct Sprite *sprite)
-{
-    sprite->x -= 7;
-    if (sprite->x < -16)
-    {
-        sprite->x = DISPLAY_WIDTH + 16;
-        sprite->data[7]++;
-        if (sprite->data[7] >= ARRAY_COUNT(sStreakYPositions))
-            sprite->data[7] = 0;
-        sprite->y = sStreakYPositions[sprite->data[7]];
-    }
-}
-
-static void CreateStreakSprites(void)
-{
-    int i;
-    u8 spriteId;
-    for (i = 0; i < 4; i++)
-    {
-        spriteId = CreateSprite(&sSpriteTemplate_Streak, DISPLAY_WIDTH + 16 + 40 * i, sStreakYPositions[i], 0xFF);
-        if (spriteId != MAX_SPRITES)
-        {
-            gSprites[spriteId].data[7] = i;
-            gSprites[spriteId].callback = SpriteCallback_Streak;
-        }
-    }
-}
-
-#define tState       data[0]
-#define tTimer       data[1]
-#define tDelay       data[2]
-#define tOff_Seed       3   // data[3] and data[4]
-
-static void Task_LeafSpawner(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-    s32 rval;
-    s32 xspeed;
-    s32 yspeed;
-    s32 y;
-
-    switch (tState)
-    {
-    case 0:
-        CreateStreakSprites();
-        TitleScreen_srand(taskId, tOff_Seed, 30840);
-        tState++;
-        break;
-    case 1:
-        tTimer++;
-        if (tTimer >= tDelay)
-        {
-            tTimer = 0;
-            tDelay = (TitleScreen_rand(taskId, tOff_Seed) % 6) + 6;
-            rval = TitleScreen_rand(taskId, tOff_Seed) % 30;
-            xspeed = 16;
-            if (rval >= 6)
-            {
-                xspeed = 48;
-                if (rval < 12)
-                    xspeed = 24;
-            }
-            yspeed = (TitleScreen_rand(taskId, tOff_Seed) % 4) - 2;
-            y = (TitleScreen_rand(taskId, tOff_Seed) % 88) + 32;
-            CreateLeafSprite(y, xspeed, yspeed);
-        }
-        break;
-    }
-}
-
-#undef tState
-#undef tData1
-#undef tData2
-#undef tData3And4
-
-#endif //FRLG
 
 static void TitleScreen_srand(u8 taskId, u8 field, u16 seed)
 {
