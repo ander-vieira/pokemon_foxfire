@@ -841,14 +841,6 @@ void BtlController_EmitChooseAction(u8 bufferId, u8 action, u16 itemId)
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
 }
 
-// Unused
-static void BtlController_EmitUnknownYesNoBox(u8 bufferId, u32 arg1) // TODO: Does the function name make sense for pokefirered?
-{
-    sBattleBuffersTransferData[0] = CONTROLLER_UNKNOWNYESNOBOX;
-    sBattleBuffersTransferData[1] = arg1;
-    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 2);
-}
-
 void BtlController_EmitChooseMove(u8 bufferId, bool8 isDoubleBattle, bool8 NoPpNumber, struct ChooseMoveStruct *movePpData)
 {
     s32 i;

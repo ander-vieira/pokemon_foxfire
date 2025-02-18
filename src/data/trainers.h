@@ -1,3 +1,4 @@
+//TODO remove unused trainers
 const struct Trainer gTrainers[] = {
     [TRAINER_NONE] = {
         .trainerName = _(""),

@@ -734,11 +734,6 @@ bool8 MetatileBehavior_IsPlayerFacingPokeMartSign(u8 metatileBehavior, u8 player
         return FALSE;
 }
 
-bool8 MetatileBehavior_UnknownDummy1(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
-bool8 MetatileBehavior_UnknownDummy2(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
-bool8 MetatileBehavior_UnknownDummy3(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
-bool8 MetatileBehavior_UnknownDummy4(u8 metatileBehavior) { return FALSE; }//TODO REMOVE
-
 bool8 TestMetatileAttributeBit(u8 arg1, u8 arg2)
 {
     if (sTileBitAttributes[arg1] & arg2)
