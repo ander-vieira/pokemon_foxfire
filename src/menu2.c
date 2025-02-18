@@ -470,6 +470,7 @@ void AddTextPrinterParameterized4(u8 windowId, u8 fontId, u8 x, u8 y, u8 letterS
     AddTextPrinter(&printer, speed, NULL);
 }
 
+//TODO remove textSpeed
 void AddTextPrinterParameterized5(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16), u8 letterSpacing, u8 lineSpacing)
 {
     struct TextPrinterTemplate printer;

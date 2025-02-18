@@ -1518,7 +1518,7 @@ static void TMCase_SetWindowBorder2(u8 windowId)
 
 static void PrintMessageWithFollowupTask(u8 taskId, u8 fontId, const u8 * str, TaskFunc func)
 {
-    DisplayMessageAndContinueTask(taskId, WIN_MESSAGE, 0x64, 0x0B, fontId, GetTextSpeedSetting(), str, func);
+    DisplayMessageAndContinueTask(taskId, WIN_MESSAGE, 0x64, 0x0B, fontId, str, func);
     ScheduleBgCopyTilemapToVram(1);
 }
 

@@ -18,7 +18,7 @@ static EWRAM_DATA u8 sMessageWindowId = {0};
 
 static void Task_ContinueTaskAfterMessagePrints(u8 taskId);
 
-void DisplayMessageAndContinueTask(u8 taskId, u8 windowId, u16 tileNum, u8 paletteNum, u8 fontId, u8 textSpeed, const u8 *string, void *taskFunc)
+void DisplayMessageAndContinueTask(u8 taskId, u8 windowId, u16 tileNum, u8 paletteNum, u8 fontId, const u8 *string, void *taskFunc)
 {
     sMessageWindowId = windowId;
     DrawDialogFrameWithCustomTileAndPalette(windowId, TRUE, tileNum, paletteNum);
@@ -27,7 +27,7 @@ void DisplayMessageAndContinueTask(u8 taskId, u8 windowId, u16 tileNum, u8 palet
         StringExpandPlaceholders(gStringVar4, string);
 
     gTextFlags.canABSpeedUpPrint = 1;
-    AddTextPrinterParameterized2(windowId, fontId, gStringVar4, textSpeed, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+    AddTextPrinterParameterized2(windowId, fontId, gStringVar4, 1, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
     sMessageNextTask = taskFunc;
     gTasks[taskId].func = Task_ContinueTaskAfterMessagePrints;
 }

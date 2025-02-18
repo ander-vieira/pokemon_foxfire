@@ -23,12 +23,11 @@ struct OakSpeechResources
 {
     void *oakSpeechBackgroundTiles;
     void *trainerPicTilemap;
-    u16 hasPlayerBeenNamed;
+    u8 hasPlayerBeenNamed;
     u16 shrinkTimer;
-    u8 textColor[3];
-    u8 textSpeed;
     u8 bg2TilemapBuffer[0x400];
     u8 bg1TilemapBuffer[0x800];
+    u8 textColor[3];
 };
 
 static EWRAM_DATA struct OakSpeechResources *sOakSpeechResources = NULL;
@@ -318,7 +317,7 @@ static void Task_NewGameScene(u8 taskId)
         FreeAllSpritePalettes();
         ResetTempTileDataBuffers();
         SetHelpContext(HELPCONTEXT_NONE);
-        sOakSpeechResources = AllocZeroed(sizeof(*sOakSpeechResources));
+        sOakSpeechResources = AllocZeroed(sizeof(struct OakSpeechResources));
         CreateMonSpritesGfxManager(1, 1);
         SetGpuReg(REG_OFFSET_WIN0H, 0);
         SetGpuReg(REG_OFFSET_WIN0V, 0);
@@ -387,11 +386,11 @@ static void Task_OakSpeech_Init2(u8 taskId)
     if (str != gStringVar4)                                                                                                                                  \
     {                                                                                                                                                        \
         StringExpandPlaceholders(gStringVar4, str);                                                                                                          \
-        AddTextPrinterParameterized2(0, FONT_MALE, gStringVar4, OPTIONS_TEXT_SPEED_FAST, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY); \
+        AddTextPrinterParameterized2(0, FONT_MALE, gStringVar4, 1, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY); \
     }                                                                                                                                                        \
     else                                                                                                                                                     \
     {                                                                                                                                                        \
-        AddTextPrinterParameterized2(0, FONT_MALE, str, OPTIONS_TEXT_SPEED_FAST, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);         \
+        AddTextPrinterParameterized2(0, FONT_MALE, str, 1, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);         \
     }                                                                                                                                                        \
     CopyWindowToVram(0, COPYWIN_FULL);                                                                                                       \
 })

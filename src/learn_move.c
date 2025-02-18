@@ -470,7 +470,7 @@ static void CB2_MoveRelearner(void)
 static void StringExpandPlaceholdersAndPrintTextOnWindow7Color2(const u8 *str)
 {
     StringExpandPlaceholders(gStringVar4, str);
-    PrintTextOnWindow(7, gStringVar4, 0, 2, GetTextSpeedSetting(), 2);
+    PrintTextOnWindow(7, gStringVar4, 0, 2, 1, 2);
 }
 
 static void MoveRelearnerStateMachine(void)

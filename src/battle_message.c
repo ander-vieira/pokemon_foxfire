@@ -2783,10 +2783,7 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId) {
 
     if (windowId == B_WIN_MSG || windowId == B_WIN_OAK_OLD_MAN)
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-            speed = 1;
-        else
-            speed = GetTextSpeedSetting();
+        speed = 1;
         gTextFlags.canABSpeedUpPrint = TRUE;
     }
     else

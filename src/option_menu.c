@@ -485,7 +485,6 @@ static void CloseAndSaveOptionMenu(u8 taskId)
     gFieldCallback = FieldCB_DefaultWarpExit;
     SetMainCallback2(gMain.savedCallback);
     FreeAllWindowBuffers();
-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
     gSaveBlock2Ptr->optionsBattleSceneOff = sOptionMenuPtr->option[MENUITEM_BATTLESCENE];
     gSaveBlock2Ptr->optionsSound = sOptionMenuPtr->option[MENUITEM_SOUND];
     gSaveBlock2Ptr->optionsButtonMode = sOptionMenuPtr->option[MENUITEM_BUTTONMODE];

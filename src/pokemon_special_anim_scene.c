@@ -386,7 +386,6 @@ void PSA_PrintMessage(u8 messageId)
     struct PokemonSpecialAnimScene * scene = PSA_GetSceneWork();
     u16 itemId = PSA_GetItemId();
     u16 strWidth = 0;
-    u8 textSpeed = GetTextSpeedSetting();
     struct Pokemon * pokemon = PSA_GetPokemon();
     u16 level;
     u8 *str;
@@ -422,7 +421,6 @@ void PSA_PrintMessage(u8 messageId)
         // fallthrough
     case 2: // 1
         StringCopy(scene->textBuf, s1_2_and_Poof_textPtrs[messageId - 2]);
-        textSpeed = 1;
         break;
     case 5:
         DynamicPlaceholderTextUtil_Reset();
@@ -443,7 +441,7 @@ void PSA_PrintMessage(u8 messageId)
         return;
     }
 
-    AddTextPrinterParameterized5(0, FONT_NORMAL, scene->textBuf, strWidth, 0, textSpeed, NULL, 0, 4);
+    AddTextPrinterParameterized5(0, FONT_NORMAL, scene->textBuf, strWidth, 0, 1, NULL, 0, 4);
 }
 
 void PSA_AfterPoof_ClearMessageWindow(void)

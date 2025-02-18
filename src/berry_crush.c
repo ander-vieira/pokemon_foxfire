@@ -125,11 +125,9 @@ enum {
     STATE_PLAYING,
     STATE_FINISHED,
     STATE_TIMES_UP,
-    STATE_10, // Unused
     STATE_RESULTS_PRESSES,
     STATE_RESULTS_RANDOM,
     STATE_RESULTS_CRUSHING,
-    STATE_14, // Unused
     STATE_PLAY_AGAIN,
 };
 
@@ -288,7 +286,6 @@ struct BerryCrushGame_Gfx
     struct Sprite *sparkleSprites[11];
     struct Sprite *timerSprites[2];
     u8 resultsState;
-    u8 unused;
     u8 resultsWindowId;
     u8 nameWindowIds[MAX_RFU_PLAYERS];
     u16 bgBuffers[4][BG_SCREEN_SIZE];
@@ -305,9 +302,7 @@ struct BerryCrushGame
     u8 localId;
     u8 playerCount;
     u8 mainTask;
-    u8 textSpeed;
     u8 cmdState;
-    u8 unused; // Never read
     u8 nextCmd;
     u8 afterPalFadeCmd;
     u16 cmdTimer;
@@ -1134,19 +1129,6 @@ static void SetNamesAndTextSpeed(struct BerryCrushGame *game)
         memset(game->players[i].name, 1, PLAYER_NAME_LENGTH);
         game->players[i].name[PLAYER_NAME_LENGTH] = EOS;
     }
-
-    switch (gSaveBlock2Ptr->optionsTextSpeed)
-    {
-    case OPTIONS_TEXT_SPEED_SLOW:
-        game->textSpeed = 8;
-        break;
-    case OPTIONS_TEXT_SPEED_MID:
-        game->textSpeed = 4;
-        break;
-    case OPTIONS_TEXT_SPEED_FAST:
-        game->textSpeed = 1;
-        break;
-    }
 }
 
 // GF file break
@@ -1268,11 +1250,11 @@ static u32 Cmd_PrintMessage(struct BerryCrushGame * game, u8 *args)
         if (bFlags & F_MSG_EXPAND)
         {
             StringExpandPlaceholders(gStringVar4, sMessages[bMsgId]);
-            AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, game->textSpeed, 0, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+            AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, 1, 0, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
         }
         else
         {
-            AddTextPrinterParameterized2(0, FONT_NORMAL, sMessages[bMsgId], game->textSpeed, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+            AddTextPrinterParameterized2(0, FONT_NORMAL, sMessages[bMsgId], 1, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
         }
         CopyWindowToVram(0, COPYWIN_FULL);
         break;
@@ -2367,9 +2349,9 @@ static u32 Cmd_StopGame(struct BerryCrushGame * game, u8 *args)
     case 0:
         DrawDialogueFrame(0, FALSE);
         if (game->playAgainState == PLAY_AGAIN_NO_BERRIES)
-            AddTextPrinterParameterized2(0, FONT_NORMAL, sMessages[MSG_NO_BERRIES], game->textSpeed, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+            AddTextPrinterParameterized2(0, FONT_NORMAL, sMessages[MSG_NO_BERRIES], 1, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
         else
-            AddTextPrinterParameterized2(0, FONT_NORMAL, sMessages[MSG_DROPPED], game->textSpeed, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+            AddTextPrinterParameterized2(0, FONT_NORMAL, sMessages[MSG_DROPPED], 1, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
         CopyWindowToVram(0, COPYWIN_FULL);
         break;
     case 1:
@@ -2426,7 +2408,6 @@ static void ResetGame(struct BerryCrushGame * game)
     u8 i = 0;
 
     IncrementGameStat(GAME_STAT_BERRY_CRUSH_POINTS);
-    game->unused = 0;
     game->cmdTimer = 0;
     game->gameState = STATE_RESET;
     game->playAgainState = PLAY_AGAIN_YES;

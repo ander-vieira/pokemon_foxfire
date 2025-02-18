@@ -10,6 +10,8 @@
 
 #define CURSOR_DELAY 8
 
+#define VERTICAL_SCROLL_SPEED 4
+
 #define DARK_DOWN_ARROW_OFFSET 256
 
 extern const struct OamData gOamData_AffineOff_ObjNormal_16x16;
@@ -33,11 +35,6 @@ static const u8 sDoubleArrowTiles1[] = INCBIN_U8("graphics/fonts/down_arrow_3.4b
 static const u8 sDoubleArrowTiles2[] = INCBIN_U8("graphics/fonts/down_arrow_4.4bpp");
 
 static const u8 sDownArrowYCoords[]           = { 0, 16, 32, 16 };
-static const u8 sWindowVerticalScrollSpeeds[] = {
-    [OPTIONS_TEXT_SPEED_SLOW] = 1,
-    [OPTIONS_TEXT_SPEED_MID] = 2,
-    [OPTIONS_TEXT_SPEED_FAST] = 4,
-};
 
 static const struct GlyphWidthFunc sGlyphWidthFuncs[] = {
     { FONT_SMALL,         GetGlyphWidth_Small },
@@ -882,15 +879,15 @@ u16 RenderText(struct TextPrinter *textPrinter)
         if (textPrinter->scrollDistance)
         {
     
-            if (textPrinter->scrollDistance < sWindowVerticalScrollSpeeds[gSaveBlock2Ptr->optionsTextSpeed])
+            if (textPrinter->scrollDistance < VERTICAL_SCROLL_SPEED)
             {
                 ScrollWindow(textPrinter->printerTemplate.windowId, 0, textPrinter->scrollDistance, PIXEL_FILL(textPrinter->printerTemplate.bgColor));
                 textPrinter->scrollDistance = 0;
             }
             else
             {
-                ScrollWindow(textPrinter->printerTemplate.windowId, 0, sWindowVerticalScrollSpeeds[gSaveBlock2Ptr->optionsTextSpeed], PIXEL_FILL(textPrinter->printerTemplate.bgColor));
-                textPrinter->scrollDistance -= sWindowVerticalScrollSpeeds[gSaveBlock2Ptr->optionsTextSpeed];
+                ScrollWindow(textPrinter->printerTemplate.windowId, 0, VERTICAL_SCROLL_SPEED, PIXEL_FILL(textPrinter->printerTemplate.bgColor));
+                textPrinter->scrollDistance -= VERTICAL_SCROLL_SPEED;
             }
             CopyWindowToVram(textPrinter->printerTemplate.windowId, COPYWIN_GFX);
         }

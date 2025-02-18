@@ -1140,6 +1140,6 @@ static u8 ItemPc_GetSubwindow(u8 idx)
 
 static void ItemPc_PrintOnWindow5WithContinueTask(u8 taskId, const u8 * str, TaskFunc taskFunc)
 {
-    DisplayMessageAndContinueTask(taskId, 5, 0x3AC, 0x0B, FONT_NORMAL, GetTextSpeedSetting(), str, taskFunc);
+    DisplayMessageAndContinueTask(taskId, 5, 0x3AC, 0x0B, FONT_NORMAL, str, taskFunc);
     ScheduleBgCopyTilemapToVram(0);
 }

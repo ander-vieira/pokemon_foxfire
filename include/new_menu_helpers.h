@@ -41,7 +41,6 @@ void Menu_LoadStdPalAt(u16 offset);
 void DisplayItemMessageOnField(u8 taskId, u8 fontId, const u8 *src, TaskFunc callback);
 void DisplayYesNoMenuDefaultYes(void);
 void DisplayYesNoMenuDefaultNo(void);
-u8 GetTextSpeedSetting(void);
 u8 CreateStartMenuWindow(u8 height);
 u8 GetStartMenuWindowId(void);
 void RemoveStartMenuWindow(void);
