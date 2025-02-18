@@ -18,6 +18,7 @@
 #include "party_menu.h"
 #include "trainer_pokemon_sprites.h"
 #include "field_specials.h"
+#include "pickup.h"
 #include "battle.h"
 #include "battle_message.h"
 #include "battle_anim.h"
@@ -763,33 +764,6 @@ static const u16 sWeightToDamageTable[] =
     0xFFFF, 0xFFFF
 };
 
-struct PickupItem
-{
-    u16 itemId;
-    u8 chance;
-};
-
-static const struct PickupItem sPickupItems[] =
-{
-    { ITEM_ORAN_BERRY, 15 },
-    { ITEM_CHERI_BERRY, 25 },
-    { ITEM_CHESTO_BERRY, 35 },
-    { ITEM_PECHA_BERRY, 45 },
-    { ITEM_RAWST_BERRY, 55 },
-    { ITEM_ASPEAR_BERRY, 65 },
-    { ITEM_PERSIM_BERRY, 75 },
-    { ITEM_TM10, 80 },
-    { ITEM_PP_UP, 85 },
-    { ITEM_RARE_CANDY, 90 },
-    { ITEM_NUGGET, 95 },
-    { ITEM_SPELON_BERRY, 96 },
-    { ITEM_PAMTRE_BERRY, 97 },
-    { ITEM_WATMEL_BERRY, 98 },
-    { ITEM_DURIN_BERRY, 99 },
-    { ITEM_BELUE_BERRY, 1 },
-
-};
-
 static const u8 sTerrainToType[] =
 {
     [BATTLE_TERRAIN_GRASS]      = TYPE_GRASS,
@@ -812,9 +786,6 @@ static const u8 sBallCatchBonuses[] =
     [ITEM_POKE_BALL - ITEM_ULTRA_BALL]   = 10,
     [ITEM_SAFARI_BALL - ITEM_ULTRA_BALL] = 15
 };
-
-// unused
-ALIGNED(4) static const u8 sJPText_Turn[] = _("ターン");
 
 static void Cmd_attackcanceler(void)
 {
@@ -9260,27 +9231,24 @@ static void Cmd_getsecretpowereffect(void)
 
 static void Cmd_pickup(void)
 {
-    s32 i;
-    u32 j;
-    u16 species, heldItem;
-    u32 ability;
+    u8 i, ability;
+    u16 species, heldItem, level, item;
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
         heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+
         if (GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM) != ABILITY_NONE)
             ability = gSpeciesInfo[species].abilities[1];
         else
             ability = gSpeciesInfo[species].abilities[0];
-        if (ability == ABILITY_PICKUP && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && !(Random() % 10))
-        {
-            s32 random = Random() % 100;
 
-            for (j = 0; j < 15; ++j)
-                if (sPickupItems[j].chance > random)
-                    break;
-            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupItems[j]);
+        if (ability == ABILITY_PICKUP && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE)
+        {
+            level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            item = GetPickupItem(level);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &item);
         }
     }
     gBattlescriptCurrInstr++;
