@@ -33,7 +33,6 @@ static const u8 sLightningRodDescription[] = _("Draws electrical moves.");
 static const u8 sSereneGraceDescription[] = _("Promotes added effects.");
 static const u8 sSwiftSwimDescription[] = _("Raises SPEED in rain.");
 static const u8 sChlorophyllDescription[] = _("Raises SPEED in sunshine.");
-static const u8 sIlluminateDescription[] = _("Encounter rate increases.");
 static const u8 sTraceDescription[] = _("Copies special ability.");
 static const u8 sHugePowerDescription[] = _("Raises ATTACK.");
 static const u8 sPoisonPointDescription[] = _("Poisons foe on contact.");
@@ -74,13 +73,11 @@ static const u8 sVitalSpiritDescription[] = _("Prevents sleep.");
 static const u8 sWhiteSmokeDescription[] = _("Prevents ability reduction.");
 static const u8 sPurePowerDescription[] = _("Raises ATTACK.");
 static const u8 sShellArmorDescription[] = _("Blocks critical hits.");
-static const u8 sCacophonyDescription[] = _("Avoids sound-based moves.");
 static const u8 sAirLockDescription[] = _("Negates weather effects.");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {
     [ABILITY_NONE] = sNoneDescription,
-    [ABILITY_STENCH] = sStenchDescription,
     [ABILITY_DRIZZLE] = sDrizzleDescription,
     [ABILITY_SPEED_BOOST] = sSpeedBoostDescription,
     [ABILITY_BATTLE_ARMOR] = sBattleArmorDescription,
@@ -114,7 +111,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SERENE_GRACE] = sSereneGraceDescription,
     [ABILITY_SWIFT_SWIM] = sSwiftSwimDescription,
     [ABILITY_CHLOROPHYLL] = sChlorophyllDescription,
-    [ABILITY_ILLUMINATE] = sIlluminateDescription,
     [ABILITY_TRACE] = sTraceDescription,
     [ABILITY_HUGE_POWER] = sHugePowerDescription,
     [ABILITY_POISON_POINT] = sPoisonPointDescription,
@@ -155,14 +151,12 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_WHITE_SMOKE] = sWhiteSmokeDescription,
     [ABILITY_PURE_POWER] = sPurePowerDescription,
     [ABILITY_SHELL_ARMOR] = sShellArmorDescription,
-    [ABILITY_CACOPHONY] = sCacophonyDescription,
     [ABILITY_AIR_LOCK] = sAirLockDescription,
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
     [ABILITY_NONE] = _("-------"),
-    [ABILITY_STENCH] = _("STENCH"),
     [ABILITY_DRIZZLE] = _("DRIZZLE"),
     [ABILITY_SPEED_BOOST] = _("SPEED BOOST"),
     [ABILITY_BATTLE_ARMOR] = _("BATTLE ARMOR"),
@@ -196,7 +190,6 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SERENE_GRACE] = _("SERENE GRACE"),
     [ABILITY_SWIFT_SWIM] = _("SWIFT SWIM"),
     [ABILITY_CHLOROPHYLL] = _("CHLOROPHYLL"),
-    [ABILITY_ILLUMINATE] = _("ILLUMINATE"),
     [ABILITY_TRACE] = _("TRACE"),
     [ABILITY_HUGE_POWER] = _("HUGE POWER"),
     [ABILITY_POISON_POINT] = _("POISON POINT"),
@@ -237,6 +230,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WHITE_SMOKE] = _("WHITE SMOKE"),
     [ABILITY_PURE_POWER] = _("PURE POWER"),
     [ABILITY_SHELL_ARMOR] = _("SHELL ARMOR"),
-    [ABILITY_CACOPHONY] = _("CACOPHONY"),
     [ABILITY_AIR_LOCK] = _("AIR LOCK"),
 };

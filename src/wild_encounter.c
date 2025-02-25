@@ -27,7 +27,6 @@ struct WildEncounterData
     u16 prevMetatileBehavior;
     u16 encounterRateBuff;
     u8 stepsSinceLastEncounter;
-    u8 abilityEffect;
     u16 leadMonHeldItem;
 };
 
@@ -306,7 +305,7 @@ static bool8 DoWildEncounterRateDiceRoll(u16 encounterRate)
     return FALSE;
 }
 
-static bool8 DoWildEncounterRateTest(u32 encounterRate, bool8 ignoreAbility)
+static bool8 DoWildEncounterRateTest(u32 encounterRate)
 {
     encounterRate *= 16;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
@@ -314,35 +313,9 @@ static bool8 DoWildEncounterRateTest(u32 encounterRate, bool8 ignoreAbility)
     encounterRate += sWildEncounterData.encounterRateBuff * 16 / 200;
     ApplyFluteEncounterRateMod(&encounterRate);
     ApplyCleanseTagEncounterRateMod(&encounterRate);
-    if (!ignoreAbility)
-    {
-        switch (sWildEncounterData.abilityEffect)
-        {
-        case 1:
-            encounterRate /= 2;
-            break;
-        case 2:
-            encounterRate *= 2;
-            break;
-        }
-    }
     if (encounterRate > MAX_ENCOUNTER_RATE)
         encounterRate = MAX_ENCOUNTER_RATE;
     return DoWildEncounterRateDiceRoll(encounterRate);
-}
-
-static u8 GetAbilityEncounterRateModType(void)
-{
-    sWildEncounterData.abilityEffect = 0;
-    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
-    {
-        u8 ability = GetMonAbility(&gPlayerParty[0]);
-        if (ability == ABILITY_STENCH)
-            sWildEncounterData.abilityEffect = 1;
-        else if (ability == ABILITY_ILLUMINATE)
-            sWildEncounterData.abilityEffect = 2;
-    }
-    return sWildEncounterData.abilityEffect;
 }
 
 static bool8 DoGlobalWildEncounterDiceRoll(void)
@@ -369,7 +342,7 @@ bool8 StandardWildEncounter(u32 currMetatileAttrs, u16 previousMetatileBehavior)
                 return FALSE;
             else if (previousMetatileBehavior != ExtractMetatileAttribute(currMetatileAttrs, METATILE_ATTRIBUTE_BEHAVIOR) && !DoGlobalWildEncounterDiceRoll())
                 return FALSE;
-            if (DoWildEncounterRateTest(gWildMonHeaders[headerId].landMonsInfo->encounterRate, FALSE) != TRUE)
+            if (DoWildEncounterRateTest(gWildMonHeaders[headerId].landMonsInfo->encounterRate) != TRUE)
             {
                 AddToWildEncounterRateBuff(gWildMonHeaders[headerId].landMonsInfo->encounterRate);
                 return FALSE;
@@ -408,7 +381,7 @@ bool8 StandardWildEncounter(u32 currMetatileAttrs, u16 previousMetatileBehavior)
                 return FALSE;
             else if (previousMetatileBehavior != ExtractMetatileAttribute(currMetatileAttrs, METATILE_ATTRIBUTE_BEHAVIOR) && !DoGlobalWildEncounterDiceRoll())
                 return FALSE;
-            else if (DoWildEncounterRateTest(gWildMonHeaders[headerId].waterMonsInfo->encounterRate, FALSE) != TRUE)
+            else if (DoWildEncounterRateTest(gWildMonHeaders[headerId].waterMonsInfo->encounterRate) != TRUE)
             {
                 AddToWildEncounterRateBuff(gWildMonHeaders[headerId].waterMonsInfo->encounterRate);
                 return FALSE;
@@ -450,7 +423,7 @@ void RockSmashWildEncounter(void)
         gSpecialVar_Result = FALSE;
     else if (gWildMonHeaders[headerIdx].rockSmashMonsInfo == NULL)
         gSpecialVar_Result = FALSE;
-    else if (DoWildEncounterRateTest(gWildMonHeaders[headerIdx].rockSmashMonsInfo->encounterRate, TRUE) != TRUE)
+    else if (DoWildEncounterRateTest(gWildMonHeaders[headerIdx].rockSmashMonsInfo->encounterRate) != TRUE)
         gSpecialVar_Result = FALSE;
     else if (TryGenerateWildMon(gWildMonHeaders[headerIdx].rockSmashMonsInfo, WILD_AREA_ROCKS, WILD_CHECK_REPEL) == TRUE)
     {
@@ -732,17 +705,6 @@ static bool8 HandleWildEncounterCooldown(u32 currMetatileAttrs)
     {
         minSteps += minSteps / 3;
         encRate -= encRate / 3;
-    }
-    switch (GetAbilityEncounterRateModType())
-    {
-    case 1:
-        minSteps *= 2;
-        encRate /= 2;
-        break;
-    case 2:
-        minSteps /= 2;
-        encRate *= 2;
-        break;
     }
     minSteps /= 256;
     encRate /= 256;
