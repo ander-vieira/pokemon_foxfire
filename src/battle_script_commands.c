@@ -8162,6 +8162,8 @@ static void Cmd_jumpifconfusedandstatmaxed(void)
         gBattlescriptCurrInstr += 6;
 }
 
+#define FURY_CUTTER_MAX 2
+
 static void Cmd_furycuttercalc(void)
 {
     if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
@@ -8171,15 +8173,15 @@ static void Cmd_furycuttercalc(void)
     }
     else
     {
-        s32 i;
-
-        if (gDisableStructs[gBattlerAttacker].furyCutterCounter != 5)
-            gDisableStructs[gBattlerAttacker].furyCutterCounter++;
+        u8 i;
 
         gDynamicBasePower = gBattleMoves[gCurrentMove].power;
 
-        for (i = 1; i < gDisableStructs[gBattlerAttacker].furyCutterCounter; i++)
+        for (i = 0; i < gDisableStructs[gBattlerAttacker].furyCutterCounter; i++)
             gDynamicBasePower *= 2;
+
+        if (gDisableStructs[gBattlerAttacker].furyCutterCounter < FURY_CUTTER_MAX)
+            gDisableStructs[gBattlerAttacker].furyCutterCounter++;
 
         gBattlescriptCurrInstr++;
     }
