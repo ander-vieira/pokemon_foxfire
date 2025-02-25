@@ -223,8 +223,6 @@ AI_CBM_Sleep::
 
 AI_CBM_Explosion::
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_DAMP, Score_Minus10
 	count_alive_pokemon AI_USER
 	if_not_equal 0, AI_CBM_Explosion_End
 	count_alive_pokemon AI_TARGET
