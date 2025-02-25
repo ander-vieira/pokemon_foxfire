@@ -6810,17 +6810,23 @@ static void Cmd_confuseifrepeatingattackends(void)
 
 static void Cmd_setmultihitcounter(void)
 {
+    u8 rnd;
+
     if (gBattlescriptCurrInstr[1])
     {
         gMultiHitCounter = gBattlescriptCurrInstr[1];
     }
     else
     {
-        gMultiHitCounter = Random() & 3;
-        if (gMultiHitCounter > 1)
-            gMultiHitCounter = (Random() & 3) + 2;
-        else
-            gMultiHitCounter += 2;
+        //2/6 chance for 2 or 3 hits, 1/6 chance for 4 or 5 hits
+        rnd = Random() % 6;
+        gMultiHitCounter = 2;
+        if(rnd >= 2)
+            gMultiHitCounter++;
+        if(rnd >= 4)
+            gMultiHitCounter++;
+        if(rnd >= 5)
+            gMultiHitCounter++;
     }
 
     gBattlescriptCurrInstr += 2;
