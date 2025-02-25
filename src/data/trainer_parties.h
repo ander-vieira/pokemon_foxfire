@@ -4926,7 +4926,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerColby[] = {
         .iv = 100,
         .lvl = 41,
         .species = SPECIES_KINGLER,
-        .moves = {MOVE_GUILLOTINE, MOVE_STOMP, MOVE_MUD_SHOT, MOVE_BUBBLE},
+        .moves = {MOVE_STOMP, MOVE_MUD_SHOT, MOVE_BUBBLE, MOVE_NONE},
     },
     {
         .iv = 100,
@@ -4971,7 +4971,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerPaul[] = {
         .iv = 100,
         .lvl = 42,
         .species = SPECIES_KINGLER,
-        .moves = {MOVE_GUILLOTINE, MOVE_STOMP, MOVE_MUD_SHOT, MOVE_BUBBLE},
+        .moves = {MOVE_STOMP, MOVE_MUD_SHOT, MOVE_BUBBLE, MOVE_NONE},
     },
     {
         .iv = 100,
@@ -5103,7 +5103,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerBerke[] = {
         .iv = 100,
         .lvl = 42,
         .species = SPECIES_KINGLER,
-        .moves = {MOVE_GUILLOTINE, MOVE_STOMP, MOVE_MUD_SHOT, MOVE_BUBBLE},
+        .moves = {MOVE_STOMP, MOVE_MUD_SHOT, MOVE_BUBBLE, MOVE_NONE},
     },
     {
         .iv = 100,
@@ -5274,7 +5274,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerAlexa[] = {
         .iv = 100,
         .lvl = 42,
         .species = SPECIES_DEWGONG,
-        .moves = {MOVE_SHEER_COLD, MOVE_TAKE_DOWN, MOVE_REST, MOVE_AURORA_BEAM},
+        .moves = {MOVE_TAKE_DOWN, MOVE_REST, MOVE_AURORA_BEAM, MOVE_NONE},
     },
     {
         .iv = 100,
@@ -5388,7 +5388,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerAustina[] = {
         .iv = 100,
         .lvl = 42,
         .species = SPECIES_RHYHORN,
-        .moves = {MOVE_HORN_DRILL, MOVE_ROCK_BLAST, MOVE_SCARY_FACE, MOVE_STOMP},
+        .moves = {MOVE_ROCK_BLAST, MOVE_SCARY_FACE, MOVE_STOMP, MOVE_NONE},
     },
     {
         .iv = 100,
@@ -6057,7 +6057,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22LateSquirtle[
         .iv = 150,
         .lvl = 45,
         .species = SPECIES_RHYHORN,
-        .moves = {MOVE_TAKE_DOWN, MOVE_HORN_DRILL, MOVE_ROCK_BLAST, MOVE_FURY_ATTACK},
+        .moves = {MOVE_TAKE_DOWN, MOVE_ROCK_BLAST, MOVE_FURY_ATTACK, MOVE_NONE},
     },
     {
         .iv = 150,
@@ -6096,7 +6096,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22LateBulbasaur
         .iv = 150,
         .lvl = 45,
         .species = SPECIES_RHYHORN,
-        .moves = {MOVE_TAKE_DOWN, MOVE_HORN_DRILL, MOVE_ROCK_BLAST, MOVE_FURY_ATTACK},
+        .moves = {MOVE_TAKE_DOWN, MOVE_ROCK_BLAST, MOVE_FURY_ATTACK, MOVE_NONE},
     },
     {
         .iv = 150,
@@ -6135,7 +6135,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22LateCharmande
         .iv = 150,
         .lvl = 45,
         .species = SPECIES_RHYHORN,
-        .moves = {MOVE_TAKE_DOWN, MOVE_HORN_DRILL, MOVE_ROCK_BLAST, MOVE_FURY_ATTACK},
+        .moves = {MOVE_TAKE_DOWN, MOVE_ROCK_BLAST, MOVE_FURY_ATTACK, MOVE_NONE},
     },
     {
         .iv = 150,
@@ -8213,13 +8213,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_PsychicRodette[] = {
         .iv = 100,
         .lvl = 48,
         .species = SPECIES_DROWZEE,
-        .moves = {MOVE_PSYCHIC, MOVE_DISABLE, MOVE_PSYCH_UP, MOVE_FUTURE_SIGHT},
+        .moves = {MOVE_PSYCHIC, MOVE_DISABLE, MOVE_FUTURE_SIGHT, MOVE_NONE},
     },
     {
         .iv = 100,
         .lvl = 50,
         .species = SPECIES_HYPNO,
-        .moves = {MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_PSYCH_UP, MOVE_FUTURE_SIGHT},
+        .moves = {MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_FUTURE_SIGHT, MOVE_NONE},
     },
 };
 
@@ -8260,7 +8260,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_JugglerMason[] = {
         .iv = 0,
         .lvl = 47,
         .species = SPECIES_PINECO,
-        .moves = {MOVE_SPIKES, MOVE_BIDE, MOVE_RAPID_SPIN, MOVE_TAKE_DOWN},
+        .moves = {MOVE_SPIKES, MOVE_RAPID_SPIN, MOVE_TAKE_DOWN, MOVE_NONE},
     },
     {
         .iv = 0,
@@ -8272,7 +8272,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_JugglerMason[] = {
         .iv = 0,
         .lvl = 47,
         .species = SPECIES_PINECO,
-        .moves = {MOVE_SPIKES, MOVE_BIDE, MOVE_RAPID_SPIN, MOVE_EXPLOSION},
+        .moves = {MOVE_SPIKES, MOVE_RAPID_SPIN, MOVE_EXPLOSION, MOVE_NONE},
     },
 };
 
@@ -8411,7 +8411,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerLeroy[] = {
         .iv = 100,
         .lvl = 47,
         .species = SPECIES_RHYDON,
-        .moves = {MOVE_TAKE_DOWN, MOVE_HORN_DRILL, MOVE_ROCK_BLAST, MOVE_SCARY_FACE},
+        .moves = {MOVE_TAKE_DOWN, MOVE_ROCK_BLAST, MOVE_SCARY_FACE, MOVE_NONE},
     },
     {
         .iv = 100,
@@ -10255,13 +10255,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_PsychicRodette2[] = {
         .iv = 220,
         .lvl = 53,
         .species = SPECIES_HYPNO,
-        .moves = {MOVE_PSYCHIC, MOVE_DISABLE, MOVE_PSYCH_UP, MOVE_FUTURE_SIGHT},
+        .moves = {MOVE_PSYCHIC, MOVE_DISABLE, MOVE_FUTURE_SIGHT, MOVE_NONE},
     },
     {
         .iv = 220,
         .lvl = 53,
         .species = SPECIES_HYPNO,
-        .moves = {MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_PSYCH_UP, MOVE_FUTURE_SIGHT},
+        .moves = {MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_FUTURE_SIGHT, MOVE_NONE},
     },
 };
 
@@ -10392,7 +10392,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerLeroy2[] = {
         .iv = 220,
         .lvl = 52,
         .species = SPECIES_RHYDON,
-        .moves = {MOVE_EARTHQUAKE, MOVE_HORN_DRILL, MOVE_ROCK_BLAST, MOVE_SCARY_FACE},
+        .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_BLAST, MOVE_SCARY_FACE, MOVE_NONE},
     },
     {
         .iv = 220,
@@ -10431,7 +10431,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerMichelle2[] = 
         .iv = 220,
         .lvl = 53,
         .species = SPECIES_DEWGONG,
-        .moves = {MOVE_ICE_BEAM, MOVE_TAKE_DOWN, MOVE_ICY_WIND, MOVE_SHEER_COLD},
+        .moves = {MOVE_ICE_BEAM, MOVE_TAKE_DOWN, MOVE_ICY_WIND, MOVE_NONE},
     },
     {
         .iv = 220,

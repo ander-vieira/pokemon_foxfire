@@ -305,9 +305,9 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.teamFlags = 0x01,
 		.moves = {
 			MOVE_BITE,
-			MOVE_RAGE,
 			MOVE_SCARY_FACE,
-			MOVE_LEER
+			MOVE_LEER,
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_ATTACK,
 		.nature = NATURE_QUIRKY,
@@ -476,7 +476,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_FURY_SWIPES,
 			MOVE_TAIL_WHIP,
 			MOVE_DISABLE,
-			MOVE_PSYCH_UP
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_ATTACK,
 		.nature = NATURE_RELAXED,
@@ -514,8 +514,8 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.moves = {
 			MOVE_NIGHT_SHADE,
 			MOVE_FAKE_OUT,
-			MOVE_PSYCH_UP,
-			MOVE_DETECT
+			MOVE_DETECT,
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SPEED,
 		.nature = NATURE_HARDY,
@@ -565,9 +565,9 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.teamFlags = 0x0A,
 		.moves = {
 			MOVE_PSYBEAM,
-			MOVE_PSYCH_UP,
 			MOVE_BOUNCE,
-			MOVE_MAGIC_COAT
+			MOVE_MAGIC_COAT,
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_DEFENSE,
 		.nature = NATURE_NAUGHTY,
@@ -1007,9 +1007,9 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.teamFlags = 0x02,
 		.moves = {
 			MOVE_SURF,
-			MOVE_REFRESH,
 			MOVE_RECOVER,
-			MOVE_RAIN_DANCE
+			MOVE_RAIN_DANCE,
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK,
 		.nature = NATURE_ADAMANT,
@@ -1606,8 +1606,8 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.moves = {
 			MOVE_DIZZY_PUNCH,
 			MOVE_TEETER_DANCE,
-			MOVE_PSYCH_UP,
-			MOVE_FACADE
+			MOVE_FACADE,
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
 		.nature = NATURE_MODEST,
@@ -1620,7 +1620,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_DRAGON_CLAW,
 			MOVE_DRAGON_BREATH,
 			MOVE_DRAGON_DANCE,
-			MOVE_REFRESH
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_RASH,
@@ -1750,7 +1750,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_HYDRO_PUMP,
 			MOVE_ATTRACT,
 			MOVE_RECOVER,
-			MOVE_REFRESH
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
 		.nature = NATURE_JOLLY,
@@ -1841,7 +1841,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_EARTHQUAKE,
 			MOVE_DOUBLE_EDGE,
 			MOVE_IRON_TAIL,
-			MOVE_FISSURE
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
 		.nature = NATURE_QUIRKY,
@@ -2202,7 +2202,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_STARF_BERRY,
 		.teamFlags = 0x02,
 		.moves = {
-			MOVE_ASSIST,
+			MOVE_FACADE,
 			MOVE_SING,
 			MOVE_ATTRACT,
 			MOVE_SUBSTITUTE
@@ -2410,10 +2410,10 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_LEPPA_BERRY,
 		.teamFlags = 0x20,
 		.moves = {
-			MOVE_HORN_DRILL,
 			MOVE_AGILITY,
 			MOVE_SLEEP_TALK,
-			MOVE_REST
+			MOVE_REST,
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_BRAVE,
@@ -2426,7 +2426,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_EARTHQUAKE,
 			MOVE_ERUPTION,
 			MOVE_ROCK_SLIDE,
-			MOVE_FISSURE
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_NAIVE,
@@ -2465,7 +2465,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_EARTHQUAKE,
 			MOVE_SURF,
 			MOVE_SPARK,
-			MOVE_FISSURE
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
 		.nature = NATURE_RELAXED,
@@ -2530,7 +2530,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_HYDRO_PUMP,
 			MOVE_EARTHQUAKE,
 			MOVE_ATTRACT,
-			MOVE_FISSURE
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_HP,
 		.nature = NATURE_TIMID,
@@ -2582,7 +2582,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_EARTHQUAKE,
 			MOVE_MEGAHORN,
 			MOVE_BRICK_BREAK,
-			MOVE_HORN_DRILL
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
 		.nature = NATURE_GENTLE,
@@ -2595,7 +2595,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_CRUNCH,
 			MOVE_BLIZZARD,
 			MOVE_HAIL,
-			MOVE_SHEER_COLD
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_BASHFUL,
@@ -2855,7 +2855,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_SURF,
 			MOVE_ICE_BEAM,
 			MOVE_EARTHQUAKE,
-			MOVE_SHEER_COLD
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
 		.nature = NATURE_CAREFUL,
@@ -3245,7 +3245,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_SURF,
 			MOVE_BLIZZARD,
 			MOVE_ROCK_SLIDE,
-			MOVE_SHEER_COLD
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_CAREFUL,
@@ -3634,8 +3634,8 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.moves = {
 			MOVE_SURF,
 			MOVE_ICE_BEAM,
-			MOVE_FISSURE,
-			MOVE_SHEER_COLD
+			MOVE_NONE,
+			MOVE_NONE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_HARDY,
