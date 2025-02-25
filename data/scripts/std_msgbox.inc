@@ -51,9 +51,6 @@ EventScript_ReceivedItemWaitFanfare::
 	delay 50
 	return
 
-EventScript_UnusedReturn::
-	return
-
 EventScript_AskSaveGame::
 	special Field_AskSaveTheGame
 	waitstate

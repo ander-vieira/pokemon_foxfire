@@ -94,12 +94,6 @@ IndigoPlateau_Exterior_Movement_PlayerLeave::
 	player_run_down
 	step_end
 
-@ Unused
-IndigoPlateau_Exterior_Movement_PlayerExitBuilding::
-	walk_down
-	walk_down
-	step_end
-
 IndigoPlateau_Exterior_Movement_PlayerWatchRivalLeave::
 	delay_16
 	delay_4

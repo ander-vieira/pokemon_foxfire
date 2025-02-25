@@ -426,12 +426,6 @@ TwoIsland_CapeBrink_House_EventScript_StarterTutor::
 	fadescreen FADE_TO_BLACK
 	goto CapeBrinkTutor_EventScript_ChooseMon
 
-@ Unused
-CapeBrinkTutor_EventScript_FadeTaughtMove::
-	fadescreen FADE_FROM_BLACK
-	goto CapeBrinkTutor_EventScript_TaughtMove
-	end
-
 CapeBrinkTutor_EventScript_MoveJustTaught::
 	msgbox Text_MakeBestUseOfMove
 	release

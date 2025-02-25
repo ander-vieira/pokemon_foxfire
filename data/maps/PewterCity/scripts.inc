@@ -38,26 +38,6 @@ PewterCity_EventScript_WalkToGymEast::
 	waitmovement 0
 	return
 
-@ Unused
-PewterCity_EventScript_WalkToGymWest::
-	applymovement OBJ_EVENT_ID_PLAYER, PewterCity_Movement_PlayerWaitForGuideWest
-	applymovement LOCALID_GYM_GUIDE, PewterCity_Movement_GuideMoveToLeadWest
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, PewterCity_Movement_PlayerWalkToGymWest
-	applymovement LOCALID_GYM_GUIDE, PewterCity_Movement_GuideWalkToGymWest
-	waitmovement 0
-	return
-
-@ Unused
-PewterCity_EventScript_WalkToGymNorth::
-	applymovement OBJ_EVENT_ID_PLAYER, PewterCity_Movement_PlayerWaitForGuideNorth
-	applymovement LOCALID_GYM_GUIDE, PewterCity_Movement_GuideMoveToLeadNorth
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, PewterCity_Movement_PlayerWalkToGymNorth
-	applymovement LOCALID_GYM_GUIDE, PewterCity_Movement_GuideWalkToGymNorth
-	waitmovement 0
-	return
-
 .macro walk_to_gym
 	walk_left
 	walk_left
@@ -313,15 +293,6 @@ PewterCity_EventScript_WalkToGymBottom::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, PewterCity_Movement_PlayerWalkToGymBottom
 	applymovement LOCALID_GYM_GUIDE, PewterCity_Movement_GuideWalkToGymBottom
-	waitmovement 0
-	return
-
-@ Unused
-PewterCity_EventScript_WalkToGymRight::
-	applymovement LOCALID_GYM_GUIDE, PewterCity_Movement_GuideApproachPlayerRight
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, PewterCity_Movement_PlayerWalkToGymRight
-	applymovement LOCALID_GYM_GUIDE, PewterCity_Movement_GuideWalkToGymRight
 	waitmovement 0
 	return
 

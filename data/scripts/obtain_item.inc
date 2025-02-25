@@ -1,8 +1,3 @@
-@ Unused, handled by textcolor script cmd
-EventScript_SaveTextColor::
-	copyvar VAR_PREV_TEXT_COLOR, VAR_TEXT_COLOR
-	return
-
 EventScript_RestorePrevTextColor::
 	copyvar VAR_TEXT_COLOR, VAR_PREV_TEXT_COLOR
 	return
