@@ -3830,12 +3830,6 @@ u8 *GetMapNameGeneric(u8 *dest, u16 mapsec)
     return GetMapName(dest, mapsec, 0);
 }
 
-// Unclear why this function is used over GetMapNameGeneric
-u8 *GetMapNameGeneric_(u8 *dest, u16 mapsec)
-{
-    return GetMapNameGeneric(dest, mapsec);
-}
-
 static void PrintTopBarTextLeft(const u8 *str)
 {
     if (sRegionMap->permissions[MAPPERM_HAS_OPEN_ANIM] == TRUE)

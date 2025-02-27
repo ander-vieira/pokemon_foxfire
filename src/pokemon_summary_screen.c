@@ -2650,7 +2650,7 @@ static void PokeSum_PrintTrainerMemo_Mon_HeldByOT(void)
     metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
 
     if (MapSecIsInKantoOrSevii(metLocation) == TRUE)
-        GetMapNameGeneric_(mapNameStr, metLocation);
+        GetMapNameGeneric(mapNameStr, metLocation);
     else
     {
         if (sMonSummaryScreen->isEnemyParty == TRUE || IsMultiBattlePartner() == TRUE)
@@ -2752,7 +2752,7 @@ static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
     }
 
     if (MapSecIsInKantoOrSevii(metLocation) == TRUE)
-        GetMapNameGeneric_(mapNameStr, metLocation);
+        GetMapNameGeneric(mapNameStr, metLocation);
     else
         StringCopy(mapNameStr, gText_PokeSum_ATrade);
 
