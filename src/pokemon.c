@@ -66,7 +66,7 @@ static EWRAM_DATA struct MonSpritesGfxManager *sMonSpritesGfxManager = NULL;
 static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u32 personality, u8 substructType);
 static u16 GetDeoxysStat(struct Pokemon *mon, s32 statId);
 static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality);
-static u16 ModifyStatByNature(u8 nature, u16 n, u8 statIndex);
+static u16 ModifyStatByNature(u8 nature, u32 stat, u8 statIndex);
 static u8 GetNatureFromPersonality(u32 personality);
 static bool8 PartyMonHasStatus(struct Pokemon *mon, u32 unused, u32 healMask, u8 battleId);
 static bool8 HealStatusConditions(struct Pokemon *mon, u32 unused, u32 healMask, u8 battleId);
@@ -5360,40 +5360,25 @@ u8 GetTrainerEncounterMusicId(u16 trainerId)
     return TRAINER_ENCOUNTER_MUSIC(trainerId);
 }
 
-static u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
+s8 GetNatureModifier(u8 nature, u8 statIndex)
 {
-// Because this is a u16 it will be unable to store the
-// result of the multiplication for any stat > 595 for a
-// positive nature and > 728 for a negative nature.
-// Neither occur in the base game, but this can happen if
-// any Nature-affected base stat is increased to a value
-// above 248. The closest by default is Shuckle at 230.
-#ifdef BUGFIX
-    u32 retVal;
-#else
-    u16 retVal;
-#endif
-
-    // Don't modify HP, Accuracy, or Evasion by nature
     if (statIndex <= STAT_HP || statIndex > NUM_NATURE_STATS)
-        return stat;
+        return 0;
+    
+    return sNatureStatTable[nature][statIndex - 1];
+}
 
-    switch (sNatureStatTable[nature][statIndex - 1])
+static u16 ModifyStatByNature(u8 nature, u32 stat, u8 statIndex)
+{
+    switch (GetNatureModifier(nature, statIndex))
     {
     case 1:
-        retVal = stat * 110;
-        retVal /= 100;
-        break;
+        return stat * 11 / 10;
     case -1:
-        retVal = stat * 90;
-        retVal /= 100;
-        break;
+        return stat * 9 / 10;
     default:
-        retVal = stat;
-        break;
+        return stat;
     }
-
-    return retVal;
 }
 
 void AdjustFriendship(struct Pokemon *mon, u8 event)
