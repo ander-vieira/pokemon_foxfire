@@ -129,6 +129,8 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId);
 static void CreateBuyMenuConfirmPurchaseWindow(u8 taskId);
 static void BuyMenuTryMakePurchase(u8 taskId);
 static void BuyMenuSubtractMoney(u8 taskId);
+static void Task_GivePremierBall(u8 taskId);
+static void GivenPremierBall(u8 taskId);
 static void Task_ReturnToItemListAfterItemPurchase(u8 taskId);
 static void BuyMenuReturnToItemList(u8 taskId);
 static void ExitBuyMenu(u8 taskId);
@@ -994,10 +996,33 @@ static void BuyMenuTryMakePurchase(u8 taskId)
 
 static void BuyMenuSubtractMoney(u8 taskId)
 {
+    s16 *data = gTasks[taskId].data;
+
     IncrementGameStat(GAME_STAT_SHOPPED);
     RemoveMoney(&gSaveBlock1Ptr->money, sShopData.itemPrice);
     PlaySE(SE_SHOP);
     PrintMoneyAmountInMoneyBox(0, GetMoney(&gSaveBlock1Ptr->money), 0);
+    if(tItemId == ITEM_POKE_BALL && tItemCount >= 10)
+        gTasks[taskId].func = Task_GivePremierBall;
+    else
+        gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
+}
+
+static void Task_GivePremierBall(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+    {
+        if(AddBagItem(ITEM_PREMIER_BALL, 1))
+            BuyMenuDisplayMessage(taskId, gText_GivePremierBall, GivenPremierBall);
+        else
+            gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
+    }
+}
+
+static void GivenPremierBall(u8 taskId)
+{
     gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
 }
 
