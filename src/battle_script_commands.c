@@ -18,6 +18,7 @@
 #include "party_menu.h"
 #include "trainer_pokemon_sprites.h"
 #include "field_specials.h"
+#include "hidden_power.h"
 #include "pickup.h"
 #include "battle.h"
 #include "battle_message.h"
@@ -27,6 +28,7 @@
 #include "reshow_battle_screen.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
+#include "pokemon.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_script_commands.h"
@@ -8464,21 +8466,10 @@ static void Cmd_recoverbasedonsunlight(void)
 
 static void Cmd_hiddenpowercalc(void)
 {
-    s32 typeBits;
+    struct BattlePokemon *mon = &(gBattleMons[gBattlerAttacker]);
+    u8 type = GetHiddenPowerType(mon->hpIV, mon->attackIV, mon->defenseIV, mon->speedIV, mon->spAttackIV, mon->spDefenseIV);
 
-    typeBits  = ((gBattleMons[gBattlerAttacker].hpIV & 1) << 0)
-              | ((gBattleMons[gBattlerAttacker].attackIV & 1) << 1)
-              | ((gBattleMons[gBattlerAttacker].defenseIV & 1) << 2)
-              | ((gBattleMons[gBattlerAttacker].speedIV & 1) << 3)
-              | ((gBattleMons[gBattlerAttacker].spAttackIV & 1) << 4)
-              | ((gBattleMons[gBattlerAttacker].spDefenseIV & 1) << 5);
-
-    // Subtract 3 instead of 1 below because 2 types are excluded (TYPE_NORMAL and TYPE_MYSTERY)
-    // The final + 1 skips past Normal, and the following conditional skips TYPE_MYSTERY
-    gBattleStruct->dynamicMoveType = ((NUMBER_OF_MON_TYPES - 3) * typeBits) / 63 + 1;
-    if (gBattleStruct->dynamicMoveType >= TYPE_MYSTERY)
-        gBattleStruct->dynamicMoveType++;
-    gBattleStruct->dynamicMoveType |= F_DYNAMIC_TYPE_1 | F_DYNAMIC_TYPE_2;
+    gBattleStruct->dynamicMoveType = type | F_DYNAMIC_TYPE_1 | F_DYNAMIC_TYPE_2;
 
     gBattlescriptCurrInstr++;
 }

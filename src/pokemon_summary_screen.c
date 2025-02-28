@@ -2269,7 +2269,7 @@ static void BufferMonMoveI(u8 i)
     }
 
     sMonSummaryScreen->numMoves++;
-    sMonSummaryScreen->moveTypes[i] = gBattleMoves[sMonSummaryScreen->moveIds[i]].type;
+    sMonSummaryScreen->moveTypes[i] = GetMoveType(&(sMonSummaryScreen->currentMon), sMonSummaryScreen->moveIds[i]);
     StringCopy(sMonSummaryScreen->summary.moveNameStrBufs[i], gMoveNames[sMonSummaryScreen->moveIds[i]]);
 
     if (i >= 4 && sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)

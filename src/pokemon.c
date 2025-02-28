@@ -24,6 +24,7 @@
 #include "party_menu.h"
 #include "field_specials.h"
 #include "berry.h"
+#include "hidden_power.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/hoenn_cries.h"
@@ -6395,4 +6396,25 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
             spriteNum = 0;
         return sMonSpritesGfxManager->spritePointers[spriteNum];
     }
+}
+
+u8 GetMoveType(struct Pokemon *mon, u16 moveId)
+{
+    struct BattleMove move;
+    u8 hpIV, attackIV, defenseIV, speedIV, spAttackIV, spDefenseIV;
+
+    move = gBattleMoves[moveId];
+
+    if(move.effect == EFFECT_HIDDEN_POWER) {
+        hpIV = GetMonData(mon, MON_DATA_HP_IV, NULL);
+        attackIV = GetMonData(mon, MON_DATA_ATK_IV, NULL);
+        defenseIV = GetMonData(mon, MON_DATA_DEF_IV, NULL);
+        speedIV = GetMonData(mon, MON_DATA_SPEED_IV, NULL);
+        spAttackIV = GetMonData(mon, MON_DATA_SPATK_IV, NULL);
+        spDefenseIV = GetMonData(mon, MON_DATA_SPDEF_IV, NULL);
+
+        return GetHiddenPowerType(hpIV, attackIV, defenseIV, speedIV, spAttackIV, spDefenseIV);
+    }
+    else
+        return move.type;
 }
