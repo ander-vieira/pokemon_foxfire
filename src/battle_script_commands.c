@@ -588,7 +588,7 @@ static const struct StatFractions sAccuracyStageRatios[] =
 };
 
 // The chance is 1/N for each stage.
-static const u16 sCriticalHitChance[] = {16, 8, 4, 3, 2};
+static const u16 sCriticalHitChance[] = {16, 8, 2, 1, 1};
 
 static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
 {
@@ -1185,7 +1185,10 @@ static void Cmd_damagecalc(void)
     gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerTarget], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, gBattlerAttacker, gBattlerTarget);
-    gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
+    gBattleMoveDamage = gBattleMoveDamage * gBattleScripting.dmgMultiplier;
+
+    if(gCritMultiplier == 2)
+        gBattleMoveDamage = gBattleMoveDamage * 3 / 2;
 
     if (gStatuses3[gBattlerAttacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
         gBattleMoveDamage *= 2;
@@ -1202,7 +1205,10 @@ void AI_CalcDmg(u8 attacker, u8 defender)
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
     gDynamicBasePower = 0;
-    gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
+    gBattleMoveDamage = gBattleMoveDamage * gBattleScripting.dmgMultiplier;
+
+    if(gCritMultiplier == 2)
+        gBattleMoveDamage = gBattleMoveDamage * 3 / 2;
 
     if (gStatuses3[attacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
         gBattleMoveDamage *= 2;
@@ -6425,8 +6431,8 @@ static void Cmd_manipulatedamage(void)
         if ((gBattleMons[gBattlerTarget].maxHP / 2) < gBattleMoveDamage)
             gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 2;
         break;
-    case DMG_DOUBLED:
-        gBattleMoveDamage *= 2;
+    case DMG_BEATUP_CRIT:
+        gBattleMoveDamage = gBattleMoveDamage * 3 / 2;
         break;
     }
 

@@ -1946,7 +1946,7 @@ BattleScript_BeatUpLoop::
 	printstring STRINGID_PKMNATTACK
 	critcalc
 	jumpifbyte CMP_NOT_EQUAL, gCritMultiplier, 2, BattleScript_BeatUpAttack
-	manipulatedamage DMG_DOUBLED
+	manipulatedamage DMG_BEATUP_CRIT
 BattleScript_BeatUpAttack::
 	adjustnormaldamage
 	attackanimation

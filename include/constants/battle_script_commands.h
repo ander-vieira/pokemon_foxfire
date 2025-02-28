@@ -93,7 +93,7 @@
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
 #define DMG_RECOIL_FROM_MISS       1
-#define DMG_DOUBLED                2
+#define DMG_BEATUP_CRIT            2
 
 // Cmd_jumpifcantswitch
 #define SWITCH_IGNORE_ESCAPE_PREVENTION   (1 << 7)
