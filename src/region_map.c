@@ -1946,8 +1946,6 @@ static void InitDungeonMapPreview(u8 unused, u8 taskId, TaskFunc taskFunc)
     if (mapsec == MAPSEC_TANOBY_CHAMBERS)
         mapsec = MAPSEC_MONEAN_CHAMBER;
     sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(mapsec);
-    if (sDungeonMapPreview->mapPreviewInfo == NULL)
-        sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(MAPSEC_ROCK_TUNNEL);
     sDungeonMapPreview->mainState = 0;
     sDungeonMapPreview->loadState = 0;
     sDungeonMapPreview->savedTask = taskFunc;

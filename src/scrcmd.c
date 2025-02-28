@@ -597,7 +597,7 @@ bool8 ScrCmd_setworldmapflag(struct ScriptContext * ctx)
 {
     u16 value = ScriptReadHalfword(ctx);
     QuestLog_RecordEnteredMap(value);
-    MapPreview_SetFlag(value);
+    FlagSet(value);
     return FALSE;
 }
 

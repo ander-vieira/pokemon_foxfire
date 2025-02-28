@@ -95,33 +95,10 @@ void FadeInFromBlack(void)
 void WarpFadeOutScreen(void)
 {
     const struct MapHeader *header = GetDestinationWarpMapHeader();
-    if (header->regionMapSectionId != gMapHeader.regionMapSectionId && MapHasPreviewScreen(header->regionMapSectionId, MPS_TYPE_CAVE))
-        FadeScreen(FADE_TO_BLACK, 0);
+    if(MapTransitionIsEnter(GetCurrentMapType(), header->mapType))
+        FadeScreen(FADE_TO_WHITE, 0);
     else
-    {
-        switch (MapTransitionIsEnter(GetCurrentMapType(), header->mapType))
-        {
-        case FALSE:
-            FadeScreen(FADE_TO_BLACK, 0);
-            break;
-        case TRUE:
-            FadeScreen(FADE_TO_WHITE, 0);
-            break;
-        }
-    }
-}
-
-static void WarpFadeOutScreenWithDelay(void) // Unused
-{
-    switch (MapTransitionIsEnter(GetCurrentMapType(), GetDestinationWarpMapHeader()->mapType))
-    {
-    case FALSE:
-        FadeScreen(FADE_TO_BLACK, 3);
-        break;
-    case TRUE:
-        FadeScreen(FADE_TO_WHITE, 3);
-        break;
-    }
+        FadeScreen(FADE_TO_BLACK, 0);
 }
 
 static void SetPlayerVisibility(bool8 visible)
@@ -521,12 +498,10 @@ static bool32 WaitWarpFadeOutScreen(void)
     return gPaletteFade.active;
 }
 
+//TODO REMOVE
 bool32 FieldFadeTransitionBackgroundEffectIsFinished(void)
 {
-    if (IsWeatherNotFadingIn() == TRUE && ForestMapPreviewScreenIsRunning())
-        return TRUE;
-    else
-        return FALSE;
+    return IsWeatherNotFadingIn();
 }
 
 void DoWarp(void)
@@ -609,14 +584,6 @@ void DoTeleportWarp(void)
     TryFadeOutOldMapMusic();
     CreateTask(Task_TeleportWarp, 10);
     gFieldCallback = FieldCB_TeleportWarpIn;
-}
-
-static void DoPortholeWarp(void) // Unused
-{
-    LockPlayerFieldControls();
-    WarpFadeOutScreen();
-    CreateTask(Task_Teleport2Warp, 10);
-    gFieldCallback = FieldCB_ShowPortholeView;
 }
 
 static void Task_CableClubWarp(u8 taskId)

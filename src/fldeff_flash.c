@@ -17,140 +17,101 @@ struct FlashStruct
     u8 toType;
     bool8 isEnter;
     bool8 isExit;
-    void (*func1)(void);
-    void (*func2)(u8 mapSecId);
 };
 
 static void FieldCallback_Flash(void);
 static void FldEff_UseFlash(void);
 static bool8 TryDoMapTransition(void);
 static void FlashTransition_Exit(void);
-static void Task_FlashTransition_Exit_0(u8 taskId);
 static void Task_FlashTransition_Exit_1(u8 taskId);
 static void Task_FlashTransition_Exit_2(u8 taskId);
 static void Task_FlashTransition_Exit_3(u8 taskId);
-static void Task_FlashTransition_Exit_4(u8 taskId);
 static void FlashTransition_Enter(void);
-static void Task_FlashTransition_Enter_0(u8 taskId);
 static void Task_FlashTransition_Enter_1(u8 taskId);
 static void Task_FlashTransition_Enter_2(u8 taskId);
 static void Task_FlashTransition_Enter_3(u8 taskId);
-static void RunMapPreviewScreen(u8 mapsecId);
-static void Task_MapPreviewScreen_0(u8 taskId);
 
 static const struct FlashStruct sTransitionTypes[] = {
     {
         .fromType = MAP_TYPE_TOWN,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_CITY,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_ROUTE,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_UNDERWATER,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_OCEAN_ROUTE,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_UNKNOWN,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_INDOOR,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_SECRET_BASE,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
-        .isExit = FALSE,
-        .func1 = FlashTransition_Enter,
-        .func2 = RunMapPreviewScreen
+        .isExit = FALSE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_TOWN,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_CITY,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_ROUTE,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_UNDERWATER,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_OCEAN_ROUTE,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_UNKNOWN,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_INDOOR,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
         .toType = MAP_TYPE_SECRET_BASE,
         .isEnter = FALSE,
-        .isExit = TRUE,
-        .func1 = FlashTransition_Exit,
-        .func2 = RunMapPreviewScreen
+        .isExit = TRUE
     }, {0}
 };
 
@@ -161,6 +122,8 @@ static const u16 sCaveTransitionPalette_Enter[] = INCBIN_U16("graphics/cave_tran
 static const u16 sCaveTransitionPalette_Exit[] = INCBIN_U16("graphics/cave_transition/exit.gbapal");
 static const u32 sCaveTransitionTilemap[] = INCBIN_U32("graphics/cave_transition/tilemap.bin.lz");
 static const u32 sCaveTransitionTiles[] = INCBIN_U32("graphics/cave_transition/tiles.4bpp.lz");
+
+#define COUNT gTasks[taskId].data[0]
 
 bool8 SetUpFieldMove_Flash(void)
 {
@@ -239,17 +202,19 @@ static bool8 TryDoMapTransition(void)
 {
     u8 fromType = GetLastUsedWarpMapType();
     u8 toType = GetCurrentMapType();
-    u8 i = 0;
-    if (GetLastUsedWarpMapSectionId() != gMapHeader.regionMapSectionId && MapHasPreviewScreen_HandleQLState2(gMapHeader.regionMapSectionId, MPS_TYPE_CAVE) == TRUE)
+    u8 i;
+    const struct FlashStruct *transitionType;
+
+    for (i = 0 ; sTransitionTypes[i].fromType != 0 ; i++)
     {
-        RunMapPreviewScreen(gMapHeader.regionMapSectionId);
-        return TRUE;
-    }
-    for (; sTransitionTypes[i].fromType != 0; i++)
-    {
-        if (sTransitionTypes[i].fromType == fromType && sTransitionTypes[i].toType == toType)
+        transitionType = &(sTransitionTypes[i]);
+
+        if (transitionType->fromType == fromType && transitionType->toType == toType)
         {
-            sTransitionTypes[i].func1();
+            if(transitionType->isEnter)
+                FlashTransition_Enter();
+            else if(transitionType->isExit)
+                FlashTransition_Exit();
             return TRUE;
         }
     }
@@ -288,12 +253,7 @@ bool8 MapTransitionIsExit(u8 _fromType, u8 _toType)
 
 static void FlashTransition_Exit(void)
 {
-    CreateTask(Task_FlashTransition_Exit_0, 0);
-}
-
-static void Task_FlashTransition_Exit_0(u8 taskId)
-{
-    gTasks[taskId].func = Task_FlashTransition_Exit_1;
+    CreateTask(Task_FlashTransition_Exit_1, 0);
 }
 
 static void Task_FlashTransition_Exit_1(u8 taskId)
@@ -309,59 +269,27 @@ static void Task_FlashTransition_Exit_1(u8 taskId)
     SetGpuReg(REG_OFFSET_BG0CNT, BGCNT_PRIORITY(0) | BGCNT_CHARBASE(3) | BGCNT_SCREENBASE(31));
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_OBJ_1D_MAP | DISPCNT_BG0_ON | DISPCNT_OBJ_ON);
     gTasks[taskId].func = Task_FlashTransition_Exit_2;
-    gTasks[taskId].data[0] = 16;
-    gTasks[taskId].data[1] = 0;
+    COUNT = 0;
 }
 
 static void Task_FlashTransition_Exit_2(u8 taskId)
 {
-    u16 r4 = gTasks[taskId].data[1];
-    SetGpuReg(REG_OFFSET_BLDALPHA, (16 << 8) + r4);
-    if (r4 <= 16)
-    {
-        gTasks[taskId].data[1]++;
-    }
+    SetGpuReg(REG_OFFSET_BLDALPHA, (16 << 8) + COUNT);
+    if (COUNT < 16)
+        COUNT++;
     else
-    {
-        gTasks[taskId].data[2] = 0;
         gTasks[taskId].func = Task_FlashTransition_Exit_3;
-    }
 }
 
 static void Task_FlashTransition_Exit_3(u8 taskId)
 {
-    u16 count;
-    SetGpuReg(REG_OFFSET_BLDALPHA, (16 << 8) + 16);
-    count = gTasks[taskId].data[2];
-    if (count < 8)
-    {
-        gTasks[taskId].data[2]++;
-        LoadPalette(&sCaveTransitionPalette_Exit[count], BG_PLTT_ID(14), sizeof(sCaveTransitionPalette_Exit) - PLTT_SIZEOF(count));
-    }
-    else
-    {
-        LoadPalette(sCaveTransitionPalette_White, BG_PLTT_ID(0), sizeof(sCaveTransitionPalette_White));
-        gTasks[taskId].func = Task_FlashTransition_Exit_4;
-        gTasks[taskId].data[2] = 8;
-    }
-}
-
-static void Task_FlashTransition_Exit_4(u8 taskId)
-{
-    if (gTasks[taskId].data[2] != 0)
-        gTasks[taskId].data[2]--;
-    else
-        SetMainCallback2(gMain.savedCallback);
+    LoadPalette(sCaveTransitionPalette_White, BG_PLTT_ID(0), sizeof(sCaveTransitionPalette_White));
+    SetMainCallback2(gMain.savedCallback);
 }
 
 static void FlashTransition_Enter(void)
 {
-    CreateTask(Task_FlashTransition_Enter_0, 0);
-}
-
-static void Task_FlashTransition_Enter_0(u8 taskId)
-{
-    gTasks[taskId].func = Task_FlashTransition_Enter_1;
+    CreateTask(Task_FlashTransition_Enter_1, 0);
 }
 
 static void Task_FlashTransition_Enter_1(u8 taskId)
@@ -377,36 +305,30 @@ static void Task_FlashTransition_Enter_1(u8 taskId)
     LoadPalette(sCaveTransitionPalette_White, BG_PLTT_ID(14), sizeof(sCaveTransitionPalette_White));
     LoadPalette(sCaveTransitionPalette_Black, BG_PLTT_ID(0), sizeof(sCaveTransitionPalette_Black));
     gTasks[taskId].func = Task_FlashTransition_Enter_2;
-    gTasks[taskId].data[0] = 16;
-    gTasks[taskId].data[1] = 0;
-    gTasks[taskId].data[2] = 0;
+    COUNT = 0;
 }
 
 static void Task_FlashTransition_Enter_2(u8 taskId)
 {
-    u16 count = gTasks[taskId].data[2];
-    if (count < 16)
+    if (COUNT < 16)
     {
-        gTasks[taskId].data[2]++;
-        gTasks[taskId].data[2]++;
-        LoadPalette(&sCaveTransitionPalette_Enter[15 - count], BG_PLTT_ID(14), PLTT_SIZEOF(count + 1));
+        LoadPalette(&sCaveTransitionPalette_Enter[15 - COUNT], BG_PLTT_ID(14), PLTT_SIZEOF(COUNT + 1));
+        COUNT += 2;
     }
     else
     {
         SetGpuReg(REG_OFFSET_BLDALPHA, (16 << 8) + 16);
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG0 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_TGT2_BD);
+        COUNT = 0;
         gTasks[taskId].func = Task_FlashTransition_Enter_3;
     }
 }
 
 static void Task_FlashTransition_Enter_3(u8 taskId)
 {
-    u16 r4 = 16 - gTasks[taskId].data[1];
-    SetGpuReg(REG_OFFSET_BLDALPHA, (16 << 8) + r4);
-    if (r4 != 0)
-    {
-        gTasks[taskId].data[1]++;
-    }
+    SetGpuReg(REG_OFFSET_BLDALPHA, (16 << 8) + (16 - COUNT));
+    if (COUNT < 16)
+        COUNT++;
     else
     {
         LoadPalette(sCaveTransitionPalette_Black, BG_PLTT_ID(0), sizeof(sCaveTransitionPalette_Black));
@@ -414,67 +336,4 @@ static void Task_FlashTransition_Enter_3(u8 taskId)
     }
 }
 
-static void RunMapPreviewScreen(u8 mapSecId)
-{
-    u8 taskId = CreateTask(Task_MapPreviewScreen_0, 0);
-    gTasks[taskId].data[3] = mapSecId;
-}
-
-static void Task_MapPreviewScreen_0(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-    switch (data[0])
-    {
-    case 0:
-        SetWordTaskArg(taskId, 5, (uintptr_t)gMain.vblankCallback);
-        SetVBlankCallback(NULL);
-        MapPreview_InitBgs();
-        MapPreview_LoadGfx(data[3]);
-        BlendPalettes(PALETTES_ALL, 0x10, RGB_BLACK);
-        data[0]++;
-        break;
-    case 1:
-        if (!MapPreview_IsGfxLoadFinished())
-        {
-            data[4] = MapPreview_CreateMapNameWindow(data[3]);
-            CopyWindowToVram(data[4], COPYWIN_FULL);
-            data[0]++;
-        }
-        break;
-    case 2:
-        if (!IsDma3ManagerBusyWithBgCopy())
-        {
-            BeginNormalPaletteFade(PALETTES_ALL, -1, 16, 0, RGB_BLACK);
-            SetVBlankCallback((IntrCallback)GetWordTaskArg(taskId, 5));
-            data[0]++;
-        }
-        break;
-    case 3:
-        if (!UpdatePaletteFade())
-        {
-            data[2] = MapPreview_GetDuration(data[3]);
-            data[0]++;
-        }
-        break;
-    case 4:
-        data[1]++;
-        if (data[1] > data[2] || JOY_HELD(B_BUTTON))
-        {
-            BeginNormalPaletteFade(PALETTES_ALL, -2, 0, 16, RGB_WHITE);
-            data[0]++;
-        }
-        break;
-    case 5:
-        if (!UpdatePaletteFade())
-        {
-            int i;
-            for (i = 0; i < 16; i++)
-            {
-                data[i] = 0;
-            }
-            MapPreview_Unload(data[4]);
-            gTasks[taskId].func = Task_FlashTransition_Enter_1;
-        }
-        break;
-    }
-}
+#undef COUNT
