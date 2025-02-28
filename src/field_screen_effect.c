@@ -11,6 +11,7 @@
 #include "new_menu_helpers.h"
 #include "event_object_movement.h"
 #include "field_fadetransition.h"
+#include "field_weather.h"
 #include "event_scripts.h"
 #include "constants/heal_locations.h"
 #include "constants/maps.h"
@@ -435,14 +436,14 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         gTasks[taskId].tState++;
         break;
     case 3:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+        if (IsWeatherNotFadingIn())
         {
             DestroyTask(taskId);
             ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal);
         }
         break;
     case 6:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+        if (IsWeatherNotFadingIn())
         {
             DestroyTask(taskId);
             ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);

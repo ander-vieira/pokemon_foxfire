@@ -108,7 +108,7 @@ static void SetPlayerVisibility(bool8 visible)
 
 static void Task_ContinueScriptUnionRoom(u8 taskId)
 {
-    if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+    if (IsWeatherNotFadingIn())
         DestroyTask(taskId);
 }
 
@@ -122,7 +122,7 @@ void FieldCB_ContinueScriptUnionRoom(void)
 
 static void Task_ContinueScript(u8 taskId)
 {
-    if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+    if (IsWeatherNotFadingIn())
     {
         DestroyTask(taskId);
         ScriptContext_Enable();
@@ -161,7 +161,7 @@ static void Task_ReturnToFieldCableLink(u8 taskId)
         }
         break;
     case 2:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+        if (IsWeatherNotFadingIn())
         {
             UnlockPlayerFieldControls();
             DestroyTask(taskId);
@@ -195,7 +195,7 @@ static void Task_ReturnToFieldRecordMixing(u8 taskId)
         }
         break;
     case 2:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+        if (IsWeatherNotFadingIn())
         {
             StartSendingKeysToLink();
             UnlockPlayerFieldControls();
@@ -221,7 +221,7 @@ static void SetUpWarpExitTask(bool8 playerNotMoving)
 
     PlayerGetDestCoords(&x, &y);
     metatileBehavior = MapGridGetMetatileBehaviorAt(x, y);
-    if (MetatileBehavior_IsWarpDoor_2(metatileBehavior) == TRUE)
+    if (MetatileBehavior_IsWarpDoor_2(metatileBehavior))
     {
         func = Task_ExitDoor;
         switch (MapTransitionIsExit(GetLastUsedWarpMapType(), GetCurrentMapType()))
@@ -237,9 +237,9 @@ static void SetUpWarpExitTask(bool8 playerNotMoving)
     else
     {
         ExitWarpFadeInScreen(playerNotMoving);
-        if (MetatileBehavior_IsNonAnimDoor(metatileBehavior) == TRUE)
+        if (MetatileBehavior_IsNonAnimDoor(metatileBehavior))
             func = Task_ExitNonAnimDoor;
-        else if (MetatileBehavior_IsDirectionalStairWarp(metatileBehavior) == TRUE)
+        else if (MetatileBehavior_IsDirectionalStairWarp(metatileBehavior))
         {
             u8 tmp = gExitStairsMovementDisabled;
             func = Task_ExitNonDoor;
@@ -341,7 +341,7 @@ static void Task_ExitDoor(u8 taskId)
         }
         break;
     case 9:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() && walkrun_is_standing_still() && !FieldIsDoorAnimationRunning() && !FuncIsActiveTask(Task_BarnDoorWipe))
+        if (IsWeatherNotFadingIn() && walkrun_is_standing_still() && !FieldIsDoorAnimationRunning() && !FuncIsActiveTask(Task_BarnDoorWipe))
         {
             ObjectEventClearHeldMovementIfFinished(&gObjectEvents[GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0)]);
             task->data[0] = 4;
@@ -349,7 +349,7 @@ static void Task_ExitDoor(u8 taskId)
         break;
     // Legacy RS
     case 1:
-        if (FieldFadeTransitionBackgroundEffectIsFinished())
+        if (IsWeatherNotFadingIn())
         {
             SetPlayerVisibility(TRUE);
             ObjectEventSetHeldMovement(&gObjectEvents[GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0)], MOVEMENT_ACTION_WALK_NORMAL_DOWN);
@@ -391,7 +391,7 @@ static void Task_ExitNonAnimDoor(u8 taskId)
         task->data[0] = 1;
         break;
     case 1:
-        if (FieldFadeTransitionBackgroundEffectIsFinished())
+        if (IsWeatherNotFadingIn())
         {
             SetPlayerVisibility(TRUE);
             ObjectEventSetHeldMovement(&gObjectEvents[GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0)], GetWalkNormalMovementAction(GetPlayerFacingDirection()));
@@ -422,7 +422,7 @@ static void Task_ExitNonDoor(u8 taskId)
         gTasks[taskId].data[0]++;
         break;
     case 1:
-        if (FieldFadeTransitionBackgroundEffectIsFinished())
+        if (IsWeatherNotFadingIn())
         {
             UnfreezeObjectEvents();
             UnlockPlayerFieldControls();
@@ -443,7 +443,7 @@ static void Task_TeleportWarpIn(u8 taskId)
         gTasks[taskId].data[0]++;
         break;
     case 1:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() && WaitTeleportInPlayerAnim() != TRUE)
+        if (IsWeatherNotFadingIn() && WaitTeleportInPlayerAnim() != TRUE)
         {
             UnfreezeObjectEvents();
             UnlockPlayerFieldControls();
@@ -455,7 +455,7 @@ static void Task_TeleportWarpIn(u8 taskId)
 
 static void Task_WaitFadeAndCreateStartMenuTask(u8 taskId)
 {
-    if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+    if (IsWeatherNotFadingIn())
     {
         DestroyTask(taskId);
         CreateTask(Task_StartMenuHandleInput, 80);
@@ -477,7 +477,7 @@ bool8 FieldCB_ReturnToFieldOpenStartMenu(void)
 
 static void Task_SafariZoneRanOutOfBalls(u8 taskId)
 {
-    if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+    if (IsWeatherNotFadingIn())
     {
         UnlockPlayerFieldControls();
         DestroyTask(taskId);
@@ -496,12 +496,6 @@ void FieldCB_SafariZoneRanOutOfBalls(void)
 static bool32 WaitWarpFadeOutScreen(void)
 {
     return gPaletteFade.active;
-}
-
-//TODO REMOVE
-bool32 FieldFadeTransitionBackgroundEffectIsFinished(void)
-{
-    return IsWeatherNotFadingIn();
 }
 
 void DoWarp(void)
@@ -862,7 +856,7 @@ static void Task_ExitStairs(u8 taskId)
     switch (data[0])
     {
     default:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+        if (IsWeatherNotFadingIn())
         {
             CameraObjectReset1();
             UnlockPlayerFieldControls();

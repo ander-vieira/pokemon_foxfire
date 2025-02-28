@@ -20,7 +20,6 @@ void WarpFadeInScreen(void);
 
 void FieldCB_ContinueScriptUnionRoom(void);
 
-bool32 FieldFadeTransitionBackgroundEffectIsFinished(void);
 void palette_bg_faded_fill_black(void);
 void DoStairWarp(u16 metatileBehavior, u16 delay);
 void DoEscalatorWarp(u8 a0);
