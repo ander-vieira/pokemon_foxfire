@@ -1,16 +1,10 @@
 EventScript_CutTree::
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
-	goto_if_unset FLAG_BADGE02_GET, EventScript_CantCutTree
+	goto_if_unset FLAG_BADGE02_GET, EventScript_ReleaseEnd
 	checkpartymove MOVE_CUT
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_ReleaseEnd
 	setfieldeffectargument 0, VAR_RESULT
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	buffermovename STR_VAR_2, MOVE_CUT
-	msgbox Text_CutTreeDown, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_DontCutTree
-	msgbox Text_MonUsedMove
-	closemessage
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
 	waitstate
 	goto EventScript_CutTreeDown
@@ -34,27 +28,8 @@ Movement_CutTreeDown::
 	cut_tree
 	step_end
 
-EventScript_CantCutTree::
-	msgbox Text_TreeCanBeCutDown, MSGBOX_SIGN
-	releaseall
-	end
-
-EventScript_DontCutTree::
-	closemessage
-	releaseall
-	end
-
-Text_CutTreeDown::
-	.string "This tree looks like it can be CUT\n"
-	.string "down!\p"
-	.string "Would you like to CUT it?$"
-
 Text_MonUsedMove::
 	.string "{STR_VAR_1} used {STR_VAR_2}!$"
-
-Text_TreeCanBeCutDown::
-	.string "This tree looks like it can be CUT\n"
-	.string "down!$"
 
 EventScript_RockSmash::
 	goto_if_questlog EventScript_ReleaseEnd
