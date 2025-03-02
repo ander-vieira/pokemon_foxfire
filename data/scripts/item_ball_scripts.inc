@@ -639,7 +639,7 @@ FiveIsland_RocketWarehouse_EventScript_ItemPearl::
 	end
 
 FiveIsland_RocketWarehouse_EventScript_ItemUpGrade::
-	finditem ITEM_UP_GRADE
+	finditem ITEM_UPGRADE
 	end
 
 FiveIsland_LostCave_Room10_EventScript_ItemSilkScarf::

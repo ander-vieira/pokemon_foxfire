@@ -36,12 +36,12 @@ static const u8 sItemEffect_MaxPotion[7] = {
 
 static const u8 sItemEffect_HyperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
-    [6] = 200, // Amount of HP to recover
+    [6] = 120, // Amount of HP to recover
 };
 
 static const u8 sItemEffect_SuperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
-    [6] = 50, // Amount of HP to recover
+    [6] = 60, // Amount of HP to recover
 };
 
 static const u8 sItemEffect_FullHeal[6] = {
@@ -60,7 +60,7 @@ static const u8 sItemEffect_MaxRevive[7] = {
 
 static const u8 sItemEffect_FreshWater[7] = {
     [4] = ITEM4_HEAL_HP,
-    [6] = 50, // Amount of HP to recover
+    [6] = 40, // Amount of HP to recover
 };
 
 static const u8 sItemEffect_SodaPop[7] = {

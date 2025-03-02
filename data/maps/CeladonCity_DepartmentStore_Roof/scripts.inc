@@ -230,7 +230,7 @@ CeladonCity_DepartmentStore_Roof_EventScript_BuySodaPop::
 
 CeladonCity_DepartmentStore_Roof_EventScript_BuyLemonade::
 	setvar VAR_TEMP_0, ITEM_LEMONADE
-	checkmoney 350
+	checkmoney 400
 	goto CeladonCity_DepartmentStore_Roof_EventScript_TryBuyDrink
 	end
 
@@ -243,7 +243,7 @@ CeladonCity_DepartmentStore_Roof_EventScript_RemoveMoneySodaPop::
 	return
 
 CeladonCity_DepartmentStore_Roof_EventScript_RemoveMoneyLemonade::
-	removemoney 350
+	removemoney 400
 	return
 
 CeladonCity_DepartmentStore_Roof_EventScript_TryBuyDrink::
