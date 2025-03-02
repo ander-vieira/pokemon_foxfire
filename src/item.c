@@ -612,12 +612,6 @@ const u8 * ItemId_GetName(u16 itemId)
     return gItems[SanitizeItemId(itemId)].name;
 }
 
-// Unused
-u16 ItemId_GetId(u16 itemId)
-{
-    return gItems[SanitizeItemId(itemId)].itemId;
-}
-
 u16 ItemId_GetPrice(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].price;
@@ -641,12 +635,6 @@ const u8 * ItemId_GetDescription(u16 itemId)
 u8 ItemId_GetImportance(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].importance;
-}
-
-// Unused
-u8 ItemId_GetRegistrability(u16 itemId)
-{
-    return gItems[SanitizeItemId(itemId)].registrability;
 }
 
 u8 ItemId_GetPocket(u16 itemId)
