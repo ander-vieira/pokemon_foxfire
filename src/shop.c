@@ -25,6 +25,7 @@
 #include "money.h"
 #include "quest_log.h"
 #include "script.h"
+#include "event_data.h"
 #include "constants/songs.h"
 #include "constants/items.h"
 #include "constants/game_stat.h"
@@ -67,6 +68,12 @@ struct ShopData
              u16 itemSlot:2;
              u16 unk16_11:5;
     /*0x18*/ u16 unk18;
+};
+
+struct ShopItemFlag
+{
+    u16 itemId;
+    u16 flag;
 };
 
 static EWRAM_DATA s16 sViewportObjectEvents[OBJECT_EVENTS_COUNT][4] = {0};
@@ -203,6 +210,19 @@ static const struct BgTemplate sShopBuyMenuBgTemplates[4] =
     }
 };
 
+static const struct ShopItemFlag sShopItemFlags[] =
+{
+    {.itemId = ITEM_TM39, .flag = FLAG_BADGE01_GET},
+    {.itemId = ITEM_TM03, .flag = FLAG_BADGE02_GET},
+    {.itemId = ITEM_TM34, .flag = FLAG_BADGE03_GET},
+    {.itemId = ITEM_TM19, .flag = FLAG_BADGE04_GET},
+    {.itemId = ITEM_TM06, .flag = FLAG_BADGE05_GET},
+    {.itemId = ITEM_TM04, .flag = FLAG_BADGE06_GET},
+    {.itemId = ITEM_TM38, .flag = FLAG_BADGE07_GET},
+    {.itemId = ITEM_TM26, .flag = FLAG_BADGE08_GET},
+    {.itemId = ITEM_NONE, .flag = 0},
+};
+
 // Functions
 static u8 CreateShopMenu(u8 martType)
 {
@@ -240,14 +260,10 @@ static u8 GetMartTypeFromItemList(u32 martType)
 static void SetShopItemsForSale(const u16 *items)
 {
     sShopData.itemList = items;
-    sShopData.itemCount = 0;
-    if (sShopData.itemList[0] == 0)
-        return;
 
+    sShopData.itemCount = 0;
     while (sShopData.itemList[sShopData.itemCount])
-    {
-        ++sShopData.itemCount;
-    }
+        (sShopData.itemCount)++;
 }
 
 static void SetShopMenuCallback(void (*callback)(void))
@@ -507,28 +523,60 @@ static void BuyMenuDrawGraphics(void)
     ScheduleBgCopyTilemapToVram(3);
 }
 
+static bool8 CanBuyItem(u16 itemId)
+{
+    u16 i;
+
+    for (i = 0 ; sShopItemFlags[i].itemId != ITEM_NONE ; i++)
+        if (sShopItemFlags[i].itemId == itemId && !FlagGet(sShopItemFlags[i].flag))
+            return FALSE;
+
+    return TRUE;
+}
+
+static u16 CountBuyableItems(void)
+{
+    u16 i;
+    u16 totalItems = 0;
+
+    for (i = 0 ; i < sShopData.itemCount ; i++)
+        if (CanBuyItem(sShopData.itemList[i]))
+            (totalItems)++;
+    
+    return totalItems;
+}
+
+static void SetBuyableItems(void)
+{
+    u16 i, j;
+
+    for (i = 0, j = 0 ; i < sShopData.itemCount ; i++)
+        if (CanBuyItem(sShopData.itemList[i])) {
+            PokeMartWriteNameAndIdAt(&sShopMenuListMenu[j], sShopData.itemList[i], sShopMenuItemStrings[j]);
+            j++;
+        }
+}
+
 bool8 BuyMenuBuildListMenuTemplate(void)
 {
-    u16 i, v;
+    u16 v, totalItems;
 
-    sShopMenuListMenu = Alloc((sShopData.itemCount + 1) * sizeof(*sShopMenuListMenu));
-    if (sShopMenuListMenu == NULL
-     || (sShopMenuItemStrings = Alloc((sShopData.itemCount + 1) * sizeof(*sShopMenuItemStrings))) == NULL)
+    totalItems = CountBuyableItems();
+    sShopMenuListMenu = Alloc((totalItems + 1) * sizeof(*sShopMenuListMenu));
+    sShopMenuItemStrings = Alloc((totalItems + 1) * sizeof(*sShopMenuItemStrings));
+    if (sShopMenuListMenu == NULL || sShopMenuItemStrings == NULL)
     {
         BuyMenuFreeMemory();
         SetShopExitCallback();
         return FALSE;
     }
-
-    for (i = 0; i < sShopData.itemCount; i++)
-    {
-        PokeMartWriteNameAndIdAt(&sShopMenuListMenu[i], sShopData.itemList[i], sShopMenuItemStrings[i]);
-    }
-    StringCopy(sShopMenuItemStrings[i], gFameCheckerText_Cancel);
-    sShopMenuListMenu[i].label = sShopMenuItemStrings[i];
-    sShopMenuListMenu[i].index = -2;
+    SetBuyableItems();
+    
+    StringCopy(sShopMenuItemStrings[totalItems], gFameCheckerText_Cancel);
+    sShopMenuListMenu[totalItems].label = sShopMenuItemStrings[totalItems];
+    sShopMenuListMenu[totalItems].index = -2;
     gMultiuseListMenuTemplate.items = sShopMenuListMenu;
-    gMultiuseListMenuTemplate.totalItems = sShopData.itemCount + 1;
+    gMultiuseListMenuTemplate.totalItems = totalItems + 1;
     gMultiuseListMenuTemplate.windowId = 4;
     gMultiuseListMenuTemplate.header_X = 0;
     gMultiuseListMenuTemplate.item_X = 9;
