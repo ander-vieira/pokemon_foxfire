@@ -61,8 +61,7 @@ CeladonCity_DepartmentStore_Roof_Text_ImThirstyIWantDrink::
     .string "I want something to drink!$"
 
 CeladonCity_DepartmentStore_Roof_Text_FloorSign::
-    .string "ROOFTOP SQUARE:\n"
-    .string "VENDING MACHINES$"
+    .string "ROOFTOP: VENDING MACHINES$"
 
 CeladonCity_DepartmentStore_Roof_Text_VendingMachineWhatDoesItHave::
     .string "A vending machine!\n"

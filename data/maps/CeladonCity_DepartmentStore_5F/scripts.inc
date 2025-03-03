@@ -2,60 +2,85 @@ CeladonCity_DepartmentStore_5F_MapScripts::
 	.byte 0
 
 CeladonCity_DepartmentStore_5F_EventScript_Gentleman::
-	msgbox CeladonCity_DepartmentStore_5F_Text_ExplainStatEnhancers, MSGBOX_NPC
+	msgbox CeladonCity_DepartmentStore_5F_Text_CheckOften, MSGBOX_NPC
 	end
 
 CeladonCity_DepartmentStore_5F_EventScript_Sailor::
-	msgbox CeladonCity_DepartmentStore_5F_Text_HereForStatEnhancers, MSGBOX_NPC
+	msgbox CeladonCity_DepartmentStore_5F_Text_WhatTMs, MSGBOX_NPC
 	end
 
 CeladonCity_DepartmentStore_5F_EventScript_FloorSign::
-	msgbox CeladonCity_DepartmentStore_5F_Text_Drugstore, MSGBOX_SIGN
+	msgbox CeladonCity_DepartmentStore_5F_Text_TMCorner, MSGBOX_SIGN
 	end
 
-CeladonCity_DepartmentStore_5F_EventScript_ClerkXItems::
+CeladonCity_DepartmentStore_5F_EventScript_ClerkTMsUpper::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
 	message Text_MayIHelpYou
 	waitmessage
-	pokemart CeladonCity_DepartmentStore_5F_XItems
+	pokemart CeladonCity_DepartmentStore_5F_TMsUpper
 	msgbox Text_PleaseComeAgain
 	release
 	end
 
 	.align 2
-CeladonCity_DepartmentStore_5F_XItems::
-	.2byte ITEM_X_ATTACK
-	.2byte ITEM_X_DEFEND
-	.2byte ITEM_X_SPEED
-	.2byte ITEM_X_SPECIAL
-	.2byte ITEM_X_ACCURACY
-	.2byte ITEM_GUARD_SPEC
-	.2byte ITEM_DIRE_HIT
+CeladonCity_DepartmentStore_5F_TMsUpper::
+	.2byte ITEM_TM07
+	.2byte ITEM_TM10
+	.2byte ITEM_TM28
+	.2byte ITEM_TM31
+	.2byte ITEM_TM40
+	.2byte ITEM_TM42
+	.2byte ITEM_TM46
+	.2byte ITEM_TM47
 	.2byte ITEM_NONE
 	release
 	end
 
-CeladonCity_DepartmentStore_5F_EventScript_ClerkVitamins::
+CeladonCity_DepartmentStore_5F_EventScript_ClerkTMsMiddle::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
 	message Text_MayIHelpYou
 	waitmessage
-	pokemart CeladonCity_DepartmentStore_5F_Vitamins
+	pokemart CeladonCity_DepartmentStore_5F_TMsMiddle
 	msgbox Text_PleaseComeAgain
 	release
 	end
 
 	.align 2
-CeladonCity_DepartmentStore_5F_Vitamins::
-	.2byte ITEM_HP_UP
-	.2byte ITEM_PROTEIN
-	.2byte ITEM_IRON
-	.2byte ITEM_CALCIUM
-	.2byte ITEM_ZINC
-	.2byte ITEM_CARBOS
+CeladonCity_DepartmentStore_5F_TMsMiddle::
+	.2byte ITEM_TM03
+	.2byte ITEM_TM04
+	.2byte ITEM_TM06
+	.2byte ITEM_TM19
+	.2byte ITEM_TM34
+	.2byte ITEM_TM39
+	.2byte ITEM_TM38
+	.2byte ITEM_TM26
+	.2byte ITEM_NONE
+	release
+	end
+
+CeladonCity_DepartmentStore_5F_EventScript_ClerkTMsLower::
+	goto_if_questlog EventScript_ReleaseEnd
+	lock
+	faceplayer
+	message Text_MayIHelpYou
+	waitmessage
+	pokemart CeladonCity_DepartmentStore_5F_TMsLower
+	msgbox Text_PleaseComeAgain
+	release
+	end
+
+	.align 2
+CeladonCity_DepartmentStore_5F_TMsLower::
+	.2byte ITEM_TM05
+	.2byte ITEM_TM16
+	.2byte ITEM_TM17
+	.2byte ITEM_TM32
+	.2byte ITEM_TM33
 	.2byte ITEM_NONE
 	release
 	end

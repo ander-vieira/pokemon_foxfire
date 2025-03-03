@@ -3,9 +3,9 @@ CeladonCity_Restaurant_Text_TakingBreakRightNow::
     .string "Sorry, but we're taking a break\n"
     .string "right now.$"
 
-CeladonCity_Restaurant_Text_OftenGoToDrugstore::
+CeladonCity_Restaurant_Text_OftenGoToCenter::
     .string "My POKéMON are weak, so I often\n"
-    .string "have to go to the DRUGSTORE.$"
+    .string "have to go to the POKéMON CENTER.$"
 
 CeladonCity_Restaurant_Text_PsstBasementUnderGameCorner::
     .string "Psst! There's a basement under the\n"

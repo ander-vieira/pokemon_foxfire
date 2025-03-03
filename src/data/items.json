@@ -355,7 +355,7 @@
     {
       "english": "SUPER POTION",
       "itemId": "ITEM_SUPER_POTION",
-      "price": 400,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 60,
       "description_english": "A spray-type wound medicine.\\nIt restores the HP of one POKéMON\\nby 60 points.",

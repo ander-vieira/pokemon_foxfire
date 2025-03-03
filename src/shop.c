@@ -212,6 +212,18 @@ static const struct BgTemplate sShopBuyMenuBgTemplates[4] =
 
 static const struct ShopItemFlag sShopItemFlags[] =
 {
+    {.itemId = ITEM_GREAT_BALL, .flag = FLAG_BADGE02_GET},
+    {.itemId = ITEM_ULTRA_BALL, .flag = FLAG_BADGE05_GET},
+    {.itemId = ITEM_SUPER_POTION, .flag = FLAG_BADGE02_GET},
+    {.itemId = ITEM_HYPER_POTION, .flag = FLAG_BADGE05_GET},
+    {.itemId = ITEM_MAX_ETHER, .flag = FLAG_BADGE02_GET},
+    {.itemId = ITEM_REVIVE, .flag = FLAG_BADGE02_GET},
+    {.itemId = ITEM_PARALYZE_HEAL, .flag = FLAG_BADGE01_GET},
+    {.itemId = ITEM_AWAKENING, .flag = FLAG_BADGE01_GET},
+    {.itemId = ITEM_BURN_HEAL, .flag = FLAG_BADGE01_GET},
+    {.itemId = ITEM_ICE_HEAL, .flag = FLAG_BADGE01_GET},
+    {.itemId = ITEM_FULL_HEAL, .flag = FLAG_BADGE02_GET},
+    {.itemId = ITEM_MAX_REPEL, .flag = FLAG_BADGE01_GET},
     {.itemId = ITEM_TM39, .flag = FLAG_BADGE01_GET},
     {.itemId = ITEM_TM03, .flag = FLAG_BADGE02_GET},
     {.itemId = ITEM_TM34, .flag = FLAG_BADGE03_GET},

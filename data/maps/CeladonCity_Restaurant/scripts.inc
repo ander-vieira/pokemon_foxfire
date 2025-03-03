@@ -6,7 +6,7 @@ CeladonCity_Restaurant_EventScript_Chef::
 	end
 
 CeladonCity_Restaurant_EventScript_Woman::
-	msgbox CeladonCity_Restaurant_Text_OftenGoToDrugstore, MSGBOX_NPC
+	msgbox CeladonCity_Restaurant_Text_OftenGoToCenter, MSGBOX_NPC
 	end
 
 CeladonCity_Restaurant_EventScript_CoinCaseMan::
