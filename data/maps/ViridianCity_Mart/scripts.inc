@@ -30,7 +30,7 @@ ViridianCity_Mart_EventScript_ParcelScene::
 	waitmovement 0
 	msgbox ViridianCity_Mart_Text_TakeThisToProfOak
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 1
-	giveitem_msg ViridianCity_Mart_Text_ReceivedOaksParcelFromClerk, ITEM_OAKS_PARCEL, 1, MUS_OBTAIN_KEY_ITEM
+	giveitem ITEM_OAKS_PARCEL
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 5
 	releaseall
 	end
@@ -52,24 +52,14 @@ ViridianCity_Mart_Movement_FacePlayer::
 	step_end
 
 ViridianCity_Mart_EventScript_Clerk::
+	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
 	goto_if_eq VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 1, ViridianCity_Mart_EventScript_SayHiToOak
-	goto_if_questlog EventScript_ReleaseEnd
 	message Text_MayIHelpYou
 	waitmessage
-	pokemart ViridianCity_Mart_Items
+	pokemart GenericPokemart_Items
 	msgbox Text_PleaseComeAgain
-	release
-	end
-
-	.align 2
-ViridianCity_Mart_Items::
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_POTION
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_NONE
 	release
 	end
 

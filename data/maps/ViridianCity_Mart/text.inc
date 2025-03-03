@@ -7,10 +7,6 @@ ViridianCity_Mart_Text_TakeThisToProfOak::
     .string "His order came in.\n"
     .string "Can I get you to take it to him?$"
 
-ViridianCity_Mart_Text_ReceivedOaksParcelFromClerk::
-    .string "{PLAYER} received OAK'S PARCEL\n"
-    .string "from the POKéMON MART clerk.$"
-
 ViridianCity_Mart_Text_SayHiToOakForMe::
     .string "Okay, thanks! Please say hi to\n"
     .string "PROF. OAK for me, too.$"
