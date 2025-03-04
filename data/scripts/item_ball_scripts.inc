@@ -22,8 +22,8 @@ MtMoon_1F_EventScript_ItemParalyzeHeal::
 	finditem ITEM_PARALYZE_HEAL
 	end
 
-MtMoon_1F_EventScript_ItemTM09::
-	finditem ITEM_TM09
+MtMoon_1F_EventScript_ItemTM07::
+	finditem ITEM_TM07
 	end
 
 MtMoon_1F_EventScript_ItemPotion::
@@ -346,8 +346,8 @@ VictoryRoad_2F_EventScript_ItemGuardSpec::
 	finditem ITEM_GUARD_SPEC
 	end
 
-VictoryRoad_2F_EventScript_ItemTM07::
-	finditem ITEM_TM07
+VictoryRoad_2F_EventScript_ItemTM09::
+	finditem ITEM_TM09
 	end
 
 VictoryRoad_2F_EventScript_ItemFullHeal::
