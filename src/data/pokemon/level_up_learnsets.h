@@ -37,6 +37,7 @@ static const u16 sIvysaurLevelUpLearnset[] = {
 };
 
 static const u16 sVenusaurLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_FRENZY_PLANT),
     LEVEL_UP_MOVE(1, MOVE_TACKLE),
     LEVEL_UP_MOVE(4, MOVE_GROWL),
     LEVEL_UP_MOVE(7, MOVE_VINE_WHIP),
@@ -80,6 +81,7 @@ static const u16 sCharmeleonLevelUpLearnset[] = {
 };
 
 static const u16 sCharizardLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_BLAST_BURN),
     LEVEL_UP_MOVE(1, MOVE_SCRATCH),
     LEVEL_UP_MOVE(4, MOVE_GROWL),
     LEVEL_UP_MOVE(7, MOVE_EMBER),
@@ -123,6 +125,7 @@ static const u16 sWartortleLevelUpLearnset[] = {
 };
 
 static const u16 sBlastoiseLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HYDRO_CANNON),
     LEVEL_UP_MOVE(1, MOVE_TACKLE),
     LEVEL_UP_MOVE(4, MOVE_TAIL_WHIP),
     LEVEL_UP_MOVE(7, MOVE_BUBBLE),
