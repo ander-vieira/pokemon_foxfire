@@ -215,7 +215,6 @@ VermilionCity_Gym_EventScript_DefeatedLtSurge::
 	famechecker FAMECHECKER_LTSURGE, 1
 	call_if_unset FLAG_GOT_HM05, VermilionCity_Gym_EventScript_ShowOaksAide
 	clearflag FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL
-	setflag FLAG_DEFEATED_LT_SURGE
 	setflag FLAG_BADGE03_GET
 	set_gym_trainers 3
 	goto VermilionCity_Gym_EventScript_GiveTM34
@@ -265,7 +264,7 @@ VermilionCity_Gym_EventScript_DefeatedTucker::
 VermilionCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_LT_SURGE, VermilionCity_Gym_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_BADGE03_GET, VermilionCity_Gym_EventScript_GymGuyPostVictory
 	msgbox VermilionCity_Gym_Text_GymGuyAdvice
 	release
 	end

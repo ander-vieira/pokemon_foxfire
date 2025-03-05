@@ -11,7 +11,6 @@ CeruleanCity_Gym_EventScript_Misty::
 
 CeruleanCity_Gym_EventScript_MistyDefeated::
 	famechecker FAMECHECKER_MISTY, 1
-	setflag FLAG_DEFEATED_MISTY
 	setflag FLAG_BADGE02_GET
 	setrespawn SPAWN_CERULEAN_CITY
 	set_gym_trainers 2
@@ -47,7 +46,7 @@ CeruleanCity_Gym_EventScript_Luis::
 CeruleanCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_MISTY, CeruleanCity_Gym_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_BADGE02_GET, CeruleanCity_Gym_EventScript_GymGuyPostVictory
 	msgbox CeruleanCity_Gym_Text_GymGuyAdvice
 	release
 	end

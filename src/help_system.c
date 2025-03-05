@@ -2022,7 +2022,7 @@ static void SetHelpSystemSubmenuItems(struct HelpSystemListMenu * helpListMenu, 
 
 static bool8 HelpSystem_ShouldShowBasicTerms(void)
 {
-    if (FlagGet(FLAG_DEFEATED_BROCK) == TRUE && gHelpSystemState.topic == TOPIC_TERMS)
+    if (gHelpSystemState.topic == TOPIC_TERMS)
         return TRUE;
     return FALSE;
 }

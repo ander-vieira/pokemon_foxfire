@@ -154,7 +154,7 @@ CeladonCity_GameCorner_EventScript_FisherAlreadyGotCoins::
 CeladonCity_GameCorner_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_ERIKA, CeladonCity_GameCorner_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_BADGE04_GET, CeladonCity_GameCorner_EventScript_GymGuyPostVictory
 	msgbox CeladonCity_GameCorner_Text_GymGuyAdvice
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
 	end

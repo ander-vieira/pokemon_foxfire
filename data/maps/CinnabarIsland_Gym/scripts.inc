@@ -10,7 +10,7 @@ CinnabarIsland_Gym_MapScripts::
 	.byte 0
 
 CinnabarIsland_Gym_OnLoad::
-	goto_if_set FLAG_DEFEATED_BLAINE, CinnabarIsland_Gym_OnLoadOpenAllDoors
+	goto_if_set FLAG_BADGE07_GET, CinnabarIsland_Gym_OnLoadOpenAllDoors
 	call_if_set FLAG_CINNABAR_GYM_QUIZ_1, CinnabarIsland_Gym_OnLoadOpenDoor1
 	call_if_set FLAG_CINNABAR_GYM_QUIZ_2, CinnabarIsland_Gym_OnLoadOpenDoor2
 	call_if_set FLAG_CINNABAR_GYM_QUIZ_3, CinnabarIsland_Gym_OnLoadOpenDoor3
@@ -62,7 +62,6 @@ CinnabarIsland_Gym_EventScript_Blaine::
 
 CinnabarIsland_Gym_EventScript_DefeatedBlaine::
 	famechecker FAMECHECKER_BLAINE, 1
-	setflag FLAG_DEFEATED_BLAINE
 	setflag FLAG_BADGE07_GET
 	setrespawn SPAWN_CINNABAR_ISLAND
 	setvar VAR_MAP_SCENE_CINNABAR_ISLAND, 1
@@ -179,7 +178,7 @@ CinnabarIsland_Gym_EventScript_Quiz5CompleteTrainer::
 CinnabarIsland_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_BLAINE, CinnabarIsland_Gym_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_BADGE07_GET, CinnabarIsland_Gym_EventScript_GymGuyPostVictory
 	msgbox CinnabarIsland_Gym_Text_GymGuyAdvice
 	release
 	end

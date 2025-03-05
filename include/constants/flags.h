@@ -1233,14 +1233,14 @@
 #define FLAG_UNUSED_0x4AF               0x4AF // Unused Flag
 
 // Boss clear flags, 1200
-#define FLAG_DEFEATED_BROCK           0x4B0
-#define FLAG_DEFEATED_MISTY           0x4B1
-#define FLAG_DEFEATED_LT_SURGE        0x4B2
-#define FLAG_DEFEATED_ERIKA           0x4B3
-#define FLAG_DEFEATED_KOGA            0x4B4
-#define FLAG_DEFEATED_SABRINA         0x4B5
-#define FLAG_DEFEATED_BLAINE          0x4B6
-#define FLAG_DEFEATED_LEADER_GIOVANNI 0x4B7
+#define FLAG_DEFEATED_BROCK           0x4B0 //UNUSED
+#define FLAG_DEFEATED_MISTY           0x4B1 //UNUSED
+#define FLAG_DEFEATED_LT_SURGE        0x4B2 //UNUSED
+#define FLAG_DEFEATED_ERIKA           0x4B3 //UNUSED
+#define FLAG_DEFEATED_KOGA            0x4B4 //UNUSED
+#define FLAG_DEFEATED_SABRINA         0x4B5 //UNUSED
+#define FLAG_DEFEATED_BLAINE          0x4B6 //UNUSED
+#define FLAG_DEFEATED_LEADER_GIOVANNI 0x4B7 //UNUSED
 #define FLAG_DEFEATED_LORELEI         0x4B8
 #define FLAG_DEFEATED_BRUNO           0x4B9
 #define FLAG_DEFEATED_AGATHA          0x4BA

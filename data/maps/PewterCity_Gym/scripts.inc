@@ -11,7 +11,6 @@ PewterCity_Gym_EventScript_Brock::
 
 PewterCity_Gym_EventScript_DefeatedBrock::
 	famechecker FAMECHECKER_BROCK, 1
-	setflag FLAG_DEFEATED_BROCK
 	setflag FLAG_BADGE01_GET
 	setvar VAR_MAP_SCENE_PEWTER_CITY, 1
 	setflag FLAG_HIDE_PEWTER_CITY_GYM_GUIDE
@@ -43,7 +42,7 @@ PewterCity_Gym_EventScript_Liam::
 PewterCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_BROCK, PewterCity_Gym_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_BADGE01_GET, PewterCity_Gym_EventScript_GymGuyPostVictory
 	msgbox PewterCity_Gym_Text_LetMeTakeYouToTheTop, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PewterCity_Gym_EventScript_GymGuyTakeMeToTop
 	goto_if_eq VAR_RESULT, NO, PewterCity_Gym_EventScript_GymGuyDontTakeMeToTop

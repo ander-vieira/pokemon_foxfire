@@ -12,7 +12,6 @@ FuchsiaCity_Gym_EventScript_Koga::
 FuchsiaCity_Gym_EventScript_DefeatedKoga::
 	famechecker FAMECHECKER_KOGA, 1
 	clearflag FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL
-	setflag FLAG_DEFEATED_KOGA
 	setflag FLAG_BADGE05_GET
 	set_gym_trainers 5
 	goto FuchsiaCity_Gym_EventScript_GiveTM06
@@ -67,7 +66,7 @@ FuchsiaCity_Gym_EventScript_Nate::
 FuchsiaCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_KOGA, FuchsiaCity_Gym_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_BADGE05_GET, FuchsiaCity_Gym_EventScript_GymGuyPostVictory
 	msgbox FuchsiaCity_Gym_Text_GymGuyAdvice
 	release
 	end

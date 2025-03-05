@@ -13,7 +13,6 @@ SaffronCity_Gym_EventScript_DefeatedSabrina::
 	famechecker FAMECHECKER_SABRINA, 2
 	famechecker FAMECHECKER_SABRINA, 3
 	clearflag FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS
-	setflag FLAG_DEFEATED_SABRINA
 	setflag FLAG_BADGE06_GET
 	set_gym_trainers 6
 	goto SaffronCity_Gym_EventScript_GiveTM04
@@ -73,7 +72,7 @@ SaffronCity_Gym_EventScript_Tasha::
 SaffronCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_SABRINA, SaffronCity_Gym_EventScript_GymGuyPostVictory
+	goto_if_set FLAG_BADGE06_GET, SaffronCity_Gym_EventScript_GymGuyPostVictory
 	msgbox SaffronCity_Gym_Text_GymGuyAdvice
 	release
 	end
