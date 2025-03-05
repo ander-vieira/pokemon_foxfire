@@ -346,8 +346,8 @@ VictoryRoad_2F_EventScript_ItemGuardSpec::
 	finditem ITEM_GUARD_SPEC
 	end
 
-VictoryRoad_2F_EventScript_ItemTM09::
-	finditem ITEM_TM09
+VictoryRoad_2F_EventScript_ItemTM27::
+	finditem ITEM_TM27
 	end
 
 VictoryRoad_2F_EventScript_ItemFullHeal::
