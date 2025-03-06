@@ -22,6 +22,7 @@ struct BagStruct
 extern struct BagStruct gBagMenuState;
 
 extern u16 gSpecialVar_ItemId;
+extern u16 gLastUsedRepel;
 
 // Exported ROM declarations
 void CB2_SetUpReshowBattleScreenAfterMenu(void);

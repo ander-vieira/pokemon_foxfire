@@ -5,6 +5,8 @@
 #include "fieldmap.h"
 #include "random.h"
 #include "roamer.h"
+#include "item.h"
+#include "item_menu.h"
 #include "field_player_avatar.h"
 #include "battle_setup.h"
 #include "overworld.h"
@@ -13,6 +15,7 @@
 #include "script.h"
 #include "link.h"
 #include "quest_log.h"
+#include "string_util.h"
 #include "constants/maps.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
@@ -564,7 +567,14 @@ bool8 UpdateRepelCounter(void)
         VarSet(VAR_REPEL_STEP_COUNT, steps);
         if (steps == 0)
         {
-            ScriptContext_SetupScript(EventScript_RepelWoreOff);
+            StringCopy(gStringVar1, ItemId_GetName(gLastUsedRepel));
+            if(CheckBagHasItem(gLastUsedRepel, 1)) {
+                VarSet(VAR_0x8005, gLastUsedRepel);
+                VarSet(VAR_0x8006, ItemId_GetHoldEffectParam(gLastUsedRepel));
+                ScriptContext_SetupScript(EventScript_RepelWoreOffUseAnother);
+            } else {
+                ScriptContext_SetupScript(EventScript_RepelWoreOff);
+            }
             return TRUE;
         }
     }

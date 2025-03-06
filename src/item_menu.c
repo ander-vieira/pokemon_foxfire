@@ -73,6 +73,7 @@ static EWRAM_DATA const u8 *sContextMenuItemsPtr = NULL;
 static EWRAM_DATA u8 sContextMenuNumItems = 0;
 static EWRAM_DATA struct BagSlots * sBackupPlayerBag = NULL;
 EWRAM_DATA u16 gSpecialVar_ItemId = ITEM_NONE;
+EWRAM_DATA u16 gLastUsedRepel = ITEM_NONE;
 
 static void CB2_OpenBagMenu(void);
 static bool8 LoadBagMenuGraphics(void);

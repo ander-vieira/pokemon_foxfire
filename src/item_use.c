@@ -566,6 +566,7 @@ static void Task_UseRepel(u8 taskId)
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
         VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        gLastUsedRepel = gSpecialVar_ItemId;
         RemoveUsedItem();
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
     }
