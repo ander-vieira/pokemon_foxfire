@@ -350,7 +350,6 @@ extern const u8 gText_MailTakenFromPkmn[];
 extern const u8 gText_NoMoreThanTwoMayEnter[];
 extern const u8 gText_NoMoreThanThreeMayEnter[];
 extern const u8 gText_PauseUntilPress[];
-extern const u8 gText_CantUseUntilNewBadge[];
 extern const u8 gText_ReturnToHealingSpot[];
 extern const u8 gText_EscapeFromHereAndReturnTo[];
 extern const u8 gText_PkmnCuredOfPoison[];
