@@ -13,11 +13,13 @@ struct PickupItem
 };
 
 static const struct PickupItem sPickupItemsRange1[] = {
-    {ITEM_POKE_BALL, 20},
-    {ITEM_POTION, 60},
-    {ITEM_SUPER_POTION, 70},
-    {ITEM_FULL_HEAL, 80},
-    {ITEM_REPEL, 100},
+    {ITEM_POKE_BALL, 30},
+    {ITEM_POTION, 50},
+    {ITEM_ANTIDOTE, 70},
+    {ITEM_SUPER_POTION, 80},
+    {ITEM_MAX_REPEL, 98},
+    {ITEM_RARE_CANDY, 99},
+    {ITEM_NUGGET, 100},
     {ITEM_NONE, 0}
 };
 

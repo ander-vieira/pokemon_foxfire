@@ -430,8 +430,8 @@ Route9_EventScript_ItemBurnHeal::
 	finditem ITEM_BURN_HEAL
 	end
 
-RockTunnel_1F_EventScript_ItemRepel::
-	finditem ITEM_REPEL
+RockTunnel_1F_EventScript_ItemMaxRepel::
+	finditem ITEM_MAX_REPEL
 	end
 
 RockTunnel_1F_EventScript_ItemPearl::

@@ -468,7 +468,7 @@
 #define FLAG_HIDE_MT_MOON_B2F_ANTIDOTE                          0x1C0
 #define FLAG_HIDE_ROUTE11_X_DEFEND                              0x1C1
 #define FLAG_HIDE_ROUTE9_BURN_HEAL                              0x1C2
-#define FLAG_HIDE_ROCK_TUNNEL_1F_REPEL                          0x1C3
+#define FLAG_HIDE_ROCK_TUNNEL_1F_MAX_REPEL                      0x1C3
 #define FLAG_HIDE_ROCK_TUNNEL_1F_PEARL                          0x1C4
 #define FLAG_HIDE_ROCK_TUNNEL_1F_ESCAPE_ROPE                    0x1C5
 #define FLAG_HIDE_ROCK_TUNNEL_B1F_REVIVE                        0x1C6
