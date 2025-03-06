@@ -489,13 +489,6 @@ const u16 gEggMoves[] = {
               MOVE_SCREECH,
               MOVE_CHARGE),
 
-    egg_moves(MARILL,
-              MOVE_AMNESIA,
-              MOVE_BELLY_DRUM,
-              MOVE_PERISH_SONG,
-              MOVE_SUPERSONIC,
-              MOVE_SUBSTITUTE),
-
     egg_moves(SUDOWOODO,
               MOVE_SELF_DESTRUCT),
 
@@ -914,6 +907,11 @@ const u16 gEggMoves[] = {
               MOVE_SPIKES),
 
     egg_moves(AZURILL,
+              MOVE_AMNESIA,
+              MOVE_BELLY_DRUM,
+              MOVE_PERISH_SONG,
+              MOVE_SUPERSONIC,
+              MOVE_SUBSTITUTE,
               MOVE_ENCORE,
               MOVE_SING,
               MOVE_SLAM,
