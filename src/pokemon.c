@@ -2449,11 +2449,11 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     // Apply boosts from hold items
     if (attackerHoldEffect == HOLD_EFFECT_CHOICE_BAND)
-        attack = (150 * attack) / 100;
+        attack = (attack * 3) / 2;
     if (attackerHoldEffect == HOLD_EFFECT_SOUL_DEW && !(gBattleTypeFlags & (BATTLE_TYPE_BATTLE_TOWER)) && (attacker->species == SPECIES_LATIAS || attacker->species == SPECIES_LATIOS))
-        spAttack = (150 * spAttack) / 100;
+        spAttack = (spAttack * 3) / 2;
     if (defenderHoldEffect == HOLD_EFFECT_SOUL_DEW && !(gBattleTypeFlags & (BATTLE_TYPE_BATTLE_TOWER)) && (defender->species == SPECIES_LATIAS || defender->species == SPECIES_LATIOS))
-        spDefense = (150 * spDefense) / 100;
+        spDefense = (spDefense * 3) / 2;
     if (attackerHoldEffect == HOLD_EFFECT_DEEP_SEA_TOOTH && attacker->species == SPECIES_CLAMPERL)
         spAttack *= 2;
     if (defenderHoldEffect == HOLD_EFFECT_DEEP_SEA_SCALE && defender->species == SPECIES_CLAMPERL)
@@ -2464,30 +2464,38 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         defense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
         attack *= 2;
+
+    //Apply boosts from abilities
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         spAttack /= 2;
     if (attacker->ability == ABILITY_HUSTLE)
-        attack = (150 * attack) / 100;
+        attack = (attack * 3) / 2;
     if (attacker->ability == ABILITY_PLUS && ABILITY_ON_FIELD2(ABILITY_MINUS))
-        spAttack = (150 * spAttack) / 100;
+        spAttack = (spAttack * 3) / 2;
     if (attacker->ability == ABILITY_MINUS && ABILITY_ON_FIELD2(ABILITY_PLUS))
-        spAttack = (150 * spAttack) / 100;
+        spAttack = (spAttack * 3) / 2;
     if (attacker->ability == ABILITY_GUTS && attacker->status1)
-        attack = (150 * attack) / 100;
+        attack = (attack * 3) / 2;
     if (defender->ability == ABILITY_MARVEL_SCALE && defender->status1)
-        defense = (150 * defense) / 100;
+        defense = (defense * 3) / 2;
+    if (type == TYPE_GRASS && attacker->ability == ABILITY_OVERGROW && attacker->hp <= (attacker->maxHP / 3))
+        gBattleMovePower = (gBattleMovePower * 3) / 2;
+    if (type == TYPE_FIRE && attacker->ability == ABILITY_BLAZE && attacker->hp <= (attacker->maxHP / 3))
+        gBattleMovePower = (gBattleMovePower * 3) / 2;
+    if (type == TYPE_WATER && attacker->ability == ABILITY_TORRENT && attacker->hp <= (attacker->maxHP / 3))
+        gBattleMovePower = (gBattleMovePower * 3) / 2;
+    if (type == TYPE_BUG && attacker->ability == ABILITY_SWARM && attacker->hp <= (attacker->maxHP / 3))
+        gBattleMovePower = (gBattleMovePower * 3) / 2;
+    
+    //Apply 50% SpDef boost to Rock types in sand
+    if (gBattleWeather & B_WEATHER_SANDSTORM && (defender->type1 == TYPE_ROCK || defender->type2 == TYPE_ROCK))
+        spDefense = (spDefense * 3) / 2;
+    
+    //Apply boosts from field effects
     if (type == TYPE_ELECTRIC && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, ABILITYEFFECT_MUD_SPORT, 0))
         gBattleMovePower /= 2;
     if (type == TYPE_FIRE && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, ABILITYEFFECT_WATER_SPORT, 0))
         gBattleMovePower /= 2;
-    if (type == TYPE_GRASS && attacker->ability == ABILITY_OVERGROW && attacker->hp <= (attacker->maxHP / 3))
-        gBattleMovePower = (150 * gBattleMovePower) / 100;
-    if (type == TYPE_FIRE && attacker->ability == ABILITY_BLAZE && attacker->hp <= (attacker->maxHP / 3))
-        gBattleMovePower = (150 * gBattleMovePower) / 100;
-    if (type == TYPE_WATER && attacker->ability == ABILITY_TORRENT && attacker->hp <= (attacker->maxHP / 3))
-        gBattleMovePower = (150 * gBattleMovePower) / 100;
-    if (type == TYPE_BUG && attacker->ability == ABILITY_SWARM && attacker->hp <= (attacker->maxHP / 3))
-        gBattleMovePower = (150 * gBattleMovePower) / 100;
 
     // Self-destruct / Explosion cut defense in half
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
