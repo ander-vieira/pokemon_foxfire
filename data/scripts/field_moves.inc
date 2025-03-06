@@ -91,61 +91,15 @@ Text_MonMaySmashRock::
 
 EventScript_StrengthBoulder::
 	goto_if_questlog EventScript_ReleaseEnd
-	lockall
-	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_AlreadyUsedStrength
+	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_ReleaseEnd
 	checkpartymove MOVE_STRENGTH
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantMoveBoulder
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_ReleaseEnd
 	setfieldeffectargument 0, VAR_RESULT
-	msgbox Text_UseStrength, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_DontUseStrength
-	closemessage
-	dofieldeffect FLDEFF_USE_STRENGTH
-	waitstate
-	goto EventScript_UseStrength
-	end
-
 EventScript_FldEffStrength::
-	lockall
 	dofieldeffect FLDEFF_USE_STRENGTH
 	waitstate
-	goto EventScript_UseStrength
-	end
-
-EventScript_UseStrength::
 	setflag FLAG_SYS_USE_STRENGTH
-	msgbox Text_MonUsedStrengthCanMoveBoulders, MSGBOX_SIGN
 	end
-
-EventScript_CantMoveBoulder::
-	msgbox Text_MonMayPushBoulder, MSGBOX_SIGN
-	end
-
-EventScript_AlreadyUsedStrength::
-	msgbox Text_StrengthMadeMovingBouldersPossible, MSGBOX_SIGN
-	end
-
-EventScript_DontUseStrength::
-	closemessage
-	releaseall
-	end
-
-Text_UseStrength::
-	.string "It's a big boulder, but a POKéMON\n"
-	.string "may be able to push it aside.\p"
-	.string "Would you like to use STRENGTH?$"
-
-Text_MonUsedStrengthCanMoveBoulders::
-	.string "{STR_VAR_1} used STRENGTH!\p"
-	.string "{STR_VAR_1}'s STRENGTH made it\n"
-	.string "possible to move boulders around!$"
-
-Text_MonMayPushBoulder::
-	.string "It's a big boulder, but a POKéMON\n"
-	.string "may be able to push it aside.$"
-
-Text_StrengthMadeMovingBouldersPossible::
-	.string "STRENGTH made it possible to move\n"
-	.string "boulders around.$"
 
 EventScript_Waterfall::
 	goto_if_questlog EventScript_ReleaseEnd
