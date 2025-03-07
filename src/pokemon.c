@@ -5987,22 +5987,32 @@ void SetWildMonHeldItem(void)
 {
     if (!(gBattleTypeFlags & (BATTLE_TYPE_POKEDUDE | BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_TRAINER)))
     {
-        u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
-        u16 itemCommon = gSpeciesInfo[species].itemCommon;
-        u16 itemRare = gSpeciesInfo[species].itemRare;
-        u16 rnd;
+        u16 species, playerSpecies, itemCommon, itemRare;
+        u8 playerAbility, chanceCommon, chanceRare, rnd;
+        bool8 playerAbilityNum;
+
+        species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+        itemCommon = gSpeciesInfo[species].itemCommon;
+        itemRare = gSpeciesInfo[species].itemRare;
         
+        //Both slots are the same: 100% chance
         if (itemCommon == itemRare)
         {
             SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &itemCommon);
             return;
         }
 
+        playerSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL);
+        playerAbilityNum = GetMonData(&gPlayerParty[0], MON_DATA_ABILITY_NUM, NULL);
+        playerAbility = GetAbilityBySpecies(playerSpecies, playerAbilityNum);
+        chanceCommon = (playerAbility == ABILITY_COMPOUND_EYES) ? 60 : 50;
+        chanceRare = (playerAbility == ABILITY_COMPOUND_EYES) ? 80 : 55;
+
         rnd = Random() % 100;
-        if (rnd < 5)
-            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &itemRare);
-        else if (rnd < 50)
+        if (rnd < chanceCommon)
             SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &itemCommon);
+        else if (rnd < chanceRare)
+            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &itemRare);
     }
 }
 
