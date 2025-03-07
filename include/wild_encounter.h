@@ -6,7 +6,7 @@
 #define LAND_WILD_COUNT     12
 #define WATER_WILD_COUNT    5
 #define ROCK_WILD_COUNT     5
-#define FISH_WILD_COUNT     10
+#define FISH_WILD_COUNT     5
 
 #define NUM_ALTERING_CAVE_TABLES 9
 
@@ -39,7 +39,7 @@ void DisableWildEncounters(bool8 disabled);
 bool8 StandardWildEncounter(u32 currMetatileAttrs, u16 previousMetaTileBehavior);
 bool8 SweetScentWildEncounter(void);
 bool8 DoesCurrentMapHaveFishingMons(void);
-void FishingWildEncounter(u8 rod);
+void FishingWildEncounter();
 u16 GetLocalWildMon(bool8 *isWaterMon);
 u16 GetLocalWaterMon(void);
 bool8 UpdateRepelCounter(void);

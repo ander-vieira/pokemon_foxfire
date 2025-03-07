@@ -116,42 +116,21 @@ static u8 ChooseWildMonIndex_WaterRock(void)
         return 4;
 }
 
-static u8 ChooseWildMonIndex_Fishing(u8 rod)
+static u8 ChooseWildMonIndex_Fishing()
 {
     u8 wildMonIndex = 0;
-    u8 rand = Random() % max(max(ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_TOTAL, ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_TOTAL),
-                             ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_TOTAL);
+    u8 rand = Random() % 100;
 
-    switch (rod)
-    {
-    case OLD_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0)
-            wildMonIndex = 0;
-        else
-            wildMonIndex = 1;
-        break;
-    case GOOD_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2)
-            wildMonIndex = 2;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3)
-            wildMonIndex = 3;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4)
-            wildMonIndex = 4;
-        break;
-    case SUPER_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5)
-            wildMonIndex = 5;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6)
-            wildMonIndex = 6;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7)
-            wildMonIndex = 7;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8)
-            wildMonIndex = 8;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_9)
-            wildMonIndex = 9;
-        break;
-    }
-    return wildMonIndex;
+    if(rand < ENCOUNTER_CHANCE_FISHING_MONS_SLOT_0)
+        return 0;
+    else if(rand < ENCOUNTER_CHANCE_FISHING_MONS_SLOT_1)
+        return 1;
+    else if(rand < ENCOUNTER_CHANCE_FISHING_MONS_SLOT_2)
+        return 2;
+    else if(rand < ENCOUNTER_CHANCE_FISHING_MONS_SLOT_3)
+        return 3;
+    else
+        return 4;
 }
 
 static u8 ChooseWildMonLevel(const struct WildPokemon * info)
@@ -293,9 +272,9 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
     return TRUE;
 }
 
-static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
+static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info)
 {
-    u8 slot = ChooseWildMonIndex_Fishing(rod);
+    u8 slot = ChooseWildMonIndex_Fishing();
     u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
     GenerateWildMon(info->wildPokemon[slot].species, level, slot);
     return info->wildPokemon[slot].species;
@@ -492,9 +471,9 @@ bool8 DoesCurrentMapHaveFishingMons(void)
     return TRUE;
 }
 
-void FishingWildEncounter(u8 rod)
+void FishingWildEncounter()
 {
-    GenerateFishingEncounter(gWildMonHeaders[GetCurrentMapWildMonHeaderId()].fishingMonsInfo, rod);
+    GenerateFishingEncounter(gWildMonHeaders[GetCurrentMapWildMonHeaderId()].fishingMonsInfo);
     IncrementGameStat(GAME_STAT_FISHING_CAPTURES);
     StartWildBattle();
 }

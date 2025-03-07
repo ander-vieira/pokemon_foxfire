@@ -323,7 +323,7 @@ static bool8 CanFish(void)
 
 static void ItemUseOnFieldCB_Rod(u8 taskId)
 {
-    StartFishing(ItemId_GetSecondaryId(gSpecialVar_ItemId));
+    StartFishing();
     DestroyTask(taskId);
 }
 

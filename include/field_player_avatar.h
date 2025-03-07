@@ -24,7 +24,7 @@ void CreateStopSurfingTask_NoMusicChange(u8 direction);
 void SavePlayerFacingDirectionForTeleport(u8 direction);
 void SetPlayerAvatarTransitionFlags(u16 flags);
 bool8 IsPlayerFacingSurfableFishableWater(void);
-void StartFishing(u8 secondaryId);
+void StartFishing();
 u8 GetPlayerAvatarObjectId(void);
 u8 PlayerGetElevation(void);
 u8 GetPlayerAvatarGraphicsIdByCurrentState(void);

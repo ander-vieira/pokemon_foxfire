@@ -4206,7 +4206,7 @@
       "fieldUseFunc": "FieldUseFunc_Rod",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
-      "secondaryId": "OLD_ROD"
+      "secondaryId": 0
     },
     {
       "english": "GOOD ROD",
@@ -4222,7 +4222,7 @@
       "fieldUseFunc": "FieldUseFunc_Rod",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
-      "secondaryId": "GOOD_ROD"
+      "secondaryId": 0
     },
     {
       "english": "SUPER ROD",
@@ -4238,7 +4238,7 @@
       "fieldUseFunc": "FieldUseFunc_Rod",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
-      "secondaryId": "SUPER_ROD"
+      "secondaryId": 0
     },
     {
       "english": "S.S. TICKET",
