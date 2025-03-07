@@ -1708,7 +1708,7 @@ static bool8 Fishing2(struct Task *task)
 static bool8 Fishing3(struct Task *task)
 {
     LoadMessageBoxAndFrameGfx(0, TRUE);
-    if (DoesCurrentMapHaveFishingMons() && Random() % 2) {
+    if (DoesCurrentMapHaveFishingMons() && (Random() % 5) < 3) {
         task->tGotBite = TRUE;
         task->tDotsRequired = 3 + Random() % 3;
     } else {
