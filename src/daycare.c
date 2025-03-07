@@ -1115,6 +1115,16 @@ void GiveEggFromDaycare(void)
     _GiveEggFromDaycare(&gSaveBlock1Ptr->daycare);
 }
 
+static bool8 FlameBodyInParty(void) {
+    u8 i;
+
+    for(i = 0 ; i < PARTY_SIZE ; i++)
+        if(!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG, NULL) && GetMonAbility(&gPlayerParty[i]) == ABILITY_FLAME_BODY)
+            return TRUE;
+
+    return FALSE;
+}
+
 static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
 {
     u32 i, validEggs = 0;
@@ -1149,6 +1159,9 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
             if (steps != 0)
             {
                 steps -= 1;
+
+                if(steps != 0 && FlameBodyInParty())
+                    steps -= 1;
                 SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, &steps);
             }
             else // hatch the egg
