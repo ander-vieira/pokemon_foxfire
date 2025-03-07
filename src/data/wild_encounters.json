@@ -52,6 +52,338 @@
           ]
         }
       ],
+      "fishing": [
+        {
+          "label": "Dummy",
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_MAGIKARP"
+            }
+          ]
+        },
+        {
+          "label": "GoldeenPoliwag10",
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_POLIWAG"
+            }
+          ]
+        },
+        {
+          "label": "GoldeenPoliwag35",
+          "mons": [
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_GYARADOS"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_SEAKING"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_POLIWHIRL"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_POLIWHIRL"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_POLIWHIRL"
+            }
+          ]
+        },
+        {
+          "label": "StaryuKrabby10",
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_STARYU"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_KRABBY"
+            }
+          ]
+        },
+        {
+          "label": "StaryuKrabby15",
+          "mons": [
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_STARYU"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_KRABBY"
+            }
+          ]
+        },
+        {
+          "label": "StaryuKrabby20",
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_STARYU"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 28,
+              "max_level": 28,
+              "species": "SPECIES_KINGLER"
+            }
+          ]
+        },
+        {
+          "label": "ShellderHorsea10",
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_HORSEA"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_HORSEA"
+            },
+            {
+              "min_level": 10,
+              "max_level": 15,
+              "species": "SPECIES_HORSEA"
+            }
+          ]
+        },
+        {
+          "label": "ShellderHorsea20",
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_HORSEA"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_HORSEA"
+            },
+            {
+              "min_level": 32,
+              "max_level": 32,
+              "species": "SPECIES_SEADRA"
+            }
+          ]
+        },
+        {
+          "label": "ShellderHorsea50",
+          "mons": [
+            {
+              "min_level": 50,
+              "max_level": 55,
+              "species": "SPECIES_GYARADOS"
+            },
+            {
+              "min_level": 50,
+              "max_level": 55,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 50,
+              "max_level": 55,
+              "species": "SPECIES_SEADRA"
+            },
+            {
+              "min_level": 50,
+              "max_level": 55,
+              "species": "SPECIES_SEADRA"
+            },
+            {
+              "min_level": 50,
+              "max_level": 55,
+              "species": "SPECIES_SEADRA"
+            }
+          ]
+        },
+        {
+          "label": "Dratini20",
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_DRATINI"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_DRATINI"
+            },
+            {
+              "min_level": 30,
+              "max_level": 30,
+              "species": "SPECIES_DRAGONAIR"
+            }
+          ]
+        },
+        {
+          "label": "Grimer15",
+          "mons": [
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_GRIMER"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_GRIMER"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_GRIMER"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_GRIMER"
+            },
+            {
+              "min_level": 15,
+              "max_level": 20,
+              "species": "SPECIES_GRIMER"
+            }
+          ]
+        }
+      ],
       "encounters": [
         {
           "map": "MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER",
@@ -845,36 +1177,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "StaryuKrabby10"
         },
         {
           "map": "MAP_DIGLETTS_CAVE_B1F",
@@ -1526,36 +1829,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_SEAKING"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_DRATINI"
-              },
-              {
-                "min_level": 15,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_DRAGONAIR"
-              }
-            ]
-          }
+          "fishing_mons": "Dratini20"
         },
         {
           "map": "MAP_SAFARI_ZONE_EAST",
@@ -1655,36 +1929,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_SEAKING"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_DRATINI"
-              },
-              {
-                "min_level": 15,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_DRAGONAIR"
-              }
-            ]
-          }
+          "fishing_mons": "Dratini20"
         },
         {
           "map": "MAP_SAFARI_ZONE_NORTH",
@@ -1784,36 +2029,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_SEAKING"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_DRATINI"
-              },
-              {
-                "min_level": 15,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_DRAGONAIR"
-              }
-            ]
-          }
+          "fishing_mons": "Dratini20"
         },
         {
           "map": "MAP_SAFARI_ZONE_WEST",
@@ -1913,36 +2129,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_SEAKING"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_DRATINI"
-              },
-              {
-                "min_level": 15,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_DRAGONAIR"
-              }
-            ]
-          }
+          "fishing_mons": "Dratini20"
         },
         {
           "map": "MAP_CERULEAN_CAVE_1F",
@@ -2072,36 +2259,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_POLIWHIRL"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea50"
         },
         {
           "map": "MAP_CERULEAN_CAVE_2F",
@@ -2330,36 +2488,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_POLIWHIRL"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_GYARADOS"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea50"
         },
         {
           "map": "MAP_ROCK_TUNNEL_1F",
@@ -2834,36 +2963,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_GYARADOS"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea20"
         },
         {
           "map": "MAP_SEAFOAM_ISLANDS_B4F",
@@ -2963,36 +3063,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_GYARADOS"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea20"
         },
         {
           "map": "MAP_POKEMON_TOWER_3F",
@@ -4436,36 +4507,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_SEAKING"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE",
@@ -4565,36 +4607,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_POLIWHIRL"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_FOUR_ISLAND_ICEFALL_CAVE_1F",
@@ -4832,36 +4845,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SIX_ISLAND_PATTERN_BUSH",
@@ -6026,36 +6010,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_ONE_ISLAND_TREASURE_BEACH",
@@ -6155,36 +6110,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_TWO_ISLAND_CAPE_BRINK",
@@ -6284,36 +6210,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_POLIWHIRL"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_THREE_ISLAND_BOND_BRIDGE",
@@ -6413,36 +6310,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_THREE_ISLAND_PORT",
@@ -6546,36 +6414,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_FIVE_ISLAND_WATER_LABYRINTH",
@@ -6610,36 +6449,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_FIVE_ISLAND_MEADOW",
@@ -6739,36 +6549,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
@@ -6868,36 +6649,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SIX_ISLAND_OUTCAST_ISLAND",
@@ -6932,36 +6684,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SIX_ISLAND_GREEN_PATH",
@@ -6996,36 +6719,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SIX_ISLAND_WATER_PATH",
@@ -7125,36 +6819,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SIX_ISLAND_RUIN_VALLEY",
@@ -7254,36 +6919,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_POLIWHIRL"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SEVEN_ISLAND_TRAINER_TOWER",
@@ -7318,36 +6954,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE",
@@ -7550,36 +7157,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_QWILFISH"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_ROUTE1",
@@ -7886,36 +7464,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea10"
         },
         {
           "map": "MAP_ROUTE5",
@@ -8084,36 +7633,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              }
-            ]
-          }
+          "fishing_mons": "GoldeenPoliwag10"
         },
         {
           "map": "MAP_ROUTE7",
@@ -8420,36 +7940,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea10"
         },
         {
           "map": "MAP_ROUTE11",
@@ -8549,36 +8040,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_STARYU"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_KRABBY"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_KRABBY"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_KRABBY"
-              }
-            ]
-          }
+          "fishing_mons": "StaryuKrabby10"
         },
         {
           "map": "MAP_ROUTE12",
@@ -8678,36 +8140,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 60,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 20,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 15,
-                "max_level": 20,
-                "species": "SPECIES_STARYU"
-              },
-              {
-                "min_level": 15,
-                "max_level": 20,
-                "species": "SPECIES_KRABBY"
-              },
-              {
-                "min_level": 15,
-                "max_level": 20,
-                "species": "SPECIES_KRABBY"
-              },
-              {
-                "min_level": 15,
-                "max_level": 20,
-                "species": "SPECIES_KRABBY"
-              }
-            ]
-          }
+          "fishing_mons": "StaryuKrabby15"
         },
         {
           "map": "MAP_ROUTE13",
@@ -8807,36 +8240,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "StaryuKrabby20"
         },
         {
           "map": "MAP_ROUTE14",
@@ -9216,36 +8620,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea20"
         },
         {
           "map": "MAP_ROUTE20",
@@ -9280,36 +8655,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea20"
         },
         {
           "map": "MAP_ROUTE21_NORTH",
@@ -9409,36 +8755,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea20"
         },
         {
           "map": "MAP_ROUTE21_SOUTH",
@@ -9538,36 +8855,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea20"
         },
         {
           "map": "MAP_ROUTE22",
@@ -9667,36 +8955,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              }
-            ]
-          }
+          "fishing_mons": "GoldeenPoliwag10"
         },
         {
           "map": "MAP_ROUTE23",
@@ -9796,36 +9055,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_POLIWHIRL"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "GoldeenPoliwag35"
         },
         {
           "map": "MAP_ROUTE24",
@@ -9925,36 +9155,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea10"
         },
         {
           "map": "MAP_ROUTE25",
@@ -10054,36 +9255,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              }
-            ]
-          }
+          "fishing_mons": "GoldeenPoliwag10"
         },
         {
           "map": "MAP_PALLET_TOWN",
@@ -10118,36 +9290,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea10"
         },
         {
           "map": "MAP_VIRIDIAN_CITY",
@@ -10182,36 +9325,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_POLIWAG"
-              }
-            ]
-          }
+          "fishing_mons": "GoldeenPoliwag10"
         },
         {
           "map": "MAP_CERULEAN_CITY",
@@ -10246,36 +9360,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea10"
         },
         {
           "map": "MAP_VERMILION_CITY",
@@ -10310,36 +9395,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_STARYU"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_KRABBY"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_KRABBY"
-              },
-              {
-                "min_level": 10,
-                "max_level": 15,
-                "species": "SPECIES_KRABBY"
-              }
-            ]
-          }
+          "fishing_mons": "StaryuKrabby10"
         },
         {
           "map": "MAP_CELADON_CITY",
@@ -10374,36 +9430,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_MAGIKARP"
-              },
-              {
-                "min_level": 30,
-                "max_level": 40,
-                "species": "SPECIES_GRIMER"
-              }
-            ]
-          }
+          "fishing_mons": "Grimer15"
         },
         {
           "map": "MAP_FUCHSIA_CITY",
@@ -10438,36 +9465,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_SEAKING"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dratini20"
         },
         {
           "map": "MAP_CINNABAR_ISLAND",
@@ -10502,36 +9500,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "ShellderHorsea20"
         },
         {
           "map": "MAP_ONE_ISLAND",
@@ -10566,36 +9535,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_FOUR_ISLAND",
@@ -10630,36 +9570,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
-                "species": "SPECIES_POLIWHIRL"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_PSYDUCK"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_FIVE_ISLAND",
@@ -10694,36 +9605,7 @@
               }
             ]
           },
-          "fishing_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_SHELLDER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_GYARADOS"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_SEADRA"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_PSYDUCK"
-              }
-            ]
-          }
+          "fishing_mons": "Dummy"
         },
         {
           "map": "MAP_SIX_ISLAND_ALTERING_CAVE",
