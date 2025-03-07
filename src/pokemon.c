@@ -5987,9 +5987,9 @@ void SetWildMonHeldItem(void)
 {
     if (!(gBattleTypeFlags & (BATTLE_TYPE_POKEDUDE | BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_TRAINER)))
     {
-        u16 species, playerSpecies, itemCommon, itemRare;
-        u8 playerAbility, chanceCommon, chanceRare, rnd;
-        bool8 playerAbilityNum;
+        u16 species, itemCommon, itemRare;
+        u8 chanceCommon, chanceRare, rnd;
+        bool8 isCompoundEyes;
 
         species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
         itemCommon = gSpeciesInfo[species].itemCommon;
@@ -6002,11 +6002,9 @@ void SetWildMonHeldItem(void)
             return;
         }
 
-        playerSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL);
-        playerAbilityNum = GetMonData(&gPlayerParty[0], MON_DATA_ABILITY_NUM, NULL);
-        playerAbility = GetAbilityBySpecies(playerSpecies, playerAbilityNum);
-        chanceCommon = (playerAbility == ABILITY_COMPOUND_EYES) ? 60 : 50;
-        chanceRare = (playerAbility == ABILITY_COMPOUND_EYES) ? 80 : 55;
+        isCompoundEyes = !GetMonData(&gPlayerParty[0], MON_DATA_IS_EGG, NULL) && GetMonAbility(&gPlayerParty[0]) == ABILITY_COMPOUND_EYES;
+        chanceCommon = isCompoundEyes ? 60 : 50;
+        chanceRare = isCompoundEyes ? 80 : 55;
 
         rnd = Random() % 100;
         if (rnd < chanceCommon)
