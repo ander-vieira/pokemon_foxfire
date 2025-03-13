@@ -146,10 +146,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_VICE_GRIP] =
     {
         .effect = EFFECT_HIT,
-        .power = 55,
+        .power = 65,
         .type = TYPE_NORMAL,
         .accuracy = 100,
-        .pp = 30,
+        .pp = 25,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -198,10 +198,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CUT] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
+        .power = 65,
         .type = TYPE_NORMAL,
-        .accuracy = 95,
-        .pp = 30,
+        .accuracy = 100,
+        .pp = 25,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
