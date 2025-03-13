@@ -151,7 +151,7 @@
 #define SE_M_BLIZZARD             146 // SE_W059
 #define SE_M_BLIZZARD2            147 // SE_W059B
 #define SE_M_SCRATCH              148 // SE_W010
-#define SE_M_VICEGRIP             149 // SE_W011
+#define SE_M_VISEGRIP             149 // SE_W011
 #define SE_M_WING_ATTACK          150 // SE_W017
 #define SE_M_FLY                  151 // SE_W019
 #define SE_M_SAND_ATTACK          152 // SE_W028
@@ -185,7 +185,7 @@
 #define SE_M_BONEMERANG           180 // SE_W155
 #define SE_M_LICK                 181 // SE_W122
 #define SE_M_PSYBEAM              182 // SE_W060
-#define SE_M_FAINT_ATTACK         183 // SE_W185
+#define SE_M_FEINT_ATTACK         183 // SE_W185
 #define SE_M_SWORDS_DANCE         184 // SE_W014
 #define SE_M_LEER                 185 // SE_W043
 #define SE_M_SWAGGER              186 // SE_W207

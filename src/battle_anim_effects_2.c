@@ -26,8 +26,8 @@ static void AnimFallingCoin_Step(struct Sprite *);
 static void AnimBulletSeed(struct Sprite *);
 static void AnimBulletSeed_Step1(struct Sprite *);
 static void AnimBulletSeed_Step2(struct Sprite *);
-static void AnimViceGripPincer(struct Sprite *);
-static void AnimViceGripPincer_Step(struct Sprite *);
+static void AnimViseGripPincer(struct Sprite *);
+static void AnimViseGripPincer_Step(struct Sprite *);
 static void AnimGuillotinePincer(struct Sprite *);
 static void AnimGuillotinePincer_Step1(struct Sprite *);
 static void AnimGuillotinePincer_Step2(struct Sprite *);
@@ -456,7 +456,7 @@ const struct SpriteTemplate gRazorWindTornadoSpriteTemplate =
     .callback = AnimRazorWindTornado,
 };
 
-static const union AnimCmd sViceGripAnimCmds1[] =
+static const union AnimCmd sViseGripAnimCmds1[] =
 {
     ANIMCMD_FRAME(0, 3),
     ANIMCMD_FRAME(16, 3),
@@ -464,7 +464,7 @@ static const union AnimCmd sViceGripAnimCmds1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sViceGripAnimCmds2[] =
+static const union AnimCmd sViseGripAnimCmds2[] =
 {
     ANIMCMD_FRAME(0, 3, .vFlip = TRUE, .hFlip = TRUE),
     ANIMCMD_FRAME(16, 3, .vFlip = TRUE, .hFlip = TRUE),
@@ -472,21 +472,21 @@ static const union AnimCmd sViceGripAnimCmds2[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd *const sViceGripAnimTable[] =
+static const union AnimCmd *const sViseGripAnimTable[] =
 {
-    sViceGripAnimCmds1,
-    sViceGripAnimCmds2,
+    sViseGripAnimCmds1,
+    sViseGripAnimCmds2,
 };
 
-const struct SpriteTemplate gViceGripSpriteTemplate =
+const struct SpriteTemplate gViseGripSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CUT,
     .paletteTag = ANIM_TAG_CUT,
     .oam = &gOamData_AffineOff_ObjBlend_32x32,
-    .anims = sViceGripAnimTable,
+    .anims = sViseGripAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimViceGripPincer,
+    .callback = AnimViseGripPincer,
 };
 
 static const union AnimCmd sGuillotineAnimCmds1[] =
@@ -1894,7 +1894,7 @@ static void AnimRazorWindTornado(struct Sprite *sprite)
 
 // Animates a single pincer line that extends towards the center of the target mon.
 // arg 0: invert
-static void AnimViceGripPincer(struct Sprite *sprite)
+static void AnimViseGripPincer(struct Sprite *sprite)
 {
     s16 startXOffset = 32;
     s16 startYOffset = -32;
@@ -1916,10 +1916,10 @@ static void AnimViceGripPincer(struct Sprite *sprite)
     sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + endXOffset;
     sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + endYOffset;
     sprite->callback = StartAnimLinearTranslation;
-    StoreSpriteCallbackInData6(sprite, AnimViceGripPincer_Step);
+    StoreSpriteCallbackInData6(sprite, AnimViseGripPincer_Step);
 }
 
-static void AnimViceGripPincer_Step(struct Sprite *sprite)
+static void AnimViseGripPincer_Step(struct Sprite *sprite)
 {
     if (sprite->animEnded)
         DestroyAnimSprite(sprite);

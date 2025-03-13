@@ -765,7 +765,7 @@ SECTIONS {
         sound/songs/se_m_blizzard.o(.rodata);
         sound/songs/se_m_blizzard2.o(.rodata);
         sound/songs/midi/se_m_scratch.o(.rodata);
-        sound/songs/midi/se_m_vicegrip.o(.rodata);
+        sound/songs/midi/se_m_visegrip.o(.rodata);
         sound/songs/midi/se_m_wing_attack.o(.rodata);
         sound/songs/midi/se_m_fly.o(.rodata);
         sound/songs/midi/se_m_sand_attack.o(.rodata);
@@ -799,7 +799,7 @@ SECTIONS {
         sound/songs/se_m_bonemerang.o(.rodata);
         sound/songs/se_m_lick.o(.rodata);
         sound/songs/se_m_psybeam.o(.rodata);
-        sound/songs/se_m_faint_attack.o(.rodata);
+        sound/songs/se_m_feint_attack.o(.rodata);
         sound/songs/midi/se_m_swords_dance.o(.rodata);
         sound/songs/midi/se_m_leer.o(.rodata);
         sound/songs/se_m_swagger.o(.rodata);
