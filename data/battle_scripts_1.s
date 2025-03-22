@@ -3912,7 +3912,7 @@ BattleScript_ItemSteal::
 
 BattleScript_DrizzleActivates::
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_PKMNMADEITRAIN
+	printstring STRINGID_STARTEDTORAIN
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_RAIN_CONTINUES
 	call BattleScript_WeatherFormChanges
@@ -3940,7 +3940,7 @@ BattleScript_RainDishActivates::
 
 BattleScript_SandstreamActivates::
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_PKMNSXWHIPPEDUPSANDSTORM
+	printstring STRINGID_SANDSTORMKICKEDUP
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
 	call BattleScript_WeatherFormChanges
@@ -4007,7 +4007,7 @@ BattleScript_IntimidateAbilityFail::
 
 BattleScript_DroughtActivates::
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_PKMNSXINTENSIFIEDSUN
+	printstring STRINGID_SUNLIGHTTURNEDHARSH
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
 	call BattleScript_WeatherFormChanges
