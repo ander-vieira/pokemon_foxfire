@@ -8622,7 +8622,7 @@ static void Cmd_sethail(void)
     }
     else
     {
-        gBattleWeather = B_WEATHER_HAIL_TEMPORARY;
+        gBattleWeather = B_WEATHER_HAIL;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_HAIL;
         gWishFutureKnock.weatherDuration = 5;
     }

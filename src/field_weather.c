@@ -43,7 +43,6 @@ struct WeatherCallbacks
 static EWRAM_DATA struct Weather sWeather = {};
 static EWRAM_DATA u8 sFieldEffectPaletteGammaTypes[32] = {};
 static EWRAM_DATA const u8 *sPaletteGammaTypes = NULL;
-static EWRAM_DATA u16 sDroughtFrameDelay = 0;
 
 static void Task_WeatherMain(u8 taskId);
 static void Task_WeatherInit(u8 taskId);
@@ -62,6 +61,17 @@ static bool8 FadeInScreen_FogHorizontal(void);
 static void DoNothing(void);
 static void ApplyFogBlend(u8 blendCoeff, u16 blendColor);
 static bool8 LightenSpritePaletteInFog(u8 paletteIndex);
+
+// The drought weather effect uses a precalculated color lookup table. Presumably this
+// is because the underlying color shift calculation is slow.
+static const u16 sDroughtWeatherColors[][0x1000] = {
+    INCBIN_U16("graphics/weather/drought/colors_0.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_1.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_2.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_3.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_4.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_5.bin"),
+};
 
 struct Weather *const gWeatherPtr = &sWeather;
 
@@ -243,7 +253,6 @@ static void Task_WeatherMain(u8 taskId)
 static void None_Init(void)
 {
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 0;
 }
 
 static void None_Main(void)
@@ -335,7 +344,7 @@ static void UpdateWeatherGammaShift(void)
     }
     else
     {
-        if (++gWeatherPtr->gammaStepFrameCounter >= gWeatherPtr->gammaStepDelay)
+        if (++gWeatherPtr->gammaStepFrameCounter >= WEATHER_GAMMASTEPDELAY)
         {
             gWeatherPtr->gammaStepFrameCounter = 0;
             if (gWeatherPtr->gammaIndex < gWeatherPtr->gammaTargetIndex)
@@ -488,7 +497,30 @@ static void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex)
     else if (gammaIndex < 0)
     {
         // A negative gammIndex value means that the blending will come from the special Drought weather's palette tables.
-        // Dummied out in FRLG
+        gammaIndex = -gammaIndex - 1;
+        palOffset = PLTT_ID(startPalIndex);
+        numPalettes += startPalIndex;
+        curPalIndex = startPalIndex;
+
+        while (curPalIndex < numPalettes)
+        {
+            if (sPaletteGammaTypes[curPalIndex] == GAMMA_NONE)
+            {
+                // No palette change.
+                CpuFastCopy(&gPlttBufferUnfaded[palOffset], &gPlttBufferFaded[palOffset], PLTT_SIZE_4BPP);
+                palOffset += 16;
+            }
+            else
+            {
+                for (i = 0; i < 16; i++)
+                {
+                    gPlttBufferFaded[palOffset] = sDroughtWeatherColors[gammaIndex][DROUGHT_COLOR_INDEX(gPlttBufferUnfaded[palOffset])];
+                    palOffset++;
+                }
+            }
+
+            curPalIndex++;
+        }
     }
     else
     {
@@ -587,11 +619,17 @@ static void ApplyDroughtGammaShiftWithBlend(s8 gammaIndex, u8 blendCoeff, u16 bl
                 g1 = color1.g;
                 b1 = color1.b;
 
-                r1 += ((rBlend - r1) * blendCoeff) >> 4;
-                g1 += ((gBlend - g1) * blendCoeff) >> 4;
-                b1 += ((bBlend - b1) * blendCoeff) >> 4;
+                offset = ((b1 & 0x1E) << 7) | ((g1 & 0x1E) << 3) | ((r1 & 0x1E) >> 1);
+                color2 = *(struct RGBColor *)&sDroughtWeatherColors[gammaIndex][offset];
+                r2 = color2.r;
+                g2 = color2.g;
+                b2 = color2.b;
 
-                gPlttBufferFaded[palOffset++] = (b1 << 10) | (g1 << 5) | r1;
+                r2 += ((rBlend - r2) * blendCoeff) >> 4;
+                g2 += ((gBlend - g2) * blendCoeff) >> 4;
+                b2 += ((bBlend - b2) * blendCoeff) >> 4;
+
+                gPlttBufferFaded[palOffset++] = RGB2(r2, g2, b2);
             }
         }
     }
@@ -675,7 +713,7 @@ void WeatherShiftGammaIfPalStateIdle(s8 gammaIndex)
     }
 }
 
-void WeatherBeginGammaFade(u8 gammaIndex, u8 gammaTargetIndex, u8 gammaStepDelay)
+void WeatherBeginGammaFade(u8 gammaIndex, u8 gammaTargetIndex)
 {
     if (gWeatherPtr->palProcessingState == WEATHER_PAL_STATE_IDLE)
     {
@@ -683,7 +721,6 @@ void WeatherBeginGammaFade(u8 gammaIndex, u8 gammaTargetIndex, u8 gammaStepDelay
         gWeatherPtr->gammaIndex = gammaIndex;
         gWeatherPtr->gammaTargetIndex = gammaTargetIndex;
         gWeatherPtr->gammaStepFrameCounter = 0;
-        gWeatherPtr->gammaStepDelay = gammaStepDelay;
         WeatherShiftGammaIfPalStateIdle(gammaIndex);
     }
 }
@@ -889,9 +926,8 @@ void LoadCustomWeatherSpritePalette(const u16 *palette)
 
 static void LoadDroughtWeatherPalette(u8 *gammaIndexPtr, u8 *a1)
 {
-    // Dummied out in FRLG
-    // *gammaIndexPtr = 0x20;
-    // *a1 = 0x20;
+    *gammaIndexPtr = 0x20;
+    *a1 = 0x20;
 }
 
 void ResetDroughtWeatherPaletteLoading(void)
@@ -919,49 +955,18 @@ static void SetDroughtGamma(s8 gammaIndex)
 void DroughtStateInit(void)
 {
     gWeatherPtr->droughtBrightnessStage = 0;
-    gWeatherPtr->droughtTimer = 0;
-    gWeatherPtr->droughtState = 0;
+    gWeatherPtr->droughtTimer = 64;
     gWeatherPtr->droughtLastBrightnessStage = 0;
-    sDroughtFrameDelay = 5;
+    gWeatherPtr->weatherGfxLoaded = TRUE;
 }
 
 void DroughtStateRun(void)
 {
-    switch (gWeatherPtr->droughtState)
-    {
-    case 0:
-        // Ramp up
-        if (++gWeatherPtr->droughtTimer > sDroughtFrameDelay)
-        {
-            gWeatherPtr->droughtTimer = 0;
-            SetDroughtGamma(gWeatherPtr->droughtBrightnessStage++);
-            if (gWeatherPtr->droughtBrightnessStage > 5)
-            {
-                gWeatherPtr->droughtLastBrightnessStage = gWeatherPtr->droughtBrightnessStage;
-                gWeatherPtr->droughtState = 1;
-                gWeatherPtr->droughtTimer = 60;
-            }
-        }
-        break;
-    case 1:
-        // Oscillate
-        gWeatherPtr->droughtTimer = (gWeatherPtr->droughtTimer + 3) & 0x7F;
-        gWeatherPtr->droughtBrightnessStage = ((gSineTable[gWeatherPtr->droughtTimer] - 1) >> 6) + 2;
-        if (gWeatherPtr->droughtBrightnessStage != gWeatherPtr->droughtLastBrightnessStage)
-            SetDroughtGamma(gWeatherPtr->droughtBrightnessStage);
-        gWeatherPtr->droughtLastBrightnessStage = gWeatherPtr->droughtBrightnessStage;
-        break;
-    case 2:
-        // Ramp down
-        if (++gWeatherPtr->droughtTimer > sDroughtFrameDelay)
-        {
-            gWeatherPtr->droughtTimer = 0;
-            SetDroughtGamma(--gWeatherPtr->droughtBrightnessStage);
-            if (gWeatherPtr->droughtBrightnessStage == 3)
-                gWeatherPtr->droughtState = 0;
-        }
-        break;
-    }
+    gWeatherPtr->droughtTimer = (gWeatherPtr->droughtTimer + 2) % 128;
+    gWeatherPtr->droughtBrightnessStage = (gSineTable[gWeatherPtr->droughtTimer] * 4 + 128) / 256 + 1;
+    if (gWeatherPtr->droughtBrightnessStage != gWeatherPtr->droughtLastBrightnessStage)
+        SetDroughtGamma(gWeatherPtr->droughtBrightnessStage);
+    gWeatherPtr->droughtLastBrightnessStage = gWeatherPtr->droughtBrightnessStage;
 }
 
 void Weather_SetBlendCoeffs(u8 eva, u8 evb)

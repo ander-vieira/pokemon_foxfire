@@ -5,6 +5,8 @@
 #include "constants/field_weather.h"
 
 #define TAG_WEATHER_START 0x1200
+#define WEATHER_GAMMASTEPDELAY 5
+
 enum {
     GFXTAG_CLOUD = TAG_WEATHER_START,
     GFXTAG_FOG_H,
@@ -14,6 +16,7 @@ enum {
     GFXTAG_BUBBLE,
     GFXTAG_RAIN,
 };
+
 enum {
     PALTAG_WEATHER = TAG_WEATHER_START,
 };
@@ -42,7 +45,6 @@ struct Weather
     u8 altGammaShifts[19][32];
     s8 gammaIndex;
     s8 gammaTargetIndex;
-    u8 gammaStepDelay;
     u8 gammaStepFrameCounter;
     u16 fadeDestColor;
     u8 palProcessingState;
@@ -117,7 +119,6 @@ struct Weather
     s16 droughtBrightnessStage;
     s16 droughtLastBrightnessStage;
     s16 droughtTimer;
-    s16 droughtState;
     u8 filler_744[0xD-4];
     s8 loadDroughtPalsIndex;
     u8 loadDroughtPalsOffset;
@@ -155,7 +156,7 @@ void DroughtStateInit(void);
 void DroughtStateRun(void);
 void SetRainStrengthFromSoundEffect(u16 soundEffect);
 void WeatherShiftGammaIfPalStateIdle(s8 gammaIndex);
-void WeatherBeginGammaFade(u8 gammaIndex, u8 gammaTargetIndex, u8 gammaStepDelay);
+void WeatherBeginGammaFade(u8 gammaIndex, u8 gammaTargetIndex);
 void ApplyWeatherGammaShiftToPal(u8 paletteIndex);
 void StartWeather(void);
 void ResumePausedWeather(void);

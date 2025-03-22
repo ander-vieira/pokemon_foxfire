@@ -163,7 +163,6 @@ gSpecials::
 	def_special StartLegendaryBattle
 	def_special StartRegiBattle
 	def_special SetUpTrainerMovement
-	def_special StartDroughtWeatherBlend
 	def_special DoDiveWarp
 	def_special DoFallWarp
 	def_special SetEReaderTrainerGfxId

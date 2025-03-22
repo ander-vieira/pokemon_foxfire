@@ -71,7 +71,6 @@ static const struct SpriteTemplate sCloudSpriteTemplate = {
 void Clouds_InitVars(void)
 {
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 20;
     gWeatherPtr->weatherGfxLoaded = FALSE;
     gWeatherPtr->initStep = 0;
     if (!gWeatherPtr->cloudSpritesCreated)
@@ -129,7 +128,6 @@ bool8 Clouds_Finish(void)
 void Sunny_InitVars(void)
 {
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 20;
 }
 
 void Sunny_InitAll(void)
@@ -205,14 +203,11 @@ static void UpdateCloudSprite(struct Sprite *sprite)
 // WEATHER_DROUGHT
 //------------------------------------------------------------------------------
 
-static void UpdateDroughtBlend(u8);
-
 void Drought_InitVars(void)
 {
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = FALSE;
-    gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 0;
+    gWeatherPtr->gammaTargetIndex = -6;
 }
 
 void Drought_InitAll(void)
@@ -242,14 +237,6 @@ void Drought_Main(void)
         DroughtStateInit();
         gWeatherPtr->initStep++;
         break;
-    case 4:
-        DroughtStateRun();
-        if (gWeatherPtr->droughtBrightnessStage == 6)
-        {
-            gWeatherPtr->weatherGfxLoaded = TRUE;
-            gWeatherPtr->initStep++;
-        }
-        break;
     default:
         DroughtStateRun();
         break;
@@ -260,71 +247,6 @@ bool8 Drought_Finish(void)
 {
     return FALSE;
 }
-
-void StartDroughtWeatherBlend(void)
-{
-    CreateTask(UpdateDroughtBlend, 0x50);
-}
-
-#define tState      data[0]
-#define tBlendY     data[1]
-#define tBlendDelay data[2]
-#define tWinRange   data[3]
-
-static void UpdateDroughtBlend(u8 taskId)
-{
-    struct Task *task = &gTasks[taskId];
-
-    switch (task->tState)
-    {
-    case 0:
-        task->tBlendY = 0;
-        task->tBlendDelay = 0;
-        task->tWinRange = GetGpuReg(REG_OFFSET_WININ);
-        SetGpuReg(REG_OFFSET_WININ, WIN_RANGE(63, 63));
-        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_EFFECT_LIGHTEN);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
-        task->tState++;
-        // fall through
-    case 1:
-        task->tBlendY += 3;
-        if (task->tBlendY > 16)
-            task->tBlendY = 16;
-        SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
-        if (task->tBlendY >= 16)
-            task->tState++;
-        break;
-    case 2:
-        task->tBlendDelay++;
-        if (task->tBlendDelay > 9)
-        {
-            task->tBlendDelay = 0;
-            task->tBlendY--;
-            if (task->tBlendY <= 0)
-            {
-                task->tBlendY = 0;
-                task->tState++;
-            }
-            SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
-        }
-        break;
-    case 3:
-        SetGpuReg(REG_OFFSET_BLDCNT, 0);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
-        SetGpuReg(REG_OFFSET_WININ, task->tWinRange);
-        task->tState++;
-        break;
-    case 4:
-        ScriptContext_Enable();
-        DestroyTask(taskId);
-        break;
-    }
-}
-
-#undef tState
-#undef tBlendY
-#undef tBlendDelay
-#undef tWinRange
 
 //------------------------------------------------------------------------------
 // WEATHER_RAIN
@@ -443,7 +365,6 @@ void Rain_InitVars(void)
     gWeatherPtr->isDownpour = FALSE;
     gWeatherPtr->targetRainSpriteCount = 10;
     gWeatherPtr->gammaTargetIndex = 3;
-    gWeatherPtr->gammaStepDelay = 20;
     SetRainStrengthFromSoundEffect(SE_RAIN);
 }
 
@@ -735,7 +656,6 @@ void Snow_InitVars(void)
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = FALSE;
     gWeatherPtr->gammaTargetIndex = 3;
-    gWeatherPtr->gammaStepDelay = 20;
     gWeatherPtr->targetSnowflakeSpriteCount = 16;
     gWeatherPtr->snowflakeVisibleCounter = 0;
 }
@@ -1003,7 +923,6 @@ void Thunderstorm_InitVars(void)
     gWeatherPtr->isDownpour = FALSE;
     gWeatherPtr->targetRainSpriteCount = 16;
     gWeatherPtr->gammaTargetIndex = 3;
-    gWeatherPtr->gammaStepDelay = 20;
     gWeatherPtr->weatherGfxLoaded = FALSE;  // duplicate assignment
     gWeatherPtr->thunderTriggered = FALSE;
     SetRainStrengthFromSoundEffect(SE_THUNDERSTORM);
@@ -1032,8 +951,6 @@ void Downpour_InitVars(void)
     gWeatherPtr->isDownpour = TRUE;
     gWeatherPtr->targetRainSpriteCount = 24;
     gWeatherPtr->gammaTargetIndex = 3;
-    gWeatherPtr->gammaStepDelay = 20;
-    gWeatherPtr->weatherGfxLoaded = FALSE;  // duplicate assignment
     SetRainStrengthFromSoundEffect(SE_DOWNPOUR);
 }
 
@@ -1139,7 +1056,7 @@ void Thunderstorm_Main(void)
     case TSTORM_STATE_FADE_THUNDER_LONG:
         if (--gWeatherPtr->thunderDelay == 0)
         {
-            WeatherBeginGammaFade(19, 3, 5);
+            WeatherBeginGammaFade(19, 3);
             gWeatherPtr->initStep++;
         }
         break;
@@ -1310,7 +1227,6 @@ void FogHorizontal_InitVars(void)
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = FALSE;
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 20;
     if (!gWeatherPtr->fogHSpritesCreated)
     {
         gWeatherPtr->fogHScrollCounter = 0;
@@ -1465,7 +1381,6 @@ void Ash_InitVars(void)
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = FALSE;
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 20;
     gWeatherPtr->ashUnused = 20; // Never read
     if (!gWeatherPtr->ashSpritesCreated)
     {
@@ -1670,7 +1585,6 @@ void FogDiagonal_InitVars(void)
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = 0;
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 20;
     gWeatherPtr->fogHScrollCounter = 0;
     gWeatherPtr->fogHScrollOffset = 1;
     if (!gWeatherPtr->fogDSpritesCreated)
@@ -1879,7 +1793,6 @@ void Sandstorm_InitVars(void)
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = 0;
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 20;
     if (!gWeatherPtr->sandstormSpritesCreated)
     {
         gWeatherPtr->sandstormXOffset = gWeatherPtr->sandstormYOffset = 0;
@@ -2170,7 +2083,6 @@ void Shade_InitVars(void)
 {
     gWeatherPtr->initStep = 0;
     gWeatherPtr->gammaTargetIndex = 3;
-    gWeatherPtr->gammaStepDelay = 20;
 }
 
 void Shade_InitAll(void)
