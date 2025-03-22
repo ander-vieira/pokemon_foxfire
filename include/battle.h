@@ -68,6 +68,8 @@ enum {
 // For the second argument of GetMoveTarget, when no target override is needed
 #define NO_TARGET_OVERRIDE 0
 
+#define BATTLE_INTRO_SPEED 4
+
 struct TrainerMonNoItemDefaultMoves
 {
     u16 iv;

@@ -188,7 +188,7 @@ static void BattleIntroSlide1(u8 taskId)
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
         if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+            gTasks[taskId].data[2] -= BATTLE_INTRO_SPEED;
         // Scanline settings have already been set in CB2_InitBattleInternal
         for (i = 0; i < 80; ++i)
             gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
@@ -287,7 +287,7 @@ static void BattleIntroSlide2(u8 taskId)
             gBattle_WIN0V -= 0x3FC;
 
         if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+            gTasks[taskId].data[2] -= BATTLE_INTRO_SPEED;
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < 80; ++i)
             gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
@@ -366,7 +366,7 @@ static void BattleIntroSlide3(u8 taskId)
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
         if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+            gTasks[taskId].data[2] -= BATTLE_INTRO_SPEED;
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < 80; ++i)
             gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
@@ -443,7 +443,7 @@ static void BattleIntroSlideLink(u8 taskId)
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
         if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+            gTasks[taskId].data[2] -= BATTLE_INTRO_SPEED;
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < 80; ++i)
             gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
@@ -477,16 +477,4 @@ void CopyBattlerSpriteToBg(s32 bgId, u8 x, u8 y, u8 battlerPosition, u8 palno, u
         for (j = x; j < x + 8; ++j)
             tilemapDest[i * 32 + j] = offset++ | (palno << 12);
     LoadBgTilemap(bgId, tilemapDest, BG_SCREEN_SIZE, 0);
-}
-
-// Unused
-static void DrawBattlerOnBgDMA(u8 arg0, u8 arg1, u8 battlerPosition, u8 arg3, u8 arg4, u16 arg5, u8 arg6, u8 arg7)
-{
-    s32 i, j, offset;
-
-    DmaCopy16(3, gMonSpritesGfxPtr->sprites[battlerPosition] + BG_SCREEN_SIZE * arg3, (void *)BG_SCREEN_ADDR(0) + arg5, BG_SCREEN_SIZE);
-    offset = (arg5 >> 5) - (arg7 << 9);
-    for (i = arg1; i < arg1 + 8; ++i)
-        for (j = arg0; j < arg0 + 8; ++j)
-            *((u16 *)(BG_VRAM) + (i * 32) + (j + (arg6 << 10))) = offset++ | (arg4 << 12);
 }
