@@ -4222,11 +4222,12 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         {
                             // Limit the increase
                             if (data + itemEffect[idx] > EV_ITEM_RAISE_LIMIT)
-                                evDelta = EV_ITEM_RAISE_LIMIT - (data + itemEffect[idx]) + itemEffect[idx];
+                                evDelta = EV_ITEM_RAISE_LIMIT - data;
                             else
                                 evDelta = itemEffect[idx];
+                            
                             if (evCount + evDelta > MAX_TOTAL_EVS)
-                                evDelta += MAX_TOTAL_EVS - (evCount + evDelta);
+                                evDelta = MAX_TOTAL_EVS - evCount;
 
                             // Update EVs and stats
                             data += evDelta;
@@ -4429,11 +4430,12 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         {
                             // Limit the increase
                             if (data + itemEffect[idx] > EV_ITEM_RAISE_LIMIT)
-                                evDelta = EV_ITEM_RAISE_LIMIT - (data + itemEffect[idx]) + itemEffect[idx];
+                                evDelta = EV_ITEM_RAISE_LIMIT - data;
                             else
                                 evDelta = itemEffect[idx];
+                            
                             if (evCount + evDelta > MAX_TOTAL_EVS)
-                                evDelta += MAX_TOTAL_EVS - (evCount + evDelta);
+                                evDelta = MAX_TOTAL_EVS - evCount;
                             
                             // Update EVs and stats
                             data += evDelta;
@@ -5465,11 +5467,11 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 {
     u8 evs[NUM_STATS];
-    u16 evIncrease = 0;
+    u8 evIncrease = 0;
     u16 totalEVs = 0;
     u16 heldItem;
     u8 holdEffect;
-    int i;
+    u8 i;
 
     for (i = 0; i < NUM_STATS; i++)
     {
@@ -5479,40 +5481,33 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 
     for (i = 0; i < NUM_STATS; i++)
     {
-        u8 hasHadPokerus;
-        int multiplier;
-
         if (totalEVs >= MAX_TOTAL_EVS)
-            break;
-
-        hasHadPokerus = CheckPartyHasHadPokerus(mon, 0);
-
-        if (hasHadPokerus)
-            multiplier = 2;
-        else
-            multiplier = 1;
-
+            return;
+        
         switch (i)
         {
         case STAT_HP:
-            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_HP * multiplier;
+            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_HP;
             break;
         case STAT_ATK:
-            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Attack * multiplier;
+            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Attack;
             break;
         case STAT_DEF:
-            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Defense * multiplier;
+            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Defense;
             break;
         case STAT_SPEED:
-            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Speed * multiplier;
+            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Speed;
             break;
         case STAT_SPATK:
-            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpAttack * multiplier;
+            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpAttack;
             break;
         case STAT_SPDEF:
-            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpDefense * multiplier;
+            evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpDefense;
             break;
         }
+
+        if (CheckPartyHasHadPokerus(mon, 0))
+            evIncrease *= 2;
 
         heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
 
@@ -5531,15 +5526,11 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
         if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
             evIncrease *= 2;
 
-        if (totalEVs + (s16)evIncrease > MAX_TOTAL_EVS)
-            evIncrease = ((s16)evIncrease + MAX_TOTAL_EVS) - (totalEVs + evIncrease);
+        if (totalEVs + evIncrease > MAX_TOTAL_EVS)
+            evIncrease = MAX_TOTAL_EVS - totalEVs;
 
-        if (evs[i] + (s16)evIncrease > MAX_PER_STAT_EVS)
-        {
-            int val1 = (s16)evIncrease + MAX_PER_STAT_EVS;
-            int val2 = evs[i] + evIncrease;
-            evIncrease = val1 - val2;
-        }
+        if (evs[i] + evIncrease > MAX_PER_STAT_EVS)
+            evIncrease = MAX_PER_STAT_EVS - evs[i];
 
         evs[i] += evIncrease;
         totalEVs += evIncrease;
