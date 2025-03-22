@@ -54,7 +54,7 @@ struct EggHatchData
 // this file's functions
 static void ClearDaycareMonMail(struct DayCareMail *mail);
 static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *daycare);
-static u8 GetDaycareCompatibilityScore(struct DayCare *daycare);
+static u8 DaycareCanBreed(struct DayCare *daycare);
 static void DaycarePrintMonInfo(u8 windowId, u32 daycareSlotId, u8 y);
 
 static void Task_EggHatch(u8 taskID);
@@ -121,14 +121,6 @@ static const struct ListMenuTemplate sDaycareListMenuLevelTemplate =
     .scrollMultiple = 0,
     .fontId = FONT_NORMAL_COPY_2,
     .cursorKind = 0
-};
-
-static const u8 *const sCompatibilityMessages[] =
-{
-    gDaycareText_GetAlongVeryWell,
-    gDaycareText_GetAlong,
-    gDaycareText_DontLikeOther,
-    gDaycareText_PlayOther
 };
 
 static const u8 sNewLineText[] = _("\n");
@@ -1137,11 +1129,8 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
 
     // Check if an egg should be produced
     if (daycare->offspringPersonality == 0 && validEggs == DAYCARE_MON_COUNT && (daycare->mons[1].steps & 0xFF) == 0xFF)
-    {
-        u8 compatibility = GetDaycareCompatibilityScore(daycare);
-        if (compatibility > (Random() * 100u) / USHRT_MAX)
+        if(DaycareCanBreed(daycare) && Random() % 100 < BREEDING_RATE)
             TriggerPendingDaycareEgg();
-    }
 
     // Hatch Egg
     if (++daycare->stepCounter == 255)
@@ -1245,7 +1234,7 @@ u8 GetDaycarePokemonCount(void)
 
 // Determine if the two given egg group lists contain any of the
 // same egg groups.
-static bool8 EggGroupsOverlap(u16 *eggGroups1, u16 *eggGroups2)
+static bool8 EggGroupsOverlap(u8 *eggGroups1, u8 *eggGroups2)
 {
     s32 i, j;
 
@@ -1261,90 +1250,57 @@ static bool8 EggGroupsOverlap(u16 *eggGroups1, u16 *eggGroups2)
     return FALSE;
 }
 
-static u8 GetDaycareCompatibilityScore(struct DayCare *daycare)
+static bool8 DaycareCanBreed(struct DayCare *daycare)
 {
-    u32 i;
-    u16 eggGroups[DAYCARE_MON_COUNT][EGG_GROUPS_PER_MON];
-    u16 species[DAYCARE_MON_COUNT];
-    u32 trainerIds[DAYCARE_MON_COUNT];
-    u32 genders[DAYCARE_MON_COUNT];
+    u8 genders[DAYCARE_MON_COUNT];
+    u8 eggGroups[DAYCARE_MON_COUNT][EGG_GROUPS_PER_MON];
+    u8 i;
 
     for (i = 0; i < DAYCARE_MON_COUNT; i++)
     {
         u32 personality;
+        u16 species;
 
-        species[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SPECIES);
-        trainerIds[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_OT_ID);
         personality = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_PERSONALITY);
-        genders[i] = GetGenderFromSpeciesAndPersonality(species[i], personality);
-        eggGroups[i][0] = gSpeciesInfo[species[i]].eggGroups[0];
-        eggGroups[i][1] = gSpeciesInfo[species[i]].eggGroups[1];
+        species = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SPECIES);
+        genders[i] = GetGenderFromSpeciesAndPersonality(species, personality);
+        eggGroups[i][0] = gSpeciesInfo[species].eggGroups[0];
+        eggGroups[i][1] = gSpeciesInfo[species].eggGroups[1];
     }
 
-    // check unbreedable egg group
+    //Either parent can't breed
     if (eggGroups[0][0] == EGG_GROUP_UNDISCOVERED || eggGroups[1][0] == EGG_GROUP_UNDISCOVERED)
-        return PARENTS_INCOMPATIBLE;
-    // two Ditto can't breed
+        return FALSE;
+
+    //Both parents are Ditto
     if (eggGroups[0][0] == EGG_GROUP_DITTO && eggGroups[1][0] == EGG_GROUP_DITTO)
-        return PARENTS_INCOMPATIBLE;
+        return FALSE;
 
-    // one parent is Ditto
+    //One parent is Ditto
     if (eggGroups[0][0] == EGG_GROUP_DITTO || eggGroups[1][0] == EGG_GROUP_DITTO)
-    {
-        if (trainerIds[0] == trainerIds[1])
-            return PARENTS_LOW_COMPATIBILITY;
+        return TRUE;
 
-        return PARENTS_MED_COMPATIBILITY;
-    }
-    // neither parent is Ditto
-    else
-    {
-        if (genders[0] == genders[1])
-            return PARENTS_INCOMPATIBLE;
-        if (genders[0] == MON_GENDERLESS || genders[1] == MON_GENDERLESS)
-            return PARENTS_INCOMPATIBLE;
-        if (!EggGroupsOverlap(eggGroups[0], eggGroups[1]))
-            return PARENTS_INCOMPATIBLE;
+    //Either partner is genderless
+    if (genders[0] == MON_GENDERLESS || genders[1] == MON_GENDERLESS)
+        return FALSE;
 
-        if (species[0] == species[1])
-        {
-            if (trainerIds[0] == trainerIds[1])
-                return PARENTS_MED_COMPATIBILITY; // same species, same trainer
+    //Both parents are the same gender
+    if (genders[0] == genders[1])
+        return FALSE;
+    
+    //Egg groups don't match
+    if (!EggGroupsOverlap(eggGroups[0], eggGroups[1]))
+        return FALSE;
 
-            return PARENTS_MAX_COMPATIBILITY; // same species, different trainers
-        }
-        else
-        {
-            if (trainerIds[0] != trainerIds[1])
-                return PARENTS_MED_COMPATIBILITY; // different species, different trainers
-
-            return PARENTS_LOW_COMPATIBILITY; // different species, same trainer
-        }
-    }
-}
-
-static u8 GetDaycareCompatibilityScoreFromSave(void)
-{
-    return GetDaycareCompatibilityScore(&gSaveBlock1Ptr->daycare);
+    return TRUE;
 }
 
 void SetDaycareCompatibilityString(void)
 {
-    u8 whichString;
-    u8 relationshipScore;
-
-    relationshipScore = GetDaycareCompatibilityScoreFromSave();
-    whichString = 0;
-    if (relationshipScore == PARENTS_INCOMPATIBLE)
-        whichString = 3;
-    if (relationshipScore == PARENTS_LOW_COMPATIBILITY)
-        whichString = 2;
-    if (relationshipScore == PARENTS_MED_COMPATIBILITY)
-        whichString = 1;
-    if (relationshipScore == PARENTS_MAX_COMPATIBILITY)
-        whichString = 0;
-
-    StringCopy(gStringVar4, sCompatibilityMessages[whichString]);
+    if(DaycareCanBreed(&gSaveBlock1Ptr->daycare))
+        StringCopy(gStringVar4, gDaycareText_GetAlong);
+    else
+        StringCopy(gStringVar4, gDaycareText_PlayOther);
 }
 
 bool8 NameHasGenderSymbol(const u8 *name, u8 genderRatio)
