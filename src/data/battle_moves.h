@@ -4033,11 +4033,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ASTONISH] =
     {
         .effect = EFFECT_FLINCH_MINIMIZE_HIT,
-        .power = 30,
+        .power = 40,
         .type = TYPE_GHOST,
         .accuracy = 100,
-        .pp = 15,
-        .secondaryEffectChance = 30,
+        .pp = 30,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
