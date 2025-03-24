@@ -2515,6 +2515,7 @@ AI_CV_ChangeSelfAbility_AbilitiesToEncourage::
 	.byte ABILITY_PURE_POWER
 	.byte ABILITY_CHLOROPHYLL
 	.byte ABILITY_SHIELD_DUST
+	.byte ABILITY_SAND_RUSH
 	.byte -1
 
 AI_CV_Superpower::
