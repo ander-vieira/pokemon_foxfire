@@ -1548,16 +1548,9 @@ static inline void ApplyRandomDmgMultiplier(void)
     }
 }
 
-static void Unused_ApplyRandomDmgMultiplier(void)
-{
-    ApplyRandomDmgMultiplier();
-}
-
-static void Cmd_adjustnormaldamage(void)
-{
+static void EndureDamage(bool8 checkFalseSwipe) {
     u8 holdEffect, param;
-
-    ApplyRandomDmgMultiplier();
+    bool8 falseSwipe, endured, focusBanded, sturdy;
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -1570,71 +1563,49 @@ static void Cmd_adjustnormaldamage(void)
         param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerTarget].item);
     }
 
-    gPotentialItemEffectBattler = gBattlerTarget;
+    falseSwipe = checkFalseSwipe && gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE;
+    endured = gProtectStructs[gBattlerTarget].endured;
+    sturdy = gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP;
 
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
-        gSpecialStatuses[gBattlerTarget].focusBanded = 1;
+        focusBanded = 1;
+    } else {
+        focusBanded = 0;
     }
+
+    gPotentialItemEffectBattler = gBattlerTarget;
+
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
-     && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
-    {
+        && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage
+        && (falseSwipe || endured || sturdy || focusBanded)) {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
-        if (gProtectStructs[gBattlerTarget].endured)
-        {
+        if (endured || sturdy) {
             gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
-        }
-        else if (gSpecialStatuses[gBattlerTarget].focusBanded)
-        {
+        } else if (focusBanded) {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
         }
     }
+}
+
+static void Cmd_adjustnormaldamage(void)
+{
+    ApplyRandomDmgMultiplier();
+
+    EndureDamage(TRUE);
+
     gBattlescriptCurrInstr++;
 }
 
 // The same as adjustnormaldamage except it doesn't check for false swipe move effect.
 static void Cmd_adjustnormaldamage2(void)
 {
-    u8 holdEffect, param;
-
     ApplyRandomDmgMultiplier();
+    
+    EndureDamage(FALSE);
 
-    if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
-    {
-        holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
-        param = gEnigmaBerries[gBattlerTarget].holdEffectParam;
-    }
-    else
-    {
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerTarget].item);
-        param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerTarget].item);
-    }
-
-    gPotentialItemEffectBattler = gBattlerTarget;
-
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
-    {
-        RecordItemEffectBattle(gBattlerTarget, holdEffect);
-        gSpecialStatuses[gBattlerTarget].focusBanded = 1;
-    }
-    if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
-     && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
-    {
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
-        if (gProtectStructs[gBattlerTarget].endured)
-        {
-            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
-        }
-        else if (gSpecialStatuses[gBattlerTarget].focusBanded)
-        {
-            gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
-            gLastUsedItem = gBattleMons[gBattlerTarget].item;
-        }
-    }
     gBattlescriptCurrInstr++;
 }
 
@@ -5581,41 +5552,8 @@ static void Cmd_cancelallactions(void)
 // The same as adjustnormaldamage, except there's no random damage multiplier.
 static void Cmd_adjustsetdamage(void)
 {
-    u8 holdEffect, param;
+    EndureDamage(TRUE);
 
-    if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
-    {
-        holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
-        param = gEnigmaBerries[gBattlerTarget].holdEffectParam;
-    }
-    else
-    {
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerTarget].item);
-        param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerTarget].item);
-    }
-
-    gPotentialItemEffectBattler = gBattlerTarget;
-
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
-    {
-        RecordItemEffectBattle(gBattlerTarget, holdEffect);
-        gSpecialStatuses[gBattlerTarget].focusBanded = 1;
-    }
-    if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
-     && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
-    {
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
-        if (gProtectStructs[gBattlerTarget].endured)
-        {
-            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
-        }
-        else if (gSpecialStatuses[gBattlerTarget].focusBanded)
-        {
-            gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
-            gLastUsedItem = gBattleMons[gBattlerTarget].item;
-        }
-    }
     gBattlescriptCurrInstr++;
 }
 
