@@ -1781,21 +1781,16 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
     //Determine original trainer ID
-    if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
-    {
+    if (otIdType == OT_ID_RANDOM_NO_SHINY) { //Pokemon cannot be shiny
         u32 shinyValue;
-        do
-        {
+
+        do {
             value = Random32();
             shinyValue = GET_SHINY_VALUE(value, personality);
         } while (shinyValue < SHINY_ODDS);
-    }
-    else if (otIdType == OT_ID_PRESET) //Pokemon has a preset OT ID
-    {
+    } else if (otIdType == OT_ID_PRESET) { //Pokemon has a preset OT ID
         value = fixedOtId;
-    }
-    else //Player is the OT
-    {
+    } else { //Player is the OT
         value = gSaveBlock2Ptr->playerTrainerId[0]
               | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
@@ -1822,17 +1817,14 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
     SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
 
-    if (fixedIV < USE_RANDOM_IVS)
-    {
+    if (fixedIV < USE_RANDOM_IVS) {
         SetBoxMonData(boxMon, MON_DATA_HP_IV, &fixedIV);
         SetBoxMonData(boxMon, MON_DATA_ATK_IV, &fixedIV);
         SetBoxMonData(boxMon, MON_DATA_DEF_IV, &fixedIV);
         SetBoxMonData(boxMon, MON_DATA_SPEED_IV, &fixedIV);
         SetBoxMonData(boxMon, MON_DATA_SPATK_IV, &fixedIV);
         SetBoxMonData(boxMon, MON_DATA_SPDEF_IV, &fixedIV);
-    }
-    else
-    {
+    } else {
         u32 iv;
         value = Random();
 
@@ -1853,11 +1845,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         SetBoxMonData(boxMon, MON_DATA_SPDEF_IV, &iv);
     }
 
-    if (gSpeciesInfo[species].abilities[1])
-    {
-        value = personality & 1;
-        SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
-    }
+    value = 0;
+    SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
 
     GiveBoxMonInitialMoveset(boxMon);
 }
