@@ -70,49 +70,39 @@ enum {
 
 #define BATTLE_INTRO_SPEED 4
 
-struct TrainerMonNoItemDefaultMoves
-{
-    u16 iv;
-    u8 lvl;
+struct TrainerMonDefault {
     u16 species;
+    u8 lvl;
+    u8 iv;
 };
 
-struct TrainerMonItemDefaultMoves
-{
-    u16 iv;
-    u8 lvl;
+struct TrainerMonCustomMoves {
     u16 species;
-    u16 heldItem;
-};
-
-struct TrainerMonNoItemCustomMoves
-{
-    u16 iv;
     u8 lvl;
-    u16 species;
+    u8 iv;
     u16 moves[MAX_MON_MOVES];
 };
 
-struct TrainerMonItemCustomMoves
-{
-    u16 iv;
-    u8 lvl;
+struct TrainerMonCustomFull {
     u16 species;
-    u16 heldItem;
+    u8 lvl;
+    u8 ability;                 //Defaults to regular ability
+    u8 nature;                  //Defaults to Hardy (neutral)
+    u16 heldItem;               //Defaults to no item
+    u16 ball;                   //Defaults to Poké Ball
+    u8 ev[NUM_STATS];           //Defaults to all 0
     u16 moves[MAX_MON_MOVES];
 };
 
-#define NO_ITEM_DEFAULT_MOVES(party) { .NoItemDefaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = 0
-#define NO_ITEM_CUSTOM_MOVES(party) { .NoItemCustomMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET
-#define ITEM_DEFAULT_MOVES(party) { .ItemDefaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_HELD_ITEM
-#define ITEM_CUSTOM_MOVES(party) { .ItemCustomMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM
+#define PARTY_DEFAULT(party) { .defaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_DEFAULT
+#define PARTY_CUSTOM_MOVES(party) { .customMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVES
+#define PARTY_CUSTOM_FULL(party) { .customFull = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_FULL
 
 union TrainerMonPtr
 {
-    const struct TrainerMonNoItemDefaultMoves *NoItemDefaultMoves;
-    const struct TrainerMonNoItemCustomMoves *NoItemCustomMoves;
-    const struct TrainerMonItemDefaultMoves *ItemDefaultMoves;
-    const struct TrainerMonItemCustomMoves *ItemCustomMoves;
+    const struct TrainerMonDefault *defaultMoves;
+    const struct TrainerMonCustomMoves *customMoves;
+    const struct TrainerMonCustomFull *customFull;
 };
 
 struct Trainer

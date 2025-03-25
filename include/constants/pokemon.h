@@ -162,6 +162,10 @@
 #define NATURE_QUIRKY   24
 #define NUM_NATURES     25
 
+//Abilities
+#define ABILITY_NUM_REGULAR	0
+#define ABILITY_NUM_HIDDEN  1
+
 // Pokemon Stats
 #define STAT_HP      0
 #define STAT_ATK     1

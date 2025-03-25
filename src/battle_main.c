@@ -1561,27 +1561,28 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 
             switch (gTrainers[trainerNum].partyFlags)
             {
-            case 0:
+            case F_TRAINER_PARTY_DEFAULT:
             {
-                const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
+                const struct TrainerMonDefault *partyData = gTrainers[trainerNum].party.defaultMoves;
 
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
                 personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+                fixedIV = partyData[i].iv >> 3;
                 CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
                 break;
             }
-            case F_TRAINER_PARTY_CUSTOM_MOVESET:
+            case F_TRAINER_PARTY_CUSTOM_MOVES:
             {
-                const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
+                const struct TrainerMonCustomMoves *partyData = gTrainers[trainerNum].party.customMoves;
 
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
                 personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+                fixedIV = partyData[i].iv >> 3;
+
                 CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
@@ -1591,31 +1592,35 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 }
                 break;
             }
-            case F_TRAINER_PARTY_HELD_ITEM:
+            case F_TRAINER_PARTY_CUSTOM_FULL:
             {
-                const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
+                const struct TrainerMonCustomFull *partyData = gTrainers[trainerNum].party.customFull;
 
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
                 personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
+                //Adjust personality value for the nature
+                personalityValue -= personalityValue % 23;
+                personalityValue += partyData[i].nature;
+
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, MAX_PER_STAT_IVS, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-                break;
-            }
-            case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
-            {
-                const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
+                SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
 
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
+                //Set ability
+                if (GetAbilityBySpecies(partyData[i].species, partyData[i].ability) != ABILITY_NONE)
+                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
 
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-                SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+                //Set EVs
+                SetMonData(&party[i], MON_DATA_HP_EV, &partyData[i].ev[0]);
+                SetMonData(&party[i], MON_DATA_ATK_EV, &partyData[i].ev[1]);
+                SetMonData(&party[i], MON_DATA_DEF_EV, &partyData[i].ev[2]);
+                SetMonData(&party[i], MON_DATA_SPATK_EV, &partyData[i].ev[3]);
+                SetMonData(&party[i], MON_DATA_SPDEF_EV, &partyData[i].ev[4]);
+                SetMonData(&party[i], MON_DATA_SPEED_EV, &partyData[i].ev[5]);
+                CalculateMonStats(&party[i]);
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {

@@ -5274,8 +5274,6 @@ static void Cmd_getmoneyreward(void)
     u32 moneyReward;
     u8 lastMonLevel = 0;
 
-    const struct TrainerMonItemCustomMoves *party4; //This needs to be out here
-
     if (gBattleOutcome == B_OUTCOME_WON)
     {
         if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
@@ -5286,32 +5284,25 @@ static void Cmd_getmoneyreward(void)
         {
             switch (gTrainers[gTrainerBattleOpponent_A].partyFlags)
             {
-            case 0:
+            case F_TRAINER_PARTY_DEFAULT:
                 {
-                    const struct TrainerMonNoItemDefaultMoves *party1 = gTrainers[gTrainerBattleOpponent_A].party.NoItemDefaultMoves;
+                    const struct TrainerMonDefault *party1 = gTrainers[gTrainerBattleOpponent_A].party.defaultMoves;
                     
                     lastMonLevel = party1[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
                 }
                 break;
-            case F_TRAINER_PARTY_CUSTOM_MOVESET:
+            case F_TRAINER_PARTY_CUSTOM_MOVES:
                 {
-                    const struct TrainerMonNoItemCustomMoves *party2 = gTrainers[gTrainerBattleOpponent_A].party.NoItemCustomMoves;
+                    const struct TrainerMonCustomMoves *party2 = gTrainers[gTrainerBattleOpponent_A].party.customMoves;
                     
                     lastMonLevel = party2[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
                 }
                 break;
-            case F_TRAINER_PARTY_HELD_ITEM:
+            case F_TRAINER_PARTY_CUSTOM_FULL:
                 {
-                    const struct TrainerMonItemDefaultMoves *party3 = gTrainers[gTrainerBattleOpponent_A].party.ItemDefaultMoves;
+                    const struct TrainerMonCustomFull *party3 = gTrainers[gTrainerBattleOpponent_A].party.customFull;
                     
                     lastMonLevel = party3[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
-                }
-                break;
-            case (F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM):
-                {
-                    party4 = gTrainers[gTrainerBattleOpponent_A].party.ItemCustomMoves;
-                    
-                    lastMonLevel = party4[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
                 }
                 break;
             }
@@ -5320,7 +5311,6 @@ static void Cmd_getmoneyreward(void)
                 if (gTrainerMoneyTable[i].classId == gTrainers[gTrainerBattleOpponent_A].trainerClass)
                     break;
             }
-            party4 = gTrainers[gTrainerBattleOpponent_A].party.ItemCustomMoves; // Needed to Match. Has no effect.
             moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * (gBattleTypeFlags & BATTLE_TYPE_DOUBLE ? 2 : 1) * gTrainerMoneyTable[i].value;
         }
         AddMoney(&gSaveBlock1Ptr->money, moneyReward);
