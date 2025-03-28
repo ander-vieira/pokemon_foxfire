@@ -4294,25 +4294,25 @@ BattleScript_WhiteHerbEnd2::
 BattleScript_WhiteHerbRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDSTATUS
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_SHORT
 	removeitem BS_SCRIPTING
 	return
 
 BattleScript_ItemHealHP_RemoveItem::
-	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_SHORT
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	removeitem BS_ATTACKER
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
+	removeitem BS_SCRIPTING
 	end2
 
 BattleScript_BerryPPHealEnd2::
-	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDPP
-	waitmessage B_WAIT_TIME_LONG
-	removeitem BS_ATTACKER
+	waitmessage B_WAIT_TIME_SHORT
+	removeitem BS_SCRIPTING
 	end2
 
 BattleScript_ItemHealHP_End2::
@@ -4320,12 +4320,12 @@ BattleScript_ItemHealHP_End2::
 	end2
 
 BattleScript_ItemHealHP_Ret::
-	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHPALITTLE
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_SHORT
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
 	return
 
 BattleScript_SelectingNotAllowedMoveChoiceItem::
