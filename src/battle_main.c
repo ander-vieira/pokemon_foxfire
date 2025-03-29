@@ -1602,7 +1602,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 personalityValue += nameHash << 8;
 
                 //Adjust personality value for the nature
-                personalityValue -= personalityValue % 23;
+                personalityValue -= personalityValue % NUM_NATURES;
                 personalityValue += partyData[i].nature;
 
                 CreateMon(&party[i], partyData[i].species, partyData[i].lvl, MAX_PER_STAT_IVS, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
