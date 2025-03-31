@@ -14,7 +14,6 @@ PewterCity_Gym_EventScript_DefeatedBrock::
 	setflag FLAG_BADGE01_GET
 	setvar VAR_MAP_SCENE_PEWTER_CITY, 1
 	setflag FLAG_HIDE_PEWTER_CITY_GYM_GUIDE
-	clearflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	set_gym_trainers 1
 	goto PewterCity_Gym_EventScript_GiveTM39
 	end
@@ -42,29 +41,13 @@ PewterCity_Gym_EventScript_Liam::
 PewterCity_Gym_EventScript_GymGuy::
 	lock
 	faceplayer
-	goto_if_set FLAG_BADGE01_GET, PewterCity_Gym_EventScript_GymGuyPostVictory
-	msgbox PewterCity_Gym_Text_LetMeTakeYouToTheTop, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, PewterCity_Gym_EventScript_GymGuyTakeMeToTop
-	goto_if_eq VAR_RESULT, NO, PewterCity_Gym_EventScript_GymGuyDontTakeMeToTop
-	end
-
-PewterCity_Gym_EventScript_GymGuyPostVictory::
-	msgbox PewterCity_Gym_Text_YoureChampMaterial
+	goto_if_set FLAG_BADGE01_GET, PewterCity_Gym_EventScript_GuideAfter
+	msgbox PewterCity_Gym_Text_GuideBefore
 	release
 	end
 
-PewterCity_Gym_EventScript_GymGuyTakeMeToTop::
-	msgbox PewterCity_Gym_Text_LetsGetHappening
-	goto PewterCity_Gym_EventScript_GymGuyAdvice
-	end
-
-PewterCity_Gym_EventScript_GymGuyDontTakeMeToTop::
-	msgbox PewterCity_Gym_Text_ItsFreeLetsGetHappening
-	goto PewterCity_Gym_EventScript_GymGuyAdvice
-	end
-
-PewterCity_Gym_EventScript_GymGuyAdvice::
-	msgbox PewterCity_Gym_Text_TryDifferentPartyOrders
+PewterCity_Gym_EventScript_GuideAfter::
+	msgbox PewterCity_Gym_Text_GuideAfter
 	release
 	end
 

@@ -159,7 +159,7 @@
 #define FLAG_HIDE_SAPPHIRE                                 0x08F
 #define FLAG_HIDE_DOTTED_HOLE_SCIENTIST                    0x090
 #define FLAG_HIDE_THREE_ISLAND_LONE_BIKER                  0x091
-#define FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY            0x092
+#define FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY            0x092 //UNUSED
 #define FLAG_HIDE_LOST_CAVE_SELPHY                         0x093
 #define FLAG_HIDE_RESORT_GORGEOUS_SELPHY                   0x094
 #define FLAG_HIDE_RESORT_GORGEOUS_INSIDE_SELPHY            0x095
