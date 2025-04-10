@@ -1182,7 +1182,7 @@ static const u16 sTMHMMoves[] =
     MOVE_THIEF,
     MOVE_STEEL_WING,
     MOVE_ROCK_SLIDE,
-    MOVE_SNATCH,
+    MOVE_WEATHER_BALL,
     MOVE_OVERHEAT,
     MOVE_CUT,
     MOVE_FLY,
