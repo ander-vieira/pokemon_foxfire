@@ -250,8 +250,6 @@ gSpecials::
 	def_special PrintPlayerBerryPowderAmount
 	def_special DoPokemonLeagueLightingEffect
 	def_special ShowBerryCrushRankings
-	def_special CapeBrinkGetMoveToTeachLeadPokemon
-	def_special HasLearnedAllMovesFromCapeBrinkTutor
 	def_special DoCredits
 	def_special ShowDodrioBerryPickingRecords
 	def_special DrawSeagallopDestinationMenu
