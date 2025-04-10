@@ -41,9 +41,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_MIMIC)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CHARMANDER] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_SWORDS_DANCE)
-                         | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_CHARMANDER] = TUTOR(MOVE_SWORDS_DANCE)
                          | TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
@@ -52,9 +50,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_ROCK_SLIDE)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CHARMELEON] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_SWORDS_DANCE)
-                         | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_CHARMELEON] = TUTOR(MOVE_SWORDS_DANCE)
                          | TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
@@ -63,9 +59,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_ROCK_SLIDE)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CHARIZARD] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_SWORDS_DANCE)
-                        | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_CHARIZARD] = TUTOR(MOVE_SWORDS_DANCE)
                         | TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
@@ -74,27 +68,21 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_ROCK_SLIDE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SQUIRTLE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SQUIRTLE] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
                        | TUTOR(MOVE_MIMIC)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_WARTORTLE] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_WARTORTLE] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
                         | TUTOR(MOVE_MIMIC)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_BLASTOISE] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_BLASTOISE] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -165,9 +153,7 @@ static const u16 sTutorLearnsets[] =
                     | TUTOR(MOVE_ROCK_SLIDE)
                     | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_PIKACHU] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_PIKACHU] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -175,9 +161,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_RAICHU] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_RAICHU] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -215,9 +199,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_MIMIC)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_NIDOQUEEN] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_NIDOQUEEN] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -237,9 +219,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_MIMIC)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_NIDOKING] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_NIDOKING] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -247,9 +227,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_ROCK_SLIDE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CLEFAIRY] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_CLEFAIRY] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -260,9 +238,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_THUNDER_WAVE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CLEFABLE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_CLEFABLE] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -283,9 +259,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_MIMIC)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_JIGGLYPUFF] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_MEGA_KICK)
-                         | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_JIGGLYPUFF] = TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
                          | TUTOR(MOVE_SEISMIC_TOSS)
@@ -294,9 +268,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_THUNDER_WAVE)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_WIGGLYTUFF] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_MEGA_KICK)
-                         | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_WIGGLYTUFF] = TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
                          | TUTOR(MOVE_SEISMIC_TOSS)
@@ -375,27 +347,21 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_DREAM_EATER)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_PSYDUCK] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_PSYDUCK] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GOLDUCK] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_GOLDUCK] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MANKEY] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MANKEY] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -404,9 +370,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_PRIMEAPE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_PRIMEAPE] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -430,9 +394,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_POLIWHIRL] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_POLIWHIRL] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -440,9 +402,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_METRONOME)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_POLIWRATH] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_POLIWRATH] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -450,9 +410,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_METRONOME)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_ABRA] = TUTOR(MOVE_MEGA_PUNCH)
-                   | TUTOR(MOVE_MEGA_KICK)
-                   | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_ABRA] = TUTOR(MOVE_BODY_SLAM)
                    | TUTOR(MOVE_DOUBLE_EDGE)
                    | TUTOR(MOVE_COUNTER)
                    | TUTOR(MOVE_SEISMIC_TOSS)
@@ -462,9 +420,7 @@ static const u16 sTutorLearnsets[] =
                    | TUTOR(MOVE_THUNDER_WAVE)
                    | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_KADABRA] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_KADABRA] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -474,9 +430,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_ALAKAZAM] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_ALAKAZAM] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -486,9 +440,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_THUNDER_WAVE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MACHOP] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MACHOP] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -497,9 +449,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MACHOKE] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MACHOKE] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -508,9 +458,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MACHAMP] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MACHAMP] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -545,8 +493,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_MIMIC)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GEODUDE] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_GEODUDE] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -556,8 +503,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GRAVELER] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_GRAVELER] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -567,9 +513,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_ROCK_SLIDE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GOLEM] = TUTOR(MOVE_MEGA_PUNCH)
-                    | TUTOR(MOVE_MEGA_KICK)
-                    | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_GOLEM] = TUTOR(MOVE_BODY_SLAM)
                     | TUTOR(MOVE_DOUBLE_EDGE)
                     | TUTOR(MOVE_COUNTER)
                     | TUTOR(MOVE_SEISMIC_TOSS)
@@ -596,9 +540,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_THUNDER_WAVE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SLOWBRO] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SLOWBRO] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -673,9 +615,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_EXPLOSION)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GENGAR] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_GENGAR] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -692,9 +632,7 @@ static const u16 sTutorLearnsets[] =
                    | TUTOR(MOVE_ROCK_SLIDE)
                    | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_DROWZEE] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_DROWZEE] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -704,9 +642,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_HYPNO] = TUTOR(MOVE_MEGA_PUNCH)
-                    | TUTOR(MOVE_MEGA_KICK)
-                    | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_HYPNO] = TUTOR(MOVE_BODY_SLAM)
                     | TUTOR(MOVE_DOUBLE_EDGE)
                     | TUTOR(MOVE_COUNTER)
                     | TUTOR(MOVE_SEISMIC_TOSS)
@@ -750,9 +686,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_EXPLOSION)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CUBONE] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_SWORDS_DANCE)
-                     | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_CUBONE] = TUTOR(MOVE_SWORDS_DANCE)
                      | TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
@@ -761,9 +695,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MAROWAK] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_MAROWAK] = TUTOR(MOVE_SWORDS_DANCE)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
@@ -772,9 +704,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_HITMONLEE] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_HITMONLEE] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -783,9 +713,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_ROCK_SLIDE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_HITMONCHAN] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_MEGA_KICK)
-                         | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_HITMONCHAN] = TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
                          | TUTOR(MOVE_SEISMIC_TOSS)
@@ -794,9 +722,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_ROCK_SLIDE)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_LICKITUNG] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_SWORDS_DANCE)
-                        | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_LICKITUNG] = TUTOR(MOVE_SWORDS_DANCE)
                         | TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
@@ -822,9 +748,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_RHYDON] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_SWORDS_DANCE)
-                     | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_RHYDON] = TUTOR(MOVE_SWORDS_DANCE)
                      | TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
@@ -833,9 +757,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CHANSEY] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_CHANSEY] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -852,9 +774,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_KANGASKHAN] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_MEGA_KICK)
-                         | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_KANGASKHAN] = TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
                          | TUTOR(MOVE_SEISMIC_TOSS)
@@ -889,9 +809,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MR_MIME] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MR_MIME] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -907,9 +825,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_JYNX] = TUTOR(MOVE_MEGA_PUNCH)
-                   | TUTOR(MOVE_MEGA_KICK)
-                   | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_JYNX] = TUTOR(MOVE_BODY_SLAM)
                    | TUTOR(MOVE_DOUBLE_EDGE)
                    | TUTOR(MOVE_COUNTER)
                    | TUTOR(MOVE_SEISMIC_TOSS)
@@ -918,9 +834,7 @@ static const u16 sTutorLearnsets[] =
                    | TUTOR(MOVE_DREAM_EATER)
                    | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_ELECTABUZZ] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_MEGA_KICK)
-                         | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_ELECTABUZZ] = TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
                          | TUTOR(MOVE_SEISMIC_TOSS)
@@ -928,9 +842,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_THUNDER_WAVE)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MAGMAR] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MAGMAR] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1013,7 +925,6 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_SUBSTITUTE),
 
     [SPECIES_KABUTOPS] = TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1026,9 +937,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_ROCK_SLIDE)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SNORLAX] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SNORLAX] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1068,9 +977,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_THUNDER_WAVE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MEWTWO] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MEWTWO] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1080,9 +987,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_THUNDER_WAVE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MEW] = TUTOR(MOVE_MEGA_PUNCH)
-                  | TUTOR(MOVE_SWORDS_DANCE)
-                  | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_MEW] = TUTOR(MOVE_SWORDS_DANCE)
                   | TUTOR(MOVE_BODY_SLAM)
                   | TUTOR(MOVE_DOUBLE_EDGE)
                   | TUTOR(MOVE_COUNTER)
@@ -1127,9 +1032,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TYPHLOSION] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_MEGA_KICK)
-                         | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_TYPHLOSION] = TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
                          | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1137,9 +1040,7 @@ static const u16 sTutorLearnsets[] =
                          | TUTOR(MOVE_ROCK_SLIDE)
                          | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TOTODILE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_TOTODILE] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -1148,9 +1049,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_ROCK_SLIDE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CROCONAW] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_CROCONAW] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -1159,9 +1058,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_ROCK_SLIDE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_FERALIGATR] = TUTOR(MOVE_MEGA_PUNCH)
-                         | TUTOR(MOVE_SWORDS_DANCE)
-                         | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_FERALIGATR] = TUTOR(MOVE_SWORDS_DANCE)
                          | TUTOR(MOVE_BODY_SLAM)
                          | TUTOR(MOVE_DOUBLE_EDGE)
                          | TUTOR(MOVE_COUNTER)
@@ -1190,14 +1087,12 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_DREAM_EATER)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_LEDYBA] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_SWORDS_DANCE)
+    [SPECIES_LEDYBA] = TUTOR(MOVE_SWORDS_DANCE)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_MIMIC)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_LEDIAN] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_SWORDS_DANCE)
+    [SPECIES_LEDIAN] = TUTOR(MOVE_SWORDS_DANCE)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_MIMIC)
                      | TUTOR(MOVE_SUBSTITUTE),
@@ -1226,9 +1121,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_PICHU] = TUTOR(MOVE_MEGA_PUNCH)
-                    | TUTOR(MOVE_MEGA_KICK)
-                    | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_PICHU] = TUTOR(MOVE_BODY_SLAM)
                     | TUTOR(MOVE_DOUBLE_EDGE)
                     | TUTOR(MOVE_COUNTER)
                     | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1236,9 +1129,7 @@ static const u16 sTutorLearnsets[] =
                     | TUTOR(MOVE_THUNDER_WAVE)
                     | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CLEFFA] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_CLEFFA] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1249,9 +1140,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_THUNDER_WAVE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_IGGLYBUFF] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_IGGLYBUFF] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1260,9 +1149,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_THUNDER_WAVE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TOGEPI] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_TOGEPI] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1273,9 +1160,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_THUNDER_WAVE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TOGETIC] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_TOGETIC] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1304,9 +1189,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_THUNDER_WAVE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_FLAAFFY] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_FLAAFFY] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1314,9 +1197,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_AMPHAROS] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_AMPHAROS] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1329,25 +1210,19 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_MIMIC)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MARILL] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MARILL] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_SEISMIC_TOSS)
                      | TUTOR(MOVE_MIMIC)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_AZUMARILL] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_AZUMARILL] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_SEISMIC_TOSS)
                         | TUTOR(MOVE_MIMIC)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SUDOWOODO] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SUDOWOODO] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1356,9 +1231,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_ROCK_SLIDE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_POLITOED] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_POLITOED] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1381,9 +1254,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_MIMIC)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_AIPOM] = TUTOR(MOVE_MEGA_PUNCH)
-                    | TUTOR(MOVE_MEGA_KICK)
-                    | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_AIPOM] = TUTOR(MOVE_BODY_SLAM)
                     | TUTOR(MOVE_DOUBLE_EDGE)
                     | TUTOR(MOVE_COUNTER)
                     | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1413,9 +1284,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_MIMIC)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_QUAGSIRE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_QUAGSIRE] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1440,9 +1309,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SLOWKING] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SLOWKING] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1508,9 +1375,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SNUBBULL] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SNUBBULL] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1519,9 +1384,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_THUNDER_WAVE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GRANBULL] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_GRANBULL] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1565,9 +1428,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_DREAM_EATER)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TEDDIURSA] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_SWORDS_DANCE)
-                        | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_TEDDIURSA] = TUTOR(MOVE_SWORDS_DANCE)
                         | TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
@@ -1576,9 +1437,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_METRONOME)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_URSARING] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_URSARING] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -1630,9 +1489,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_THUNDER_WAVE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_DELIBIRD] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_DELIBIRD] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1697,8 +1554,7 @@ static const u16 sTutorLearnsets[] =
 
     [SPECIES_SMEARGLE] = 0,
 
-    [SPECIES_TYROGUE] = TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_TYROGUE] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1706,8 +1562,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_HITMONTOP] = TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_HITMONTOP] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1715,9 +1570,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_ROCK_SLIDE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SMOOCHUM] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SMOOCHUM] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1726,9 +1579,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_DREAM_EATER)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_ELEKID] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_ELEKID] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1736,18 +1587,14 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_THUNDER_WAVE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MAGBY] = TUTOR(MOVE_MEGA_PUNCH)
-                    | TUTOR(MOVE_MEGA_KICK)
-                    | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MAGBY] = TUTOR(MOVE_BODY_SLAM)
                     | TUTOR(MOVE_DOUBLE_EDGE)
                     | TUTOR(MOVE_COUNTER)
                     | TUTOR(MOVE_SEISMIC_TOSS)
                     | TUTOR(MOVE_MIMIC)
                     | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MILTANK] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MILTANK] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1757,9 +1604,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_BLISSEY] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_BLISSEY] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1798,9 +1643,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TYRANITAR] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_TYRANITAR] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1829,9 +1672,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_DREAM_EATER)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TREECKO] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_TREECKO] = TUTOR(MOVE_SWORDS_DANCE)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
@@ -1839,9 +1680,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GROVYLE] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_GROVYLE] = TUTOR(MOVE_SWORDS_DANCE)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
@@ -1849,9 +1688,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SCEPTILE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_SCEPTILE] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -1859,9 +1696,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_MIMIC)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_TORCHIC] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_TORCHIC] = TUTOR(MOVE_SWORDS_DANCE)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
@@ -1870,9 +1705,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_COMBUSKEN] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_SWORDS_DANCE)
-                        | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_COMBUSKEN] = TUTOR(MOVE_SWORDS_DANCE)
                         | TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
@@ -1881,9 +1714,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_ROCK_SLIDE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_BLAZIKEN] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_BLAZIKEN] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -1897,9 +1728,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_MIMIC)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MARSHTOMP] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MARSHTOMP] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1907,9 +1736,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_ROCK_SLIDE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SWAMPERT] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SWAMPERT] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -1967,9 +1794,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_MIMIC)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_LUDICOLO] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_LUDICOLO] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -1986,7 +1811,6 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_SUBSTITUTE),
 
     [SPECIES_NUZLEAF] = TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_MIMIC)
@@ -1994,7 +1818,6 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_SUBSTITUTE),
 
     [SPECIES_SHIFTRY] = TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_MIMIC)
@@ -2031,9 +1854,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_MIMIC)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_BRELOOM] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_BRELOOM] = TUTOR(MOVE_SWORDS_DANCE)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
@@ -2041,9 +1862,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SPINDA] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SPINDA] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2093,9 +1912,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_THUNDER_WAVE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_KECLEON] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_KECLEON] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2134,9 +1951,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SABLEYE] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SABLEYE] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2207,9 +2022,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MAKUHITA] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MAKUHITA] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2218,9 +2031,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_ROCK_SLIDE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_HARIYAMA] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_HARIYAMA] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2272,8 +2083,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CACNEA] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_SWORDS_DANCE)
+    [SPECIES_CACNEA] = TUTOR(MOVE_SWORDS_DANCE)
                      | TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
@@ -2281,9 +2091,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_MIMIC)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_CACTURNE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_CACTURNE] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -2329,9 +2137,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_DREAM_EATER)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GRUMPIG] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_GRUMPIG] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2339,9 +2145,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_DREAM_EATER)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_PLUSLE] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_PLUSLE] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2350,9 +2154,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_THUNDER_WAVE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MINUN] = TUTOR(MOVE_MEGA_PUNCH)
-                    | TUTOR(MOVE_MEGA_KICK)
-                    | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MINUN] = TUTOR(MOVE_BODY_SLAM)
                     | TUTOR(MOVE_DOUBLE_EDGE)
                     | TUTOR(MOVE_COUNTER)
                     | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2361,9 +2163,7 @@ static const u16 sTutorLearnsets[] =
                     | TUTOR(MOVE_THUNDER_WAVE)
                     | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MAWILE] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_SWORDS_DANCE)
-                     | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_MAWILE] = TUTOR(MOVE_SWORDS_DANCE)
                      | TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
@@ -2372,9 +2172,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MEDITITE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MEDITITE] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2383,9 +2181,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_DREAM_EATER)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_MEDICHAM] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_MEDICHAM] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2415,9 +2211,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_DREAM_EATER)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_DUSCLOPS] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_DUSCLOPS] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2433,9 +2227,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SLAKOTH] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SLAKOTH] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2443,9 +2235,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_VIGOROTH] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_VIGOROTH] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2453,9 +2243,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_ROCK_SLIDE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_SLAKING] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_SLAKING] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2485,18 +2273,14 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_WHISMUR] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_WHISMUR] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_LOUDRED] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_LOUDRED] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2504,9 +2288,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_ROCK_SLIDE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_EXPLOUD] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_EXPLOUD] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2559,9 +2341,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_ZANGOOSE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_SWORDS_DANCE)
-                       | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_ZANGOOSE] = TUTOR(MOVE_SWORDS_DANCE)
                        | TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
@@ -2589,9 +2369,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_AGGRON] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_AGGRON] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2606,9 +2384,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_THUNDER_WAVE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_VOLBEAT] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_MEGA_KICK)
-                      | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_VOLBEAT] = TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
                       | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2617,9 +2393,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_ILLUMISE] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_ILLUMISE] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2710,9 +2484,7 @@ static const u16 sTutorLearnsets[] =
                         | TUTOR(MOVE_ROCK_SLIDE)
                         | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_REGIROCK] = TUTOR(MOVE_MEGA_PUNCH)
-                       | TUTOR(MOVE_MEGA_KICK)
-                       | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_REGIROCK] = TUTOR(MOVE_BODY_SLAM)
                        | TUTOR(MOVE_DOUBLE_EDGE)
                        | TUTOR(MOVE_COUNTER)
                        | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2722,9 +2494,7 @@ static const u16 sTutorLearnsets[] =
                        | TUTOR(MOVE_ROCK_SLIDE)
                        | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_REGICE] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_REGICE] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2734,9 +2504,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_REGISTEEL] = TUTOR(MOVE_MEGA_PUNCH)
-                        | TUTOR(MOVE_MEGA_KICK)
-                        | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_REGISTEEL] = TUTOR(MOVE_BODY_SLAM)
                         | TUTOR(MOVE_DOUBLE_EDGE)
                         | TUTOR(MOVE_COUNTER)
                         | TUTOR(MOVE_SEISMIC_TOSS)
@@ -2753,9 +2521,7 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_ROCK_SLIDE)
                      | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_GROUDON] = TUTOR(MOVE_MEGA_PUNCH)
-                      | TUTOR(MOVE_SWORDS_DANCE)
-                      | TUTOR(MOVE_MEGA_KICK)
+    [SPECIES_GROUDON] = TUTOR(MOVE_SWORDS_DANCE)
                       | TUTOR(MOVE_BODY_SLAM)
                       | TUTOR(MOVE_DOUBLE_EDGE)
                       | TUTOR(MOVE_COUNTER)
@@ -2794,9 +2560,7 @@ static const u16 sTutorLearnsets[] =
                       | TUTOR(MOVE_THUNDER_WAVE)
                       | TUTOR(MOVE_SUBSTITUTE),
 
-    [SPECIES_DEOXYS] = TUTOR(MOVE_MEGA_PUNCH)
-                     | TUTOR(MOVE_MEGA_KICK)
-                     | TUTOR(MOVE_BODY_SLAM)
+    [SPECIES_DEOXYS] = TUTOR(MOVE_BODY_SLAM)
                      | TUTOR(MOVE_DOUBLE_EDGE)
                      | TUTOR(MOVE_COUNTER)
                      | TUTOR(MOVE_SEISMIC_TOSS)
