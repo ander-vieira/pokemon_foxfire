@@ -101,7 +101,7 @@ Route4_EventScript_MegaPunchTutor::
 	msgbox Text_MegaPunchTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_MegaPunchDeclined
 	msgbox Text_MegaPunchWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_MEGA_PUNCH
+	setvar VAR_0x8005, TUTOR_MOVE_MORNING_SUN
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_MegaPunchDeclined
 	setflag FLAG_TUTOR_MEGA_PUNCH
