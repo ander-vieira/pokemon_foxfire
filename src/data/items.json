@@ -4947,7 +4947,7 @@
     {
       "english": "TM21",
       "itemId": "ITEM_TM21",
-      "price": 1000,
+      "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "importance": 0,
@@ -4958,7 +4958,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Frustration"
+      "moveId": "BodySlam"
     },
     {
       "english": "TM22",
