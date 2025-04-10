@@ -5,7 +5,7 @@ VictoryRoad_2F_EventScript_DoubleEdgeTutor::
 	msgbox Text_DoubleEdgeTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_DoubleEdgeDeclined
 	msgbox Text_DoubleEdgeWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_DOUBLE_EDGE
+	setvar VAR_0x8005, TUTOR_MOVE_FIRE_PUNCH
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_DoubleEdgeDeclined
 	setflag FLAG_TUTOR_DOUBLE_EDGE
@@ -125,7 +125,7 @@ Route4_EventScript_MegaKickTutor::
 	msgbox Text_MegaKickTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_MegaKickDeclined
 	msgbox Text_MegaKickWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_MEGA_KICK
+	setvar VAR_0x8005, TUTOR_MOVE_ICE_PUNCH
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_MegaKickDeclined
 	setflag FLAG_TUTOR_MEGA_KICK
@@ -173,7 +173,7 @@ EventScript_SoftboiledTutor::
 	msgbox Text_SoftboiledTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_SoftboiledDeclined
 	msgbox Text_SoftboiledWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_SOFT_BOILED
+	setvar VAR_0x8005, TUTOR_MOVE_WILL_O_WISP
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_SoftboiledDeclined
 	setflag FLAG_TUTOR_SOFT_BOILED
@@ -293,7 +293,7 @@ EventScript_MetronomeTutor::
 	msgbox Text_MetronomeTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_MetronomeDeclined
 	msgbox Text_MetronomeWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_METRONOME
+	setvar VAR_0x8005, TUTOR_MOVE_CURSE
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_MetronomeDeclined
 	setflag FLAG_TUTOR_METRONOME
@@ -315,7 +315,7 @@ EventScript_MimicTutor::
 	msgbox Text_MimicTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_MimicDeclined
 	msgbox Text_MimicWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_MIMIC
+	setvar VAR_0x8005, TUTOR_MOVE_HEAL_BELL
 	call EventScript_ChooseMoveTutorMon
 	lock
 	faceplayer
@@ -352,7 +352,7 @@ FourIsland_House1_EventScript_BodySlamTutor::
 	msgbox Text_BodySlamTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
 	msgbox Text_BodySlamWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_BODY_SLAM
+	setvar VAR_0x8005, TUTOR_MOVE_THUNDER_PUNCH
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_BodySlamDeclined
 	setflag FLAG_TUTOR_BODY_SLAM
