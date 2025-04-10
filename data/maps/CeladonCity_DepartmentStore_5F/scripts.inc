@@ -81,6 +81,7 @@ CeladonCity_DepartmentStore_5F_TMsLower::
 	.2byte ITEM_TM17
 	.2byte ITEM_TM32
 	.2byte ITEM_TM33
+	.2byte ITEM_TM43
 	.2byte ITEM_NONE
 	release
 	end
