@@ -53,7 +53,7 @@ RockTunnel_B1F_EventScript_RockSlideTutor::
 	msgbox Text_RockSlideTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_RockSlideDeclined
 	msgbox Text_RockSlideWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_ROCK_SLIDE
+	setvar VAR_0x8005, TUTOR_MOVE_WISH
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_RockSlideDeclined
 	setflag FLAG_TUTOR_ROCK_SLIDE
@@ -149,7 +149,7 @@ FuchsiaCity_EventScript_SubstituteTutor::
 	msgbox Text_SubstituteTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_SubstituteDeclined
 	msgbox Text_SubstituteWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_SUBSTITUTE
+	setvar VAR_0x8005, TUTOR_MOVE_UNUSED
 	call EventScript_ChooseMoveTutorMon
 	goto_if_eq VAR_RESULT, FALSE, EventScript_SubstituteDeclined
 	setflag FLAG_TUTOR_SUBSTITUTE
