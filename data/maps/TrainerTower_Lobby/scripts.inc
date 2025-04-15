@@ -1,7 +1,7 @@
 .set LOCALID_NURSE,         1
 .set LOCALID_MART_CLERK,    2
 .set LOCALID_RECEPTIONIST,  3
-.set LOCALID_COOLTRAINER_F, 4
+.set LOCALID_ACE_TRAINER_F, 4
 .set LOCALID_BALDING_MAN,   5
 
 TrainerTower_Lobby_MapScripts::
@@ -28,7 +28,7 @@ TrainerTower_Lobby_OnReturnToField::
 	addobject LOCALID_NURSE
 	addobject LOCALID_MART_CLERK
 	addobject LOCALID_RECEPTIONIST
-	addobject LOCALID_COOLTRAINER_F
+	addobject LOCALID_ACE_TRAINER_F
 	addobject LOCALID_BALDING_MAN
 	end
 
