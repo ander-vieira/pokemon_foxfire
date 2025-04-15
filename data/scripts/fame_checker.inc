@@ -35,14 +35,6 @@ FourIsland_PokemonCenter_1F_EventScript_PokemonJournal::
 	releaseall
 	end
 
-Route4_EventScript_Boy::
-	lock
-	faceplayer
-	famechecker FAMECHECKER_BROCK, 3
-	msgbox Route4_Text_PeopleLikeAndRespectBrock
-	release
-	end
-
 MtMoon_1F_EventScript_BaldingMan::
 	lock
 	faceplayer

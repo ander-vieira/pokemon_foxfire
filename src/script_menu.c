@@ -382,12 +382,6 @@ static const struct MenuAction sMultichoiceList_TradeColosseumCrush[] = {
     { gOtherText_Exit }
 };
 
-static const struct MenuAction sMultichoiceList_48[] = {
-    { gText_EmptyLinkService1 },
-    { gText_EmptyLinkService2 },
-    { gOtherText_Exit }
-};
-
 static const struct MenuAction sMultichoiceList_TradeColosseum_2[] = {
     { gText_TradeCenter },
     { gText_Colosseum_2 },
@@ -472,12 +466,6 @@ static const struct MenuAction sMultichoiceList_SeagallopVermilion[] = {
     { gOtherText_Exit }
 };
 
-static const struct MenuAction sMultichoiceList_62[] = {
-    { gText_Multichoice_Empty1 },
-    { gText_Multichoice_Empty2 },
-    { gOtherText_Exit }
-};
-
 static const struct MenuAction sMultichoiceList_JoinOrLead[] = {
     { gText_JoinGroup },
     { gText_BecomeLeader },
@@ -489,6 +477,13 @@ static const struct MenuAction sMultichoiceList_TrainerTowerMode[] = {
     { gOtherText_Double },
     { gOtherText_Knockout },
     { gOtherText_Mixed },
+    { gOtherText_Exit }
+};
+
+static const struct MenuAction sMultichoiceList_Tutor_Punches[] = {
+    { gText_Move_IcePunch },
+    { gText_Move_ThunderPunch },
+    { gText_Move_FirePunch },
     { gOtherText_Exit }
 };
 
@@ -545,7 +540,6 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_ISLAND_13]                                  = MULTICHOICE(sMultichoiceList_Island13),
     [MULTICHOICE_ISLAND_12]                                  = MULTICHOICE(sMultichoiceList_Island12),
     [MULTICHOICE_TRADE_COLOSSEUM_CRUSH]                      = MULTICHOICE(sMultichoiceList_TradeColosseumCrush),
-    [MULTICHOICE_48]                                         = MULTICHOICE(sMultichoiceList_48),
     [MULTICHOICE_POKEJUMP_DODRIO]                            = MULTICHOICE(sMultichoiceList_PokejumpDodrio),
     [MULTICHOICE_TRADE_COLOSSEUM_2]                          = MULTICHOICE(sMultichoiceList_TradeColosseum_2),
     [MULTICHOICE_MUSHROOMS]                                  = MULTICHOICE(sMultichoiceList_Mushrooms),
@@ -559,9 +553,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_SEAGALLOP_V13]                              = MULTICHOICE(sMultichoiceList_SeagallopV13),
     [MULTICHOICE_SEAGALLOP_V12]                              = MULTICHOICE(sMultichoiceList_SeagallopV12),
     [MULTICHOICE_SEAGALLOP_VERMILION]                        = MULTICHOICE(sMultichoiceList_SeagallopVermilion),
-    [MULTICHOICE_62]                                         = MULTICHOICE(sMultichoiceList_62),
     [MULTICHOICE_JOIN_OR_LEAD]                               = MULTICHOICE(sMultichoiceList_JoinOrLead),
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
+    [MULTICHOICE_TUTOR_PUNCHES]                              = MULTICHOICE(sMultichoiceList_Tutor_Punches),
 };
 
 // From Cool to Berries goes unused

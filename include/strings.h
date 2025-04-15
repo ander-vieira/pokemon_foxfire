@@ -72,10 +72,6 @@ extern const u8 gText_Decorate[];
 extern const u8 gText_PutAway[];
 extern const u8 gText_Toss2[];
 extern const u8 gText_Hoenn[];
-extern const u8 gText_Ferry[];
-extern const u8 gText_SecretBase[];
-extern const u8 gText_Hideout[];
-extern const u8 gText_FlyToWhere[];
 extern const u8 gText_ApostropheSBase[];
 extern const u8 gText_NoRegistry[];
 extern const u8 gText_OkayToDeleteFromRegistry[];
@@ -785,8 +781,6 @@ extern const u8 gText_ThreeIsland[];
 extern const u8 gText_Vermilion[];
 extern const u8 gText_Colosseum_2[];
 extern const u8 gText_BerryCrush[];
-extern const u8 gText_EmptyLinkService1[];
-extern const u8 gText_EmptyLinkService2[];
 extern const u8 gText_RecordCorner[];
 extern const u8 gText_PokemonJump[];
 extern const u8 gText_DodrioBerryPicking[];
@@ -800,8 +794,6 @@ extern const u8 gText_Charcoal_1000Coins[];
 extern const u8 gText_MysticWater_1000Coins[];
 extern const u8 gText_YellowFlute_1600Coins[];
 extern const u8 gText_SmokeBall_800Coins[];
-extern const u8 gText_Multichoice_Empty1[];
-extern const u8 gText_Multichoice_Empty2[];
 extern const u8 gText_BecomeLeader[];
 extern const u8 gText_JoinGroup[];
 extern const u8 gText_Cool_2[];
@@ -929,7 +921,6 @@ extern const u8 gText_ButtonTypeLR[];
 extern const u8 gText_ButtonTypeLEqualsA[];
 extern const u8 gText_Option[];
 extern const u8 gText_FrameType[];
-extern const u8 gTextJP_Type[];
 extern const u8 gText_PickSwitchCancel[];
 
 // evolution_scene
@@ -1535,5 +1526,9 @@ extern const u8 gText_PokeSum_EggOrigin_Trade[];
 extern const u8 gText_PokeSum_EggOrigin_NicePlace[];
 extern const u8 gText_PokeSum_EggOrigin_Spa[];
 extern const u8 gText_PokeSum_EggOrigin_Trade[];
+
+extern const u8 gText_Move_IcePunch[];
+extern const u8 gText_Move_ThunderPunch[];
+extern const u8 gText_Move_FirePunch[];
 
 #endif //GUARD_STRINGS_H
