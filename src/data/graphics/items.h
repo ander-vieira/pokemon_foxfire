@@ -526,8 +526,8 @@ const u32 gItemIconPalette_MetalPowder[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_ThickClub[] = INCBIN_U32("graphics/items/icons/thick_club.4bpp.lz");
 const u32 gItemIconPalette_ThickClub[] = INCBIN_U32("graphics/items/icon_palettes/thick_club.gbapal.lz");
 
-const u32 gItemIcon_Stick[] = INCBIN_U32("graphics/items/icons/stick.4bpp.lz");
-const u32 gItemIconPalette_Stick[] = INCBIN_U32("graphics/items/icon_palettes/stick.gbapal.lz");
+const u32 gItemIcon_Stick[] = INCBIN_U32("graphics/items/icons/leek.4bpp.lz");
+const u32 gItemIconPalette_Stick[] = INCBIN_U32("graphics/items/icon_palettes/leek.gbapal.lz");
 
 const u32 gItemIcon_Scarf[] = INCBIN_U32("graphics/items/icons/scarf.4bpp.lz");
 const u32 gItemIconPalette_RedScarf[] = INCBIN_U32("graphics/items/icon_palettes/red_scarf.gbapal.lz");
