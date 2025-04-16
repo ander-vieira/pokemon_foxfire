@@ -1,4 +1,5 @@
 .equ LOCALID_FERRY_SAILOR, 6
+.equ LOCALID_CELIO, 8
 
 VermilionCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, VermilionCity_OnTransition
@@ -24,12 +25,7 @@ VermilionCity_Movement_ExitSSAnne::
 
 VermilionCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VERMILION_CITY
-	call_if_set FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide
 	end
-
-VermilionCity_EventScript_HideOaksAide::
-	setflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE
-	return
 
 VermilionCity_EventScript_Woman::
 	msgbox VermilionCity_Text_GrimerMultipliesInSludge, MSGBOX_NPC
@@ -38,7 +34,7 @@ VermilionCity_EventScript_Woman::
 VermilionCity_EventScript_OldMan1::
 	lock
 	faceplayer
-	goto_if_eq VAR_MAP_SCENE_VERMILION_CITY, 3, VermilionCity_EventScript_OldMan1SSAnneLeft
+	goto_if_ge VAR_MAP_SCENE_VERMILION_CITY, 3, VermilionCity_EventScript_OldMan1SSAnneLeft
 	msgbox VermilionCity_Text_DidYouSeeSSAnneInHarbor
 	release
 	end
@@ -48,11 +44,73 @@ VermilionCity_EventScript_OldMan1SSAnneLeft::
 	release
 	end
 
+VermilionCity_EventScript_Sailor::
+	msgbox VermilionCity_Text_SSAnneVisitsOnceAYear, MSGBOX_NPC
+	end
+
+VermilionCity_EventScript_OldMan2::
+	msgbox VermilionCity_Text_BuildingOnThisLand, MSGBOX_NPC
+	end
+
+VermilionCity_EventScript_Machop::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MACHOP, CRY_MODE_NORMAL
+	msgbox VermilionCity_Text_Machop
+	waitmoncry
+	msgbox VermilionCity_Text_MachopStompingLandFlat
+	release
+	end
+
+VermilionCity_EventScript_CitySign::
+	msgbox VermilionCity_Text_CitySign, MSGBOX_SIGN
+	end
+
+VermilionCity_EventScript_SnorlaxNotice::
+	msgbox VermilionCity_Text_SnorlaxBlockingRoute12, MSGBOX_SIGN
+	end
+
+VermilionCity_EventScript_PokemonFanClubSign::
+	msgbox VermilionCity_Text_PokemonFanClubSign, MSGBOX_SIGN
+	end
+
+VermilionCity_EventScript_GymSign::
+	lockall
+	famechecker FAMECHECKER_LTSURGE, 0
+	msgbox VermilionCity_Text_GymSign
+	releaseall
+	end
+
+VermilionCity_EventScript_HarborSign::
+	msgbox VermilionCity_Text_VermilionHarbor, MSGBOX_SIGN
+	end
+
 VermilionCity_EventScript_FerrySailor::
 	lock
 	faceplayer
-	goto_if_eq VAR_MAP_SCENE_VERMILION_CITY, 3, VermilionCity_EventScript_CheckSeagallopPresent
+	goto_if_questlog EventScript_ReleaseEnd
+	switch VAR_MAP_SCENE_VERMILION_CITY
+	case 0, VermilionCity_EventScript_FerrySailor_Welcome
+	case 1, VermilionCity_EventScript_FerrySailor_Welcome
+	case 2, VermilionCity_EventScript_FerrySailor_Welcome
+	case 3, VermilionCity_EventScript_FerrySailor_SetSail
+	call VermilionCity_EventScript_CheckHasMysticTicket
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasMysticTicket
+	call VermilionCity_EventScript_CheckHasAuroraTicket
+	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasAuroraTicket
+	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
+	message VermilionCity_Text_BoardSeagallopRainbowPass
+	waitmessage
+	goto EventScript_SeviiDestinationsPage1
+
+VermilionCity_EventScript_FerrySailor_Welcome::
 	msgbox VermilionCity_Text_WelcomeToTheSSAnne
+	release
+	end
+
+VermilionCity_EventScript_FerrySailor_SetSail::
+	msgbox VermilionCity_Text_TheShipSetSail
 	release
 	end
 
@@ -68,27 +126,6 @@ VermilionCity_EventScript_CheckHasAuroraTicket::
 	checkitem ITEM_AURORA_TICKET
 	goto_if_eq VAR_RESULT, FALSE, EventScript_SetResultFalse
 	goto EventScript_SetResultTrue
-	end
-
-VermilionCity_EventScript_CheckSeagallopPresent::
-	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
-	msgbox VermilionCity_Text_TheShipSetSail
-	release
-	end
-
-VermilionCity_EventScript_ChooseSeagallopDestRainbowPass::
-	goto_if_questlog EventScript_ReleaseEnd
-	special QuestLog_CutRecording
-	call VermilionCity_EventScript_CheckHasMysticTicket
-	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasMysticTicket
-	call VermilionCity_EventScript_CheckHasAuroraTicket
-	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasAuroraTicket
-	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-	message VermilionCity_Text_BoardSeagallopRainbowPass
-	waitmessage
-	goto EventScript_SeviiDestinationsPage1
 	end
 
 VermilionCity_EventScript_HasMysticTicket::
@@ -155,114 +192,158 @@ EventScript_SailToBirthIsland::
 	goto EventScript_SetSail
 	end
 
-VermilionCity_EventScript_ChooseSeagallopDestTriPass::
-	message VermilionCity_Text_BoardSeagallopTriPass
-	waitmessage
-	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-	multichoice 19, 5, MULTICHOICE_SEAGALLOP_123, FALSE
-	switch VAR_RESULT
-	case 0, EventScript_SailToOneIsland2
-	case 1, EventScript_SailToTwoIsland2
-	case 2, EventScript_SailToThreeIsland2
-	case 3, EventScript_CancelSail
-	case 127, EventScript_CancelSail
-	end
-
-@ Unreachable
-Vermilion_EventScript_Unused::
-	release
-	end
-
-VermilionCity_EventScript_CheckTicketLeft::
+VermilionCity_EventScript_CheckSSTicket::
 	lockall
-	goto VermilionCity_EventScript_CheckTicket
-	end
-
-VermilionCity_EventScript_CheckTicketRight::
-	lockall
-	goto VermilionCity_EventScript_CheckTicket
-	end
-
-VermilionCity_EventScript_ExitedTicketCheck::
-	lockall
-	setvar VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0
-	releaseall
-	end
-
-VermilionCity_EventScript_CheckTicket::
-	textcolor NPC_TEXT_COLOR_MALE
 	applymovement LOCALID_FERRY_SAILOR, Common_Movement_WalkInPlaceFasterLeft
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
-	goto_if_eq VAR_MAP_SCENE_VERMILION_CITY, 3, VermilionCity_EventScript_CheckSeagallopPresentTrigger
-	msgbox VermilionCity_Text_DoYouHaveATicket
-	goto_if_unset FLAG_GOT_SS_TICKET, VermilionCity_EventScript_DontHaveSSTicket
-	msgbox VermilionCity_Text_FlashedSSTicket
-	setvar VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 1
+	textcolor NPC_TEXT_COLOR_MALE
+	msgbox VermilionCity_Text_CheckSSTicket
+	setvar VAR_MAP_SCENE_VERMILION_CITY, 1
 	releaseall
 	end
 
-VermilionCity_EventScript_DontHaveSSTicket::
-	msgbox VermilionCity_Text_DontHaveNeededSSTicket
-	closemessage
-	goto VermilionCity_EventScript_WalkUpPier
-	end
-
-VermilionCity_EventScript_CheckSeagallopPresentTrigger::
-	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
-	msgbox VermilionCity_Text_TheShipSetSail
-	closemessage
-	goto VermilionCity_EventScript_WalkUpPier
-	end
-
-VermilionCity_EventScript_Sailor::
-	msgbox VermilionCity_Text_SSAnneVisitsOnceAYear, MSGBOX_NPC
-	end
-
-VermilionCity_EventScript_OaksAide::
-	lock
-	faceplayer
-	setflag FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION
-	msgbox VermilionCity_Text_Route2AideHasPackageForYou
-	release
-	end
-
-VermilionCity_EventScript_OldMan2::
-	msgbox VermilionCity_Text_BuildingOnThisLand, MSGBOX_NPC
-	end
-
-VermilionCity_EventScript_Machop::
-	lock
-	faceplayer
-	waitse
-	playmoncry SPECIES_MACHOP, CRY_MODE_NORMAL
-	msgbox VermilionCity_Text_Machop
-	waitmoncry
-	msgbox VermilionCity_Text_MachopStompingLandFlat
-	release
-	end
-
-VermilionCity_EventScript_CitySign::
-	msgbox VermilionCity_Text_CitySign, MSGBOX_SIGN
-	end
-
-VermilionCity_EventScript_SnorlaxNotice::
-	msgbox VermilionCity_Text_SnorlaxBlockingRoute12, MSGBOX_SIGN
-	end
-
-VermilionCity_EventScript_PokemonFanClubSign::
-	msgbox VermilionCity_Text_PokemonFanClubSign, MSGBOX_SIGN
-	end
-
-VermilionCity_EventScript_GymSign::
+VermilionCity_EventScript_Celio_Left::
 	lockall
-	famechecker FAMECHECKER_LTSURGE, 0
-	msgbox VermilionCity_Text_GymSign
+	applymovement LOCALID_CELIO, VermilionCity_Movement_CelioNorth_Left_Enter
+	applymovement OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_CelioNorth_Left_WatchEnter
+	waitmovement LOCALID_CELIO
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call VermilionCity_EventScript_Celio
+	applymovement LOCALID_CELIO, VermilionCity_Movement_CelioNorth_Left_Exit
+	applymovement OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_CelioNorth_Left_WatchExit
+	waitmovement LOCALID_CELIO
+	waitmovement OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_CELIO
 	releaseall
 	end
 
-VermilionCity_EventScript_HarborSign::
-	msgbox VermilionCity_Text_VermilionHarbor, MSGBOX_SIGN
+VermilionCity_Movement_CelioNorth_Left_Enter::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	face_left
+	step_end
+
+VermilionCity_Movement_CelioNorth_Left_WatchEnter::
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	face_right
+	step_end
+
+VermilionCity_Movement_CelioNorth_Left_Exit::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+VermilionCity_Movement_CelioNorth_Left_WatchExit::
+	delay_16
+	face_down
+	step_end
+
+VermilionCity_EventScript_Celio_Center::
+	lockall
+	applymovement LOCALID_CELIO, VermilionCity_Movement_CelioNorth_Center_Enter
+	waitmovement LOCALID_CELIO
+	call VermilionCity_EventScript_Celio
+	applymovement LOCALID_CELIO, VermilionCity_Movement_CelioNorth_Center_Exit
+	applymovement OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_CelioNorth_Center_WatchExit
+	waitmovement LOCALID_CELIO
+	waitmovement OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_CELIO
+	releaseall
 	end
+
+VermilionCity_Movement_CelioNorth_Center_Enter::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+VermilionCity_Movement_CelioNorth_Center_Exit::
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+VermilionCity_Movement_CelioNorth_Center_WatchExit::
+	delay_16
+	face_right
+	delay_16
+	face_down
+	step_end
+
+VermilionCity_EventScript_Celio_Right::
+	lockall
+	applymovement LOCALID_CELIO, VermilionCity_Movement_CelioNorth_Right_Enter
+	applymovement OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_CelioNorth_Right_WatchEnter
+	waitmovement LOCALID_CELIO
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call VermilionCity_EventScript_Celio
+	applymovement LOCALID_CELIO, VermilionCity_Movement_CelioNorth_Right_Exit
+	applymovement OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_CelioNorth_Right_WatchExit
+	waitmovement LOCALID_CELIO
+	waitmovement OBJ_EVENT_ID_PLAYER
+	removeobject LOCALID_CELIO
+	releaseall
+	end
+
+VermilionCity_Movement_CelioNorth_Right_Enter::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	face_right
+	step_end
+
+VermilionCity_Movement_CelioNorth_Right_WatchEnter::
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	face_left
+	step_end
+
+VermilionCity_Movement_CelioNorth_Right_Exit::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+VermilionCity_Movement_CelioNorth_Right_WatchExit::
+	delay_16
+	face_down
+	step_end
+
+VermilionCity_EventScript_Celio::
+	textcolor NPC_TEXT_COLOR_MALE
+	msgbox VermilionCity_Text_Celio MSGBOX_NPC
+	giveitem ITEM_RAINBOW_PASS
+	closemessage
+	setvar VAR_MAP_SCENE_VERMILION_CITY, 4
+	return

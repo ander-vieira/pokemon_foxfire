@@ -2,6 +2,7 @@
 
 SSAnne_Exterior_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SSAnne_Exterior_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, SSAnne_Exterior_OnLoad
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SSAnne_Exterior_OnFrame
 	.byte 0
 
@@ -9,8 +10,12 @@ SSAnne_Exterior_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_SSANNE_EXTERIOR
 	end
 
+SSAnne_Exterior_OnLoad::
+	setmetatile 32, 14, METATILE_VermilionCity_SSAnneNoWarp, 0
+	end
+
 SSAnne_Exterior_OnFrame::
-	map_script_2 VAR_MAP_SCENE_VERMILION_CITY, 1, SSAnne_Exterior_ExitSSAnne
+	map_script_2 VAR_MAP_SCENE_VERMILION_CITY, 2, SSAnne_Exterior_ExitSSAnne
 	.2byte 0
 
 SSAnne_Exterior_ExitSSAnne::
@@ -23,12 +28,9 @@ SSAnne_Exterior_ExitSSAnne::
 	special DoSSAnneDepartureCutscene
 	waitstate
 	removeobject LOCALID_SS_ANNE
-	applymovement OBJ_EVENT_ID_PLAYER, SSAnne_Exterior_Movement_Exit
-	waitmovement 0
-	setvar VAR_MAP_SCENE_VERMILION_CITY, 2
-	setvar VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0
-	warp MAP_VERMILION_CITY, 23, 34
-	waitstate
+	setvar VAR_MAP_SCENE_VERMILION_CITY, 3
+	setmetatile 32, 14, METATILE_VermilionCity_SSAnneNoWarp, 0
+	clearflag FLAG_HIDE_CELIO
 	releaseall
 	end
 

@@ -258,7 +258,6 @@ gSpecials::
 	def_special GetPlayerFacingDirection
 	def_special DoDeoxysTriangleInteraction
 	def_special SetDeoxysTrianglePalette
-	def_special IsPlayerLeftOfVermilionSailor
 	def_special IsBadEggInParty
 	def_special ReadTrainerTowerAndValidate
 	def_special HasAllMons

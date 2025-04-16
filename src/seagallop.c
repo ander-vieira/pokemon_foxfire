@@ -492,13 +492,3 @@ u8 GetSeagallopNumber(void)
 
     return 6;
 }
-
-bool8 IsPlayerLeftOfVermilionSailor(void)
-{
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(VERMILION_CITY) 
-       && gSaveBlock1Ptr->location.mapNum == MAP_NUM(VERMILION_CITY) 
-       && gSaveBlock1Ptr->pos.x < 24)
-        return TRUE;
-
-    return FALSE;
-}

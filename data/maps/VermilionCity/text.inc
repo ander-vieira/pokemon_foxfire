@@ -56,28 +56,15 @@ VermilionCity_Text_VermilionHarbor::
 VermilionCity_Text_WelcomeToTheSSAnne::
     .string "Welcome to the S.S. ANNE!$"
 
-VermilionCity_Text_DoYouHaveATicket::
-    .string "Welcome to the S.S. ANNE!\p"
-    .string "Excuse me, do you have a ticket?$"
-
-VermilionCity_Text_FlashedSSTicket::
-    .string "{FONT_NORMAL}{PLAYER} flashed the S.S. TICKET!\p"
-    .string "{FONT_MALE}Great!\n"
+VermilionCity_Text_CheckSSTicket::
+    .string "Welcome to the S.S. ANNE!\n"
+    .string "Excuse me, do you have a ticket?\p"
+    .string "{FONT_NORMAL}{PLAYER} flashed the S.S. TICKET!{FONT_MALE}\p"
+    .string "Great!\n"
     .string "Welcome to the S.S. ANNE!$"
-
-VermilionCity_Text_DontHaveNeededSSTicket::
-    .string "{FONT_NORMAL}{PLAYER} doesn't have the needed\n"
-    .string "S.S. TICKET.\p"
-    .string "{FONT_MALE}Sorry!\p"
-    .string "You need a ticket to get aboard.$"
 
 VermilionCity_Text_TheShipSetSail::
     .string "The ship set sail.$"
-
-VermilionCity_Text_BoardSeagallopTriPass::
-    .string "Ah, you have a TRI-PASS.\p"
-    .string "Would you like to board\n"
-    .string "a SEAGALLOP ferry?$"
 
 VermilionCity_Text_Seagallop7Departing::
     .string "Okay, everything's in order.\p"
@@ -117,15 +104,6 @@ VermilionCity_Text_Seagallop12Departing::
     .string "SEAGALLOP HI-SPEED 12 will be\n"
     .string "departing immediately.$"
 
-VermilionCity_Text_Route2AideHasPackageForYou::
-    .string "Oh, hello, {PLAYER}!\n"
-    .string "How are you doing?\p"
-    .string "It's me, one of PROF. OAK's AIDES.\p"
-    .string "Did you meet the other AIDE?\p"
-    .string "He had a package from PROF. OAK\n"
-    .string "for you, {PLAYER}.\p"
-    .string "He said he'd look for you around\n"
-    .string "ROUTE 2, {PLAYER}.\p"
-    .string "If you're in the ROUTE 2 area,\n"
-    .string "please look for him.$"
+VermilionCity_Text_Celio::
+    .string "Here, have this!$"
 

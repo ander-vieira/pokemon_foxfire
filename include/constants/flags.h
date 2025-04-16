@@ -159,7 +159,7 @@
 #define FLAG_HIDE_SAPPHIRE                                 0x08F
 #define FLAG_HIDE_DOTTED_HOLE_SCIENTIST                    0x090
 #define FLAG_HIDE_THREE_ISLAND_LONE_BIKER                  0x091
-#define FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY            0x092 //UNUSED
+#define FLAG_HIDE_CELIO                                    0x092
 #define FLAG_HIDE_LOST_CAVE_SELPHY                         0x093
 #define FLAG_HIDE_RESORT_GORGEOUS_SELPHY                   0x094
 #define FLAG_HIDE_RESORT_GORGEOUS_INSIDE_SELPHY            0x095
@@ -174,7 +174,7 @@
 #define FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS              0x09E
 #define FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL                0x09F
 #define FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL            0x0A0
-#define FLAG_HIDE_VERMILION_CITY_OAKS_AIDE                 0x0A1
+#define FLAG_HIDE_VERMILION_CITY_OAKS_AIDE                 0x0A1//UNUSED
 #define FLAG_HIDE_CINNABAR_POKECENTER_BILL                 0x0A2
 #define FLAG_HIDE_CREDITS_RIVAL                            0x0A3
 #define FLAG_HIDE_CREDITS_OAK                              0x0A4
@@ -587,7 +587,7 @@
 #define FLAG_GOT_FOSSIL_FROM_MT_MOON                     0x232
 #define FLAG_HELPED_BILL_IN_SEA_COTTAGE                  0x233
 #define FLAG_GOT_SS_TICKET                               0x234
-#define FLAG_GOT_SS_TICKET_DUP                           0x235
+#define FLAG_0x235                                       0x235//UNUSED
 #define FLAG_GOT_TM42_AT_MEMORIAL_PILLAR                 0x236
 #define FLAG_GOT_HM01                                    0x237
 #define FLAG_GOT_HM02                                    0x238
@@ -785,7 +785,7 @@
 #define FLAG_HO_OH_FLEW_AWAY                             0x2F6
 #define FLAG_DEOXYS_FLEW_AWAY                            0x2F7
 #define FLAG_TALKED_TO_TEA_LADY_AFTER_HOF                0x2F8
-#define FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION            0x2F9
+#define FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION            0x2F9//UNUSED
 #define FLAG_GOT_EVERSTONE_FROM_OAKS_AIDE                0x2FA
 #define FLAG_GOT_MOON_STONE_FROM_JOYFUL_GAME_CORNER      0x2FB
 #define FLAG_GOT_FULL_RESTORE_FROM_THREE_ISLAND_DEFENDER 0x2FC
