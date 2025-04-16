@@ -66,11 +66,6 @@ VermilionCity_Text_CheckSSTicket::
 VermilionCity_Text_TheShipSetSail::
     .string "The ship set sail.$"
 
-VermilionCity_Text_Seagallop7Departing::
-    .string "Okay, everything's in order.\p"
-    .string "SEAGALLOP HI-SPEED 7 will be\n"
-    .string "departing immediately.$"
-
 VermilionCity_Text_BoardSeagallopRainbowPass::
     .string "Ah, you have a RAINBOW PASS.\p"
     .string "Would you like to board\n"

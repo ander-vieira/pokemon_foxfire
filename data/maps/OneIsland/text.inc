@@ -1,15 +1,3 @@
-OneIsland_Text_BillLetsGoSeeCelio::
-    .string "BILL: Here we are!\n"
-    .string "This is ONE ISLAND.\p"
-    .string "There are several islands around\n"
-    .string "here, and this is one of them.\p"
-    .string "My friend CELIO sent the boat to\n"
-    .string "fetch me here.\p"
-    .string "He's in charge of the island's PC\n"
-    .string "network by his lonesome.\p"
-    .string "…Why am I telling you this now?\n"
-    .string "Let's just go see CELIO!$"
-
 Text_WhereDoYouWantToSail::
     .string "Ahoy, there!\n"
     .string "Where do you want to sail?$"

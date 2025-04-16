@@ -138,8 +138,8 @@ VermilionCity_EventScript_HasMysticTicket::
 	switch VAR_RESULT
 	case 0, EventScript_SeviiDestinationsPage1
 	case 1, EventScript_SailToNavelRock
-	case 2, EventScript_CancelSail
-	case 127, EventScript_CancelSail
+	case 2, EventScript_ReleaseEnd
+	case 127, EventScript_ReleaseEnd
 	end
 
 VermilionCity_EventScript_ShowMysticTicket::
@@ -155,8 +155,8 @@ VermilionCity_EventScript_HasAuroraTicket::
 	switch VAR_RESULT
 	case 0, EventScript_SeviiDestinationsPage1
 	case 1, EventScript_SailToBirthIsland
-	case 2, EventScript_CancelSail
-	case 127, EventScript_CancelSail
+	case 2, EventScript_ReleaseEnd
+	case 127, EventScript_ReleaseEnd
 	end
 
 VermilionCity_EventScript_ShowAuroraTicket::
@@ -174,8 +174,8 @@ VermilionCity_EventScript_HasMysticAndAuroraTickets::
 	case 0, EventScript_SeviiDestinationsPage1
 	case 1, EventScript_SailToNavelRock
 	case 2, EventScript_SailToBirthIsland
-	case 3, EventScript_CancelSail
-	case 127, EventScript_CancelSail
+	case 3, EventScript_ReleaseEnd
+	case 127, EventScript_ReleaseEnd
 	end
 
 EventScript_SailToNavelRock::

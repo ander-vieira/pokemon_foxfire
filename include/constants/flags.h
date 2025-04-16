@@ -126,7 +126,7 @@
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN                   0x06E
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_BEAUTY                  0x06F
 #define FLAG_HIDE_MG_DELIVERYMEN                           0x070
-#define FLAG_HIDE_ONE_ISLAND_BILL                          0x071
+#define FLAG_HIDE_ONE_ISLAND_BILL                          0x071//UNUSED
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_BILL               0x072
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074

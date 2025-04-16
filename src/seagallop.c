@@ -61,7 +61,7 @@ static const struct BgTemplate sBGTemplates[] = {
 
 static const s8 sSeag[][4] = {
                                    // Map                     X     Y
-    [SEAGALLOP_VERMILION_CITY]  = {MAP(VERMILION_CITY),      0x17, 0x20},
+    [SEAGALLOP_VERMILION_CITY]  = {MAP(VERMILION_CITY),      0x18, 0x20},
     [SEAGALLOP_ONE_ISLAND]      = {MAP(ONE_ISLAND_HARBOR),   0x08, 0x05},
     [SEAGALLOP_TWO_ISLAND]      = {MAP(TWO_ISLAND_HARBOR),   0x08, 0x05},
     [SEAGALLOP_THREE_ISLAND]    = {MAP(THREE_ISLAND_HARBOR), 0x08, 0x05},

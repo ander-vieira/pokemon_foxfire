@@ -357,24 +357,6 @@ static const struct MenuAction sMultichoiceList_LinkedDirectUnion[] = {
     { gOtherText_Quit }
 };
 
-static const struct MenuAction sMultichoiceList_Island23[] = {
-    { gText_TwoIsland },
-    { gText_ThreeIsland },
-    { gOtherText_Exit }
-};
-
-static const struct MenuAction sMultichoiceList_Island13[] = {
-    { gText_OneIsland },
-    { gText_ThreeIsland },
-    { gOtherText_Exit }
-};
-
-static const struct MenuAction sMultichoiceList_Island12[] = {
-    { gText_OneIsland },
-    { gText_TwoIsland },
-    { gOtherText_Exit }
-};
-
 static const struct MenuAction sMultichoiceList_TradeColosseumCrush[] = {
     { gText_TradeCenter },
     { gText_Colosseum_2 },
@@ -430,27 +412,6 @@ static const struct MenuAction sMultichoiceList_SeviiNavelBirth[] = {
     { gText_SeviiIslands },
     { gText_NavelRock },
     { gText_BirthIsland },
-    { gOtherText_Exit }
-};
-
-static const struct MenuAction sMultichoiceList_SeagallopV23[] = {
-    { gText_Vermilion },
-    { gText_TwoIsland },
-    { gText_ThreeIsland },
-    { gOtherText_Exit }
-};
-
-static const struct MenuAction sMultichoiceList_SeagallopV13[] = {
-    { gText_Vermilion },
-    { gText_OneIsland },
-    { gText_ThreeIsland },
-    { gOtherText_Exit }
-};
-
-static const struct MenuAction sMultichoiceList_SeagallopV12[] = {
-    { gText_Vermilion },
-    { gText_OneIsland },
-    { gText_TwoIsland },
     { gOtherText_Exit }
 };
 
@@ -529,9 +490,6 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_GAME_CORNER_BATTLE_ITEM_PRIZES]             = MULTICHOICE(sMultichoiceList_GameCornerBattleItemPrizes),
     [MULTICHOICE_ROCKET_HIDEOUT_ELEVATOR]                    = MULTICHOICE(sMultichoiceList_RocketHideoutElevator),
     [MULTICHOICE_LINKED_DIRECT_UNION]                        = MULTICHOICE(sMultichoiceList_LinkedDirectUnion),
-    [MULTICHOICE_ISLAND_23]                                  = MULTICHOICE(sMultichoiceList_Island23),
-    [MULTICHOICE_ISLAND_13]                                  = MULTICHOICE(sMultichoiceList_Island13),
-    [MULTICHOICE_ISLAND_12]                                  = MULTICHOICE(sMultichoiceList_Island12),
     [MULTICHOICE_TRADE_COLOSSEUM_CRUSH]                      = MULTICHOICE(sMultichoiceList_TradeColosseumCrush),
     [MULTICHOICE_POKEJUMP_DODRIO]                            = MULTICHOICE(sMultichoiceList_PokejumpDodrio),
     [MULTICHOICE_TRADE_COLOSSEUM_2]                          = MULTICHOICE(sMultichoiceList_TradeColosseum_2),
@@ -541,9 +499,6 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_SEVII_NAVEL]                                = MULTICHOICE(sMultichoiceList_SeviiNavel),
     [MULTICHOICE_SEVII_BIRTH]                                = MULTICHOICE(sMultichoiceList_SeviiBirth),
     [MULTICHOICE_SEVII_NAVEL_BIRTH]                          = MULTICHOICE(sMultichoiceList_SeviiNavelBirth),
-    [MULTICHOICE_SEAGALLOP_V23]                              = MULTICHOICE(sMultichoiceList_SeagallopV23),
-    [MULTICHOICE_SEAGALLOP_V13]                              = MULTICHOICE(sMultichoiceList_SeagallopV13),
-    [MULTICHOICE_SEAGALLOP_V12]                              = MULTICHOICE(sMultichoiceList_SeagallopV12),
     [MULTICHOICE_SEAGALLOP_VERMILION]                        = MULTICHOICE(sMultichoiceList_SeagallopVermilion),
     [MULTICHOICE_JOIN_OR_LEAD]                               = MULTICHOICE(sMultichoiceList_JoinOrLead),
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
