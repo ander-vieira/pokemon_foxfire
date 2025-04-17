@@ -186,7 +186,7 @@
 #define VAR_MAP_SCENE_FOUR_ISLAND                                              0x4086//UNUSED
 #define VAR_0x4087                                                             0x4087//UNUSED
 #define VAR_MAP_SCENE_ROCKET_WAREHOUSE                                         0x4088
-#define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x4089
+#define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x4089//UNUSED
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A//UNUSED
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 

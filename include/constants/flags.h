@@ -165,7 +165,7 @@
 #define FLAG_HIDE_RESORT_GORGEOUS_INSIDE_SELPHY            0x095
 #define FLAG_HIDE_SELPHYS_BUTLER                           0x096
 #define FLAG_HIDE_FOUR_ISLAND_RIVAL                        0x097//UNUSED
-#define FLAG_HIDE_SIX_ISLAND_POKECENTER_RIVAL              0x098
+#define FLAG_HIDE_SIX_ISLAND_POKECENTER_RIVAL              0x098//UNUSED
 #define FLAG_HIDE_DEOXYS                                   0x099
 #define FLAG_HIDE_BIRTH_ISLAND_METEORITE                   0x09A
 #define FLAG_HIDE_LUGIA                                    0x09B
