@@ -1544,12 +1544,6 @@ static void SetSelectedRegionMap(u8 region)
     sRegionMap->selectedRegion = region;
 }
 
-// Unused
-static void SetRegionMapPlayerIsOn(u8 region)
-{
-    sRegionMap->playersRegion = region;
-}
-
 static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
 {
     sSwitchMapMenu = AllocZeroed(sizeof(struct SwitchMapMenu));

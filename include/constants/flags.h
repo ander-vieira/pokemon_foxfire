@@ -111,7 +111,7 @@
 #define FLAG_HIDE_CELADON_ROCKETS                          0x05F
 #define FLAG_HIDE_DOJO_HITMONLEE_BALL                      0x060
 #define FLAG_HIDE_DOJO_HITMONCHAN_BALL                     0x061
-#define FLAG_HIDE_CINNABAR_BILL                            0x062
+#define FLAG_HIDE_CINNABAR_BILL                            0x062//UNUSED
 #define FLAG_HIDE_UNION_ROOM_PLAYER_1                      0x063
 #define FLAG_HIDE_UNION_ROOM_PLAYER_2                      0x064
 #define FLAG_HIDE_UNION_ROOM_PLAYER_3                      0x065
@@ -120,15 +120,15 @@
 #define FLAG_HIDE_UNION_ROOM_PLAYER_6                      0x068
 #define FLAG_HIDE_UNION_ROOM_PLAYER_7                      0x069
 #define FLAG_HIDE_UNION_ROOM_PLAYER_8                      0x06A
-#define FLAG_HIDE_CINNABAR_SEAGALLOP                       0x06B
+#define FLAG_HIDE_CINNABAR_SEAGALLOP                       0x06B//UNUSED
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_BLACKBELT               0x06C
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER                  0x06D
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN                   0x06E
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_BEAUTY                  0x06F
 #define FLAG_HIDE_MG_DELIVERYMEN                           0x070
 #define FLAG_HIDE_ONE_ISLAND_BILL                          0x071//UNUSED
-#define FLAG_HIDE_ONE_ISLAND_POKECENTER_BILL               0x072
-#define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
+#define FLAG_HIDE_ONE_ISLAND_POKECENTER_BILL               0x072//UNUSED
+#define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073//UNUSED
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
 #define FLAG_HIDE_LOSTELLE_IN_HER_HOME                     0x076
@@ -175,7 +175,7 @@
 #define FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL                0x09F
 #define FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL            0x0A0
 #define FLAG_HIDE_VERMILION_CITY_OAKS_AIDE                 0x0A1//UNUSED
-#define FLAG_HIDE_CINNABAR_POKECENTER_BILL                 0x0A2
+#define FLAG_HIDE_CINNABAR_POKECENTER_BILL                 0x0A2//UNUSED
 #define FLAG_HIDE_CREDITS_RIVAL                            0x0A3
 #define FLAG_HIDE_CREDITS_OAK                              0x0A4
 #define FLAG_HIDE_LORELEI_HOUSE_MEOWTH_DOLL                0x0A5

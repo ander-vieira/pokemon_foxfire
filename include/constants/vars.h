@@ -162,11 +162,11 @@
 #define VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
 #define VAR_CABLE_CLUB_STATE                                                   0x406F
 #define VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY                                    0x4070//UNUSED
-#define VAR_MAP_SCENE_CINNABAR_ISLAND                                          0x4071
+#define VAR_MAP_SCENE_CINNABAR_ISLAND                                          0x4071//UNUSED
 #define VAR_0x4072                                                             0x4072//UNUSED
 #define VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB                    0x4073
 #define VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 0x4074
-#define VAR_MAP_SCENE_ONE_ISLAND_HARBOR                                        0x4075
+#define VAR_MAP_SCENE_ONE_ISLAND_HARBOR                                        0x4075//UNUSED
 #define VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F                             0x4076
 #define VAR_0x4077                                                             0x4077//UNUSED
 #define VAR_MAP_SCENE_TWO_ISLAND                                               0x4078
@@ -187,7 +187,7 @@
 #define VAR_0x4087                                                             0x4087//UNUSED
 #define VAR_MAP_SCENE_ROCKET_WAREHOUSE                                         0x4088
 #define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x4089
-#define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
+#define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A//UNUSED
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 
