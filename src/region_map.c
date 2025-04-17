@@ -1025,7 +1025,7 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
-    if (!FlagGet(FLAG_SYS_SEVII_MAP_123))
+    if (!FlagGet(FLAG_SYS_SEVII_MAP))
         sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
@@ -1547,10 +1547,8 @@ static void SetSelectedRegionMap(u8 region)
 static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
 {
     sSwitchMapMenu = AllocZeroed(sizeof(struct SwitchMapMenu));
-    if (FlagGet(FLAG_SYS_SEVII_MAP_4567))
+    if (FlagGet(FLAG_SYS_SEVII_MAP))
         sSwitchMapMenu->maxSelection = 3;
-    else if (FlagGet(FLAG_SYS_SEVII_MAP_123))
-        sSwitchMapMenu->maxSelection = 1;
     else
         sSwitchMapMenu->maxSelection = 0;
     sSwitchMapMenu->cursorSubsprite[0].x = 88;

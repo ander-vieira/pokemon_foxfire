@@ -345,7 +345,6 @@ VermilionCity_EventScript_Celio::
 	msgbox VermilionCity_Text_Celio MSGBOX_NPC
 	giveitem ITEM_RAINBOW_PASS
 	closemessage
-	setflag FLAG_SYS_SEVII_MAP_123
-	setflag FLAG_SYS_SEVII_MAP_4567
+	setflag FLAG_SYS_SEVII_MAP
 	setvar VAR_MAP_SCENE_VERMILION_CITY, 4
 	return

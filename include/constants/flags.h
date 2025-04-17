@@ -1400,8 +1400,8 @@
 #define FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER                  (SYS_FLAGS + 0x42)//UNUSED
 #define FLAG_SHOWN_BOX_WAS_FULL_MESSAGE                             (SYS_FLAGS + 0x43)
 #define FLAG_SYS_CAN_LINK_WITH_RS                                   (SYS_FLAGS + 0x44)
-#define FLAG_SYS_SEVII_MAP_123                                      (SYS_FLAGS + 0x45)
-#define FLAG_SYS_SEVII_MAP_4567                                     (SYS_FLAGS + 0x46)
+#define FLAG_SYS_SEVII_MAP                                          (SYS_FLAGS + 0x45)
+#define FLAG_0x846                                                  (SYS_FLAGS + 0x46)//UNUSED
 #define FLAG_SYS_GOT_BERRY_POUCH                                    (SYS_FLAGS + 0x47)
 #define FLAG_SYS_DEOXYS_AWAKENED                                    (SYS_FLAGS + 0x48)
 #define FLAG_SYS_UNLOCKED_TANOBY_RUINS                              (SYS_FLAGS + 0x49)
